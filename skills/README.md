@@ -82,6 +82,7 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | Skill | Role | Type |
 |-------|------|------|
 | `508` | Federal Section 508 compliance, VPAT, remediation | Universal |
+| `bigcommerce` | Stencil theme development, Storefront API, Management API | Universal |
 | `analytics` | Data interpretation → decisions | Universal |
 | `content-strategy` | What to build and write next | Universal |
 | `design` | Visual decisions and component patterns | Universal |
