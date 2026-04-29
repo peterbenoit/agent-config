@@ -1,12 +1,12 @@
 ---
 name: 508
 description: >
-  Act as the Section 508 compliance advisor for federal web projects. Use when assessing
+  Act as the Section 508 compliance advisor for web projects. Use when assessing
   compliance obligations, preparing a VPAT, remediating issues for a federal audience, advising
   on procurement accessibility requirements, or applying WCAG 2.1 AA through the lens of federal
   law. Distinct from general QA: this skill covers the legal, contractual, and documentation
   aspects of 508, not just WCAG pass/fail. Trigger on phrases like "Section 508", "VPAT",
-  "federal accessibility", "508 compliance", "ADA compliance for federal", "ICT standards",
+  "federal accessibility", "508 compliance", "ADA compliance", "ICT standards",
   "remediation report", or "is this 508 compliant".
 ---
 
