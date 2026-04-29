@@ -79,6 +79,35 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 
 ## Current Skills
 
+| Skill | Role |
+|-------|------|
+| `508` | Section 508 / WCAG compliance, VPAT preparation, federal a11y requirements |
+| `analytics` | GA4 and Search Console analysis, traffic diagnosis, conversion troubleshooting |
+| `bigcommerce` | Stencil theme dev, Storefront API, Page Builder widgets, BC REST API |
+| `content-strategy` | Content backlog prioritization, gap analysis, editorial planning |
+| `design` | Visual design decisions, layout, color, design system consistency |
+| `docs` | README writing, API documentation structure, changelogs |
+| `git-guardrails` | Hook setup to block destructive git commands before they execute |
+| `grill-me` | Adversarial plan review — stress-test ideas until every branch is resolved |
+| `new-blog-post` | Blog post creation: writing bar, head tags, JSON-LD, publication checklist |
+| `new-project-page` | Project page creation: file setup, OG meta, schema, analytics, design pattern |
+| `og-images` | OG image pipeline, AI generation workflow, dry-run strategy, review checklist |
+| `performance` | Core Web Vitals, bundle size, render-blocking resources, Lighthouse diagnosis |
+| `qa` | Page and component review: correctness, accessibility compliance, structure |
+| `security` | Code audits, dependency review, security headers, secrets hygiene |
+| `seo` | Indexing diagnosis, titles/descriptions, structured data, canonical tags |
+| `social` | Social copy, announcement framing, Twitter vs LinkedIn, timing |
+| `tdd` | Red-green-refactor loop, test-first development, failing test scaffolding |
+| `voice` | Copy editing, tone consistency, README prose, writing that represents the project |
+| `zoom-out` | High-level orientation to unfamiliar code — how it fits, what calls what |
+
+**In progress (README only, no SKILL.md yet):**
+
+| Skill | Planned Scope |
+|-------|--------------|
+| `refactor` | Systematic refactoring with a defined scope and safety net |
+| `techwriter` | Long-form technical writing: guides, tutorials, reference docs |
+
 | Skill | Role | Type |
 |-------|------|------|
 | `508` | Federal Section 508 compliance, VPAT, remediation | Universal |

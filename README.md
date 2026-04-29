@@ -1,6 +1,6 @@
 # agent-config
 
-Personal AI agent toolkit. Skills, hooks, and templates I use across projects.
+Personal AI agent toolkit. Skills, hooks, context files, and templates I use across projects.
 
 ---
 
@@ -21,10 +21,12 @@ If it would be useful in any project, it belongs here.
 
 ```
 agent-config/
-├── skills/          # Reusable SKILL.md instruction sets (18 skills — see skills/README.md)
-├── hooks/           # Shell scripts for agent hook systems
-├── context/         # CONTEXT.md templates for domain modeling
-└── templates/       # AGENTS.md starters for different project types
+├── skills/          # 18 SKILL.md instruction sets + 2 in-progress (see skills/README.md)
+├── hooks/           # Shell scripts for agent hook systems (Claude Code PreToolUse)
+├── context/         # Domain context files (bigcommerce, js-library, static-site, web-app)
+├── templates/       # 6 AGENTS.md starters for different project types
+├── init.sh          # Wire agent-config into a new project (copy or symlink)
+└── update.sh        # Pull skill updates into an already-initialized project
 ```
 
 ---
@@ -91,11 +93,28 @@ field. You don't configure which skills load — the agent reads descriptions an
 
 To use a skill explicitly, just say what you want:
 
-- `"grill me on this plan"` → loads `grill-me`
-- `"audit this page for accessibility"` → loads `qa`
-- `"why isn't this page indexed"` → loads `seo`
-- `"run TDD on this feature"` → loads `tdd`
-- `"edit this copy"` → loads `voice`
+| Skill | Say something like |
+|-------|--------------------|
+| `508` | "audit this page for 508", "do we need a VPAT" |
+| `analytics` | "why did traffic drop", "what does Search Console say" |
+| `content-strategy` | "what should I write next", "what's missing from this site" |
+| `design` | "does this layout feel right", "pick a color for this section" |
+| `docs` | "write a README for this", "structure the API docs" |
+| `git-guardrails` | "add git safety hooks", "block dangerous git commands" |
+| `grill-me` | "grill me on this plan", "stress-test this idea" |
+| `new-blog-post` | "start a new blog post", "create a post for..." |
+| `new-project-page` | "create a project page for...", "new landing page" |
+| `og-images` | "generate OG images", "fix the og:image for this page" |
+| `performance` | "why is this page slow", "improve Core Web Vitals" |
+| `qa` | "audit this page for accessibility", "review this component" |
+| `security` | "audit this for vulnerabilities", "check secrets hygiene" |
+| `seo` | "why isn't this page indexed", "write a meta description" |
+| `social` | "write a tweet for this", "how do I announce this" |
+| `tdd` | "run TDD on this feature", "red-green-refactor this" |
+| `voice` | "edit this copy", "does this README sound right" |
+| `zoom-out` | "I don't understand this code", "give me the big picture" |
+
+Skills `refactor` and `techwriter` are in progress (README only, no SKILL.md yet).
 
 ---
 
@@ -147,3 +166,14 @@ to use this skill and when not to?
 - Anything that would need editing before it works in a new project
 
 Those live in the project repo under `skills/` as local overlays or standalone skills.
+
+---
+
+## AGENTS.md vs CLAUDE.md
+
+`AGENTS.md` is the convention used throughout this repo and promoted in the templates. It is
+read by Claude Code, GitHub Copilot, and most other agents. Use it.
+
+`CLAUDE.md` is Claude Code's native fallback — Claude reads it when no `AGENTS.md` is present.
+You don't need both. `AGENTS.md` takes precedence and covers all agents. If you're working in an
+environment that only supports `CLAUDE.md`, create it with the same content.
