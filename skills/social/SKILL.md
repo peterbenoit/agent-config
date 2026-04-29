@@ -48,9 +48,9 @@ Lead with curiosity or the unexpected finding.
 - No: "New labs page: AI Context Files Cheatsheet"
 - Yes: "I made a cheatsheet for the 5 AI context files every dev should know — CLAUDE.md, AGENTS.md, MEMORY.md, CONTEXT.md, SKILL.md. What each one does, when it loads, what belongs in it."
 
-### Hiking/Personal
-These can be warmer. Lead with place or moment, not the post structure.
-- Yes: "Marshall Swamp Trail in Ocala is one of those places that doesn't look like much until you're standing in it."
+### Personal/Non-technical
+These can be warmer. Lead with place, moment, or feeling — not the post structure.
+- Yes: "[Specific place or experience] is one of those things that doesn't look like much until you're actually in it."
 
 ---
 
