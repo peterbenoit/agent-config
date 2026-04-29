@@ -117,6 +117,12 @@ any matching task — don't rely on memory for things the skill defines.
 To add project-specific context to a universal skill, create a local overlay:
 `./skills/<name>/SKILL.md` — the agent reads both; the local file wins on conflicts.
 
+## Context
+
+If this project has a CONTEXT.md in the root, read it before starting any task.
+It defines domain-specific terms, key system relationships, and decisions that should
+not be silently reversed. AGENTS.md drives behavior; CONTEXT.md informs language.
+
 ## Build & Dev
 
 ```sh
