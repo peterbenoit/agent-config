@@ -85,17 +85,27 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `analytics` | Data interpretation → decisions | Universal |
 | `content-strategy` | What to build and write next | Universal |
 | `design` | Visual decisions and component patterns | Universal |
+| `docs` | Documentation architecture, READMEs, API docs, changelogs | Universal |
 | `git-guardrails` | Block dangerous git commands | Universal |
 | `grill-me` | Stress-test a plan before building | Universal |
 | `new-blog-post` | Create a new blog post | Universal |
 | `new-project-page` | Create a new project page | Universal |
 | `og-images` | OG image generation pipeline | Universal |
+| `performance` | Core Web Vitals, Lighthouse, bundle size, render-blocking | Universal |
 | `qa` | WCAG 2.1 AA and HTML correctness | Universal |
+| `security` | OWASP Top 10, CSP, dependency audits, secrets hygiene | Universal |
 | `seo` | Search visibility and indexing | Universal |
 | `social` | Social copy and promotion strategy | Universal |
 | `tdd` | Red-green-refactor loop | Universal |
 | `voice` | Writing quality and editing | Universal |
 | `zoom-out` | Step back and understand unfamiliar code | Universal |
+
+**Deferred (placeholder folders with reasoning):**
+
+| Folder | Status | Reason deferred |
+|--------|--------|----------------|
+| `refactor/` | Not yet written | Overlaps with `zoom-out` + implementation; write when you hit specific friction |
+| `techwriter/` | Not yet written | Overlaps with `voice` + `docs`; write when you can define the distinct role |
 
 ---
 
