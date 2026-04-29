@@ -21,16 +21,7 @@ If it would be useful in any project, it belongs here.
 
 ```
 agent-config/
-├── skills/          # Reusable SKILL.md instruction sets
-│   ├── analytics/   # Data interpretation and decision-making
-│   ├── grill-me/    # Stress-test a plan before building it
-│   ├── git-guardrails/ # Block dangerous git commands
-│   ├── qa/          # WCAG 2.1 AA and HTML correctness auditing
-│   ├── seo/         # Search visibility and indexing
-│   ├── tdd/         # Red-green-refactor loop
-│   ├── voice/       # Writing quality and editing
-│   ├── zoom-out/    # Step back and understand unfamiliar code
-│   └── ...
+├── skills/          # Reusable SKILL.md instruction sets (18 skills — see skills/README.md)
 ├── hooks/           # Shell scripts for agent hook systems
 ├── context/         # CONTEXT.md templates for domain modeling
 └── templates/       # AGENTS.md starters for different project types

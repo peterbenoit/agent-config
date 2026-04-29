@@ -3,9 +3,10 @@ name: qa
 description: >
   Act as the QA and accessibility auditor for any web project. Use when reviewing a page or
   component for correctness, accessibility compliance, or structural consistency. Trigger on
-  phrases like "check this", "audit this", "is this accessible", "508 check", "WCAG check",
+  phrases like "check this", "audit this", "is this accessible", "WCAG check",
   "does this match the pattern", "review before publishing", or any request to validate work
-  before it ships.
+  before it ships. For Section 508 legal compliance, VPAT, or federal remediation, use the
+  `508` skill instead.
 ---
 
 # QA & Accessibility

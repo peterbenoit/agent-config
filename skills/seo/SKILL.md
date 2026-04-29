@@ -82,7 +82,7 @@ Common causes:
 }
 ```
 
-### Article (labs, explainers)
+### Article (explainers, long-form)
 ```json
 {
   "@context": "https://schema.org",
@@ -90,7 +90,7 @@ Common causes:
   "headline": "Article Title",
   "datePublished": "YYYY-MM-DD",
   "author": { "@type": "Person", "name": "Author Name", "url": "https://example.com" },
-  "url": "https://example.com/labs/slug/"
+  "url": "https://example.com/<section>/<slug>/"
 }
 ```
 

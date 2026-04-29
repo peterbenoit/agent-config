@@ -96,3 +96,12 @@ State exactly what command you want to run and why. Wait for a "yes" before proc
 ---
 
 Ask the user if they want to adjust the blocked list before installing.
+
+---
+
+## Project Context
+
+Check AGENTS.md or local skill overlays for:
+- Whether to install project-scoped (`.claude/settings.json`) or globally (`~/.claude/settings.json`)
+- Any project-specific commands to add to the blocked list beyond the defaults
+- Whether this project has a CI environment where the hook should not apply

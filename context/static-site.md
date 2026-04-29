@@ -1,13 +1,4 @@
-<!--
-  TEMPLATE: context/static-site.md
-  Copy to your project root as CONTEXT.md and replace the example content.
-  The fictional project below ("Marigold") shows the right level of detail and register.
-  Delete entries that don't apply. Add entries for anything project-specific an agent would
-  have to rediscover or guess without this file.
--->
-
 # CONTEXT — {Project Name}
-<!-- Replace: Marigold is a gardening content site built with Eleventy and deployed on Netlify. -->
 
 {One sentence: what this project is and does, in plain language.}
 

@@ -1,14 +1,4 @@
-<!--
-  TEMPLATE: context/web-app.md
-  Copy to your project root as CONTEXT.md and replace the example content.
-  The fictional project below ("Fieldnotes") shows the right level of detail and register.
-  Delete entries that don't apply. Add entries for anything project-specific an agent would
-  have to rediscover or guess without this file.
--->
-
 # CONTEXT — {App Name}
-<!-- Replace: Fieldnotes is a research capture app — bookmark, annotate, and resurface saved
-sources during writing. Built with React, Supabase, and deployed on Railway. -->
 
 {One to two sentences: what this app does, who uses it, and where it runs.}
 

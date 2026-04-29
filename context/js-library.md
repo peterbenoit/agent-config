@@ -1,13 +1,4 @@
-<!--
-  TEMPLATE: context/js-library.md
-  Copy to your project root as CONTEXT.md and replace the example content.
-  The fictional project below ("Klatch") shows the right level of detail and register.
-  Delete entries that don't apply. Add entries for anything project-specific an agent would
-  have to rediscover or guess without this file.
--->
-
 # CONTEXT — {Package Name}
-<!-- Replace: Klatch is a lightweight typed pub/sub event bus for browser and Node environments. -->
 
 {One sentence: what this library does, who it's for, and where it runs.}
 

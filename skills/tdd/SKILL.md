@@ -69,3 +69,14 @@ Horizontal slicing (write all tests first, then all implementation) leads to:
 - Private functions or internal module structure
 - Implementation choices that could change (internal data shapes, intermediate variables)
 - Things already tested by the runtime or library you're using
+
+---
+
+## Project Context
+
+Check AGENTS.md or local skill overlays for:
+- The test runner for this project (Jest, Vitest, Mocha, etc.) and the command to run tests
+- File naming convention for test files (`*.test.ts`, `*.spec.ts`, `__tests__/`, etc.)
+- Whether this project uses test doubles (mocks, stubs, fakes) and any project-level conventions
+  around them
+- Any directories or files explicitly excluded from test coverage
