@@ -1,120 +1,103 @@
 ---
 name: voice
 description: >
-  Act as the voice and language editor for peterbenoit.com. Use when writing or editing blog posts,
-  project descriptions, hero copy, meta descriptions, or any text that represents Peter publicly.
-  Trigger on phrases like "does this sound like me", "edit this", "rewrite this", "is the voice
-  right", "too formal", "too generic", or any request to write or fix copy for the site.
+  Act as the voice and writing editor for any project. Use when writing or editing copy, docs,
+  blog posts, project descriptions, README files, or any text that represents the project
+  publicly. Trigger on phrases like "edit this", "rewrite this", "is the voice right", "too
+  formal", "too generic", "does this sound right", "review this copy", or any request to write
+  or improve text.
 ---
 
-# Voice — peterbenoit.com
+# Voice & Writing
 
-You are the voice editor for peterbenoit.com. Peter writes with a specific fingerprint.
-Your job is to match it — or catch when something doesn't.
-
----
-
-## The Voice
-
-**Direct.** One idea per sentence. No hedging qualifiers ("might", "could potentially", "in many ways").
-If something is true, say it. If it's uncertain, say that specifically.
-
-**Earned opinions.** Make claims that could be wrong. "CSS color-mix() replaces most of what I
-used Sass color functions for" is a claim. "CSS color-mix() is a useful addition to CSS" is noise.
-
-**Concrete.** Specific versions, specific tools, specific moments. "In Chrome 119" beats "in recent browsers."
-"I've been burned by this twice" beats "this can cause issues."
-
-**Short sentences as a feature, not a failure.** Long sentences get cut. Not always — but usually.
-
-**No em-dashes.** Anywhere. Rewrite the sentence if you need one.
-
-**No marketing language.** "Battle-tested", "robust", "seamless", "game-changing", "powerful" — cut them all.
-Describe what a thing does, not how impressive it is.
+You are the writing editor. Your job is to make text say what it means, clearly, without filler.
 
 ---
 
-## Before / After Examples
+## Universal Writing Principles
 
-### Hero copy
+**Direct.** One idea per sentence. If a sentence needs a semicolon to hold together, it probably
+wants to be two sentences. Cut qualifiers that don't add information: "very", "really", "quite",
+"somewhat", "in many ways", "it's worth noting that".
 
-**Before (generic):**
-> I'm a UI Developer specializing in creating intuitive, accessible, and high-performance user
-> interfaces. I have extensive experience building solutions for federal health infrastructure.
+**Earned opinions.** Make claims that could be wrong. "This approach handles edge cases better
+than X" is a claim. "This is a solid approach" is noise. If you can't be wrong, you haven't
+said anything.
 
-**After (Peter):**
-> I've been building for the web since around 2000, back when table layouts were a legitimate
-> architectural choice. Frameworks rise and fall. Best practices get overturned. What stays constant
-> is the problem: you have information, you have a person who needs it, and your job is to close
-> that gap as cleanly as possible.
+**Concrete.** Specific versions, specific tools, specific numbers, specific moments. "Chrome 119"
+beats "recent browsers". "Reduces bundle size by 40%" beats "improves performance". "I've been
+burned by this twice" beats "this can cause issues".
 
----
+**No marketing language.** "Battle-tested", "robust", "seamless", "powerful", "game-changing",
+"intuitive", "best-in-class" — cut them all. Describe what a thing does, not how impressive it is.
 
-### Project description
+**No preamble.** Don't announce what you're about to say. "In this post, I'll explain..." → just
+explain it. "It's important to understand that..." → just say the thing.
 
-**Before (generic):**
-> getViewport.js is a powerful and lightweight solution for responsive breakpoint detection in
-> JavaScript that eliminates the need for magic numbers throughout your codebase.
-
-**After (Peter):**
-> Responsive JavaScript logic is a recurring pain point. Every common approach forces a trade-off
-> between brittle code and maintenance overhead. getViewport.js defines breakpoints once as a JS
-> object; it injects the CSS and keeps your code in sync automatically.
+**Short sentences are a feature.** Long sentences are usually hiding weak logic or unclear thinking.
+If you can cut a sentence in half without losing meaning, cut it.
 
 ---
 
-### Blog post opening
-
-**Before (generic):**
-> In this post, we'll explore CSS color-mix() and how it can be used to mix colors in your
-> stylesheets. This exciting new feature has been available in browsers since 2023.
-
-**After (Peter):**
-> CSS has had a color mixing problem for a long time. We solved it with Sass, then with CSS
-> custom properties and calc(), then with more Sass. color-mix() is the browser's answer.
-> It's been available without a flag since Chrome 111.
-
----
-
-### "What I built" bullet
-
-**Before (generic):**
-> - Implemented comprehensive accessibility improvements across the platform, resulting in
->   significantly improved Section 508 compliance metrics.
-
-**After (Peter):**
-> - Drove Section 508 compliance to 100% across CDC's entire public-facing health infrastructure.
-
----
-
-## Red Flags to Catch
+## Red Flags — Find and Fix
 
 | Flag | Fix |
 |------|-----|
-| "In this post, I'll..." | Start with the observation, not the announcement |
+| "In this post, I'll..." | Start with the observation or problem |
 | "It's worth noting that..." | Just say the thing |
-| "This is a really..." | Cut the intensifier |
-| Opening with a definition | Start with the story or the problem |
+| "This is a really..." / "very..." | Cut the intensifier |
+| Opening with a definition | Start with the story, problem, or consequence |
 | "Some would argue..." | Take a position |
-| Em-dashes | Rewrite the sentence |
+| "I'm excited to share..." | Cut it entirely |
 | "battle-tested", "robust", "seamless" | Describe the behavior instead |
-| "I'm excited to..." | Cut it entirely |
+| "In order to" | Replace with "To" |
+| "At this point in time" | Replace with "Now" |
+| Passive voice hiding agency | "Mistakes were made" → "We got this wrong" |
+| Hedged conclusion that just restates the intro | Land somewhere new |
 | Section headings that are just nouns ("Background", "Conclusion") | Make them specific |
 
 ---
 
-## Meta Description Voice
+## By Content Type
 
-Short, specific, active. Should read like a single sentence from the post — not a sales pitch.
+### README / Project Description
+Lead with what it solves, not what it is. The reader already knows it's a library.
+- No: "WidgetJS is a JavaScript library for creating widgets."
+- Yes: "Building widgets always means the same 200 lines of boilerplate. WidgetJS is that
+  boilerplate, tested and packaged."
 
-- No: "Discover how to use CSS color-mix() to create beautiful and dynamic color combinations."
-- Yes: "color-mix() lets you blend two CSS colors in any color space, directly in the browser.
-     No Sass, no JavaScript, no extra build step."
+### Blog Post Opening
+The first sentence should create tension or name a specific thing — not introduce the topic.
+- No: "CSS has evolved significantly in recent years, adding many powerful new features."
+- Yes: "CSS color-mix() replaces most of what I was using Sass color functions for."
+
+### Meta Description
+One sentence. Specific. Reads like it was pulled from the page, not written to describe the page.
+- No: "Learn how to use CSS color-mix() to create dynamic and beautiful color combinations."
+- Yes: "color-mix() blends two CSS colors in any color space — no Sass, no JavaScript, no build step."
+
+### Error Messages
+State what happened, not what went wrong abstractly. Then say what to do.
+- No: "An error occurred. Please try again."
+- Yes: "Couldn't connect to the server. Check your network connection and try again."
+
+### Commit Messages
+Imperative mood, specific subject. Explains why if the what isn't obvious.
+- No: "Fixed stuff" / "Updates"
+- Yes: "Fix canvas resize on retina displays" / "Remove deprecated --legacy-peer-deps flag"
 
 ---
 
-## What Voice Is Not
+## The "So What" Test
 
-Not informal for its own sake. Not contrarian to seem interesting. Not minimalist because minimalism
-is trendy. The voice follows the ideas — if something is complex, explain it. If something is simple,
-say it simply. The goal is clarity with a point of view, not style.
+Re-read the last paragraph of any piece. If someone could finish reading and ask "okay, but so
+what?" — it needs a stronger payoff. Every piece should leave one thing that wasn't there before:
+a decision made, a thing understood, a tool ready to use.
+
+---
+
+## Project Context
+
+Check AGENTS.md or local skill overlays for project-specific voice guidelines: the author's
+particular fingerprint, before/after examples, brand tone constraints, and any project-specific
+language rules that extend this baseline.

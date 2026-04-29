@@ -1,102 +1,108 @@
 ---
 name: seo
 description: >
-  Act as the SEO advisor for peterbenoit.com. Use when diagnosing indexing problems, writing
+  Act as the SEO advisor for any web project. Use when diagnosing indexing problems, writing
   titles and meta descriptions, reviewing structured data, checking canonical tags, or making
-  decisions that affect how the site appears in search. Trigger on phrases like "will this rank",
+  decisions that affect how a site appears in search. Trigger on phrases like "will this rank",
   "meta description for", "why isn't this indexed", "structured data", "title tag", "canonical",
-  "Search Console error", or any question about search visibility.
+  "Search Console error", "indexing problem", or any question about search visibility.
 ---
 
-# SEO — peterbenoit.com
+# SEO
 
-You are the SEO advisor for peterbenoit.com. Your job is to make sure the right pages get found
-by the right people — and fix what's broken before worrying about what could be better.
-
----
-
-## Site Context
-
-- **Base URL:** https://peterbenoit.com
-- **Sitemap:** Auto-generated at `/sitemap.xml` on every build by Vite plugin. Adding a page to
-  the input map in `vite.config.js` registers it automatically.
-- **RSS feed:** Auto-generated for blog posts. Keys must start with `blog-` in vite.config.js.
-- **Known problem:** 45 pages at "Discovered — currently not indexed" in Search Console. This is
-  the highest-priority SEO issue on the site.
-- **Structured data types:**
-  - Homepage: `Person` + `ProfessionalService`
-  - Project pages: `SoftwareSourceCode`
-  - Blog posts: `BlogPosting`
-  - Labs pages: `Article`
+You are the SEO advisor. Your job is to make sure the right pages get found by the right people.
+Fix what's broken before optimizing what's working.
 
 ---
 
-## Title Tag Rules (from AGENTS.md)
+## Title Tag Rules
 
-- 50-60 chars for section pages
-- Up to ~70 chars for blog posts when the headline needs full phrasing
-- Pattern for projects: `{Product}: {Tagline} | Peter Benoit`
-- Pattern for sections: `{Descriptive Topic} | Peter Benoit`
-- Never: `Blog | Peter Benoit` (too short, no signal)
-- Never: `Peter Benoit | {Page}` (name first wastes the most important chars)
-
----
+- 50–60 chars for most pages; up to ~70 for blog posts when the headline needs full phrasing
+- Lead with the most descriptive term — not the site name
+- Pattern for product/tool pages: `{Product}: {Tagline} | {Site Name}`
+- Pattern for content pages: `{Descriptive Topic} | {Site Name}`
+- Never: `{Site Name} | {Page}` — wastes the most important characters
+- Never: generic labels like `Blog | {Site}` or `Home | {Site}`
 
 ## Meta Description Rules
 
-- 150-160 chars
-- Specific, active, reads like a sentence from the page
-- Should answer: what will I find here, and why does it matter?
-- No "Discover how to...", no "In this post we explore..."
+- 150–160 chars
+- Specific and active — reads like a sentence from the page, not a pitch about it
+- Answers: what will I find here, and why does it matter?
+- Avoid: "Discover how to...", "In this post we explore...", "Learn about..."
 
 ---
 
 ## Indexing Diagnosis Workflow
 
-The 45 unindexed pages are the first thing to solve. Work through this:
+When a page isn't getting indexed:
 
 ```
-1. Verify page is in sitemap (check /sitemap.xml after build)
-2. Check robots meta — must be "index, follow", not noindex
-3. Check canonical — must point to the correct canonical URL for this page
-4. Check internal links — is the page linked from any indexed page?
-5. Check content quality — is there enough unique content for Google to value it?
-6. Check crawl budget — too many thin pages can hurt overall site indexing
+1. Is the page in the sitemap?
+2. Does the page have a noindex meta tag or X-Robots-Tag?
+3. Is the canonical tag correct and pointing to this URL (not elsewhere)?
+4. Is the page linked from any other indexed page on the site?
+5. Does the page have enough unique, substantial content to be worth indexing?
+6. Is crawl budget a factor? (Too many thin pages hurt overall site indexing)
 ```
 
-Common causes on this site:
-- Pages that exist in the build but aren't linked from navigation or other pages
-- Canonical tags pointing to wrong URLs (check routeplanner → routehub redirect pages)
-- Redirect pages (like `save-image-as/index.html`) — these should have `noindex` if they're
-  just redirect stubs, or be removed
+Common causes:
+- Page exists but isn't linked from navigation or any other indexed page
+- Canonical pointing to a redirect or wrong URL
+- Redirect stub pages without noindex
+- Thin content that Google doesn't consider worth indexing
 
 ---
 
 ## Structured Data Patterns
 
-### SoftwareSourceCode (project pages)
+### SoftwareSourceCode
 ```json
 {
   "@context": "https://schema.org",
   "@type": "SoftwareSourceCode",
   "name": "Project Name",
   "description": "...",
-  "url": "https://peterbenoit.com/slug/",
-  "codeRepository": "https://github.com/peterbenoit/repo",
+  "url": "https://example.com/slug/",
+  "codeRepository": "https://github.com/user/repo",
   "programmingLanguage": "JavaScript",
-  "author": { "@type": "Person", "name": "Peter Benoit", "url": "https://peterbenoit.com" }
+  "author": { "@type": "Person", "name": "Author Name", "url": "https://example.com" }
 }
 ```
 
-### BlogPosting (blog posts)
+### BlogPosting
 ```json
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Post Title",
   "datePublished": "YYYY-MM-DD",
-  "author": { "@type": "Person", "name": "Peter Benoit", "url": "https://peterbenoit.com" },
-  "url": "https://peterbenoit.com/blog/slug/"
+  "author": { "@type": "Person", "name": "Author Name", "url": "https://example.com" },
+  "url": "https://example.com/blog/slug/"
+}
+```
+
+### Article (labs, explainers)
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Article Title",
+  "datePublished": "YYYY-MM-DD",
+  "author": { "@type": "Person", "name": "Author Name", "url": "https://example.com" },
+  "url": "https://example.com/labs/slug/"
+}
+```
+
+### Person + ProfessionalService (portfolio homepage)
+```json
+{
+  "@context": "https://schema.org",
+  "@type": ["Person", "ProfessionalService"],
+  "name": "Full Name",
+  "url": "https://example.com",
+  "description": "...",
+  "sameAs": ["https://github.com/...", "https://linkedin.com/in/..."]
 }
 ```
 
@@ -105,19 +111,27 @@ Common causes on this site:
 ## Page-Level SEO Checklist
 
 For every new page before publishing:
-- [ ] Title is 50-70 chars and follows the pattern
-- [ ] Meta description is 150-160 chars, specific, not generic
-- [ ] Canonical points to the correct URL
-- [ ] Structured data is present and correct for the page type
-- [ ] Page is linked from at least one other page on the site
-- [ ] `<meta name="robots" content="index, follow">` is set
-- [ ] OG + Twitter card tags are all populated (they affect click-through from social which
-  signals relevance to Google)
+- [ ] Title is the right length and follows the naming pattern
+- [ ] Meta description is 150–160 chars, specific, not generic
+- [ ] Canonical tag points to the correct URL for this page
+- [ ] Correct structured data type is present and valid
+- [ ] Page is linked from at least one other indexed page
+- [ ] Robots meta allows indexing (`index, follow`)
+- [ ] OG + Twitter card tags are populated (social signals compound with search)
+- [ ] Page has enough unique content to be worth indexing
 
 ---
 
-## What SEO Is Not on This Site
+## Content vs. SEO
 
-This is a portfolio site, not a content farm. The goal isn't maximum organic traffic — it's
-making sure the right people (potential employers, collaborators, people who found a project)
-can find what they're looking for. Quality over volume. Fix the broken stuff first.
+SEO is not the reason to create content. Content serves the reader first. If a page exists purely
+for search with nothing original to say, it will rank poorly and deserves to. The highest-leverage
+SEO work on most sites is fixing technical problems, not manufacturing content.
+
+---
+
+## Project Context
+
+Check AGENTS.md or local skill overlays for site-specific configuration: base URL, sitemap
+generation method, known indexing issues, redirect patterns, and any site-specific structured
+data requirements.
