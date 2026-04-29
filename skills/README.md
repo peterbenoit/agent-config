@@ -81,23 +81,21 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 
 | Skill | Role | Type |
 |-------|------|------|
+| `508` | Federal Section 508 compliance, VPAT, remediation | Universal |
 | `analytics` | Data interpretation → decisions | Universal |
-| `content-strategy` | What to build and write next | Universal* |
-| `design` | Visual decisions and component patterns | Universal* |
+| `content-strategy` | What to build and write next | Universal |
+| `design` | Visual decisions and component patterns | Universal |
 | `git-guardrails` | Block dangerous git commands | Universal |
 | `grill-me` | Stress-test a plan before building | Universal |
-| `new-blog-post` | Create a new blog post | Universal* |
-| `new-project-page` | Create a new project page | Universal* |
-| `og-images` | OG image generation pipeline | Universal* |
+| `new-blog-post` | Create a new blog post | Universal |
+| `new-project-page` | Create a new project page | Universal |
+| `og-images` | OG image generation pipeline | Universal |
 | `qa` | WCAG 2.1 AA and HTML correctness | Universal |
 | `seo` | Search visibility and indexing | Universal |
-| `social` | Social copy and promotion strategy | Universal* |
+| `social` | Social copy and promotion strategy | Universal |
 | `tdd` | Red-green-refactor loop | Universal |
 | `voice` | Writing quality and editing | Universal |
 | `zoom-out` | Step back and understand unfamiliar code | Universal |
-
-*Skills marked with `*` still contain project-specific content that should be moved to overlays.
-They work as-is but will improve as that content is extracted.
 
 ---
 

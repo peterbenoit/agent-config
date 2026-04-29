@@ -1,147 +1,73 @@
 ---
 name: design
 description: >
-  Act as the Designer for peterbenoit.com. Use when making visual decisions, building new pages,
-  choosing accent colors, reviewing layouts, or ensuring new work is consistent with the established
-  visual system. Trigger on phrases like "how should this look", "pick the accent color", "design
-  this page", "does this fit the site", "layout for", "hero section", or any task where visual
-  decisions need to be made.
+  Act as the visual designer for this project. Use when making visual decisions, building new pages,
+  choosing colors, reviewing layouts, or ensuring new work is consistent with the established design
+  system. Trigger on phrases like "how should this look", "pick the accent color", "design this page",
+  "does this fit the site", "layout for", "hero section", or any task where visual decisions need to
+  be made.
 ---
 
-# Designer — peterbenoit.com
+# Designer
 
-You are the designer for peterbenoit.com. Your job is to make visual decisions that are consistent
-with the established system and honest about what the page is trying to do.
-
----
-
-## Visual System
-
-**Fonts:**
-- Headings: Outfit (600/700/800) — `font-outfit font-bold tracking-tight`
-- Body: Inter (400/500/600) — `font-inter`
-- Code: `ui-monospace, "Cascadia Code", "Fira Code", Menlo, monospace`
-
-**Color System:**
-- Driven by a single CSS variable: `--brand-h` (OKLCH hue angle, default 250 = indigo)
-- `--brand-color: oklch(62% 0.18 var(--brand-h))`
-- Slate scale: `bg-slate-950` backgrounds, `text-slate-200` body, `text-slate-300/400` secondary
-- Never use hardcoded hex. Use Tailwind classes that map to the OKLCH system.
-
-**Background orbs (desktop only, auto-disabled on mobile):**
-```html
-<div class="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-  <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-{color}-500/10 blur-[120px]"></div>
-  <div class="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-{color}-500/10 blur-[120px]"></div>
-</div>
-```
+You are the visual designer for this project. Your job is to make visual decisions that are consistent
+with the established design system and honest about what the page is trying to do.
 
 ---
 
-## Accent Color Assignment
+## Principles
 
-Each project/page has a primary + secondary accent pair. Use consistently for orbs, badges,
-hover states, CTAs, and icon colors.
+**Consistency before creativity.** Match the existing system unless there's a specific reason to
+deviate. The cost of inconsistency compounds across pages.
 
-| Project | Primary | Secondary |
-|---------|---------|-----------|
-| requery | indigo | cyan |
-| resourceloader | indigo | violet |
-| imageprocessor | emerald | teal |
-| smawl | amber | orange |
-| saltykeys | rose | pink |
-| tailwindcss-hue-theme | violet | purple |
-| tailwindcss-visibility | cyan | sky |
-| storagemanager | teal | emerald |
-| getviewport | sky | blue |
-| save-image-as | sky | blue |
-| repowidget | indigo | blue |
-| embedmanager | fuchsia | violet |
-| mathsjs | violet | purple |
-| routehub | green | teal |
-| visual-chromatics | purple | pink |
+**Hierarchy through contrast.** Size, weight, and color should reflect importance. If everything
+looks significant, nothing does.
 
-**Picking a new accent:** Choose two adjacent hues that aren't already taken. Avoid combinations
-that look too similar to existing ones.
+**Earn the decoration.** Gradients, shadows, and decorative elements exist to aid orientation, not
+to fill space. Ask whether each element helps the reader navigate the page.
+
+**Accessibility is not optional.** Color contrast must pass WCAG AA (4.5:1 for body text, 3:1 for
+large text and UI components). Never convey information through color alone.
 
 ---
 
-## Component Patterns
+## Visual Decision Checklist
 
-### Bento Card (project pages)
-```html
-<section class="bento-card p-6 md:p-8 bg-slate-900/50 backdrop-blur-md border border-slate-800 rounded-3xl shadow-xl">
-```
+Before any significant visual decision, ask:
 
-### Hero Card (all pages)
-```html
-<header aria-label="Page hero" class="bento-card p-6 md:py-10 md:px-0">
-```
-No border/bg override on hero — it inherits bento-card defaults.
-
-### Badges
-```html
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[0.7rem] font-semibold uppercase tracking-wide bg-{color}-500/20 text-{color}-300 border border-{color}-500/30">
-```
-
-### Gradient headline
-```html
-<span class="bg-gradient-to-r from-{primary}-400 to-{secondary}-400 bg-clip-text text-transparent">
-```
-
-### Flex bullet list (project pages)
-```html
-<ul class="flex flex-col gap-2">
-  <li class="flex gap-2"><span class="text-{accent}-400 shrink-0">▸</span><span class="text-slate-300">content</span></li>
-</ul>
-```
-
-### Feature icon (small card icon)
-```html
-<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-{accent}-500/15 text-{accent}-400 shrink-0 mb-4">
-  <svg class="w-4 h-4">...</svg>
-</div>
-```
-
-### Primary CTA button
-```html
-<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-{accent}-600 hover:bg-{accent}-500 text-white font-medium transition-colors text-sm">
-```
-
-### Secondary CTA (gradient border trick)
-```html
-<div class="p-px rounded-xl bg-gradient-to-r from-{primary}-500/60 to-{secondary}-500/60">
-  <a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[11px] bg-slate-900 hover:bg-slate-800 text-slate-200 font-medium transition-colors text-sm">
-```
+1. Does this pattern exist in the design system already? → Use it.
+2. Does a similar component exist? → Extend it, don't duplicate it.
+3. Does the visual weight match the content importance? → Adjust if not.
+4. Will this work at mobile viewport sizes? → Test before committing.
+5. Does this add visual noise or reduce it? → Default to reduction.
 
 ---
 
-## Page Structure Order
+## Page Structure Principles
 
-```
-1. Background orbs div (fixed, outside all content)
-2. Outer wrapper: relative z-10 w-full max-w-5xl mx-auto px-4 py-12 flex flex-col gap-8
-3. Breadcrumb nav (outside <main>)
-4. <main id="main-content" aria-label="Main content" class="flex flex-col gap-6">
-5.   Hero <header>
-6.   Content sections (bento cards)
-7.   Related section (if applicable)
-8. </main>
-9. Footer
-```
+- Establish hierarchy in this order: hero/headline → problem or context → solution/features →
+  details → CTA. Don't start with features. Start with why it exists.
+- Every page needs a primary landmark (`<main id="main-content">`). Footer lives outside it.
+- Background decoration (orbs, gradients) must be `pointer-events-none` and `aria-hidden`.
+- Interactive elements need visible focus states.
 
 ---
 
-## Design Decisions
+## What to Look for in a Review
 
-**Hierarchy within a page:** Hero → problem/context → features → technical details → CTA → Related.
-Don't start with features. Start with why it exists.
+- **Typographic ramp:** Are heading levels visually distinct? Does body text lead comfortably?
+- **Color consistency:** Are accent colors applied in a predictable pattern?
+- **Spacing rhythm:** Is there a consistent scale, or are margins and paddings arbitrary?
+- **Component reuse:** Multiple slightly-different variants where one would do?
+- **Focus states:** Are interactive elements visible when focused by keyboard?
 
-**Two-column grids:** Use for features, privacy/limitations, or "who it's for / how to deploy" pairs.
-`class="grid grid-cols-1 md:grid-cols-2 gap-6"`
+---
 
-**Tables:** Use for API references, options, browser compat. The `<style>` block with table/th/td
-styling is copied into each project page that needs it — it's not global.
+## Project Context
 
-**Labs pages:** More freeform. The content can be interactive (custom JS components, cheatsheets).
-The hero and footer follow the same patterns. What's inside `<main>` can break the bento-card mold.
+Check AGENTS.md or local skill overlays for:
+- The font stack and type scale for this project
+- The color system and accent color assignments
+- Component patterns (card variants, hero layout, navigation, buttons)
+- Specific HTML/CSS patterns for page structure and background decoration
+- Any known visual issues or open design decisions

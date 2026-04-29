@@ -67,11 +67,24 @@ else
   else
     action "Copying skills/ into project"
     if [ "$DRY_RUN" = false ]; then
-      cp -r "$SKILLS_SRC" "$SKILLS_DEST"
-      log "Copied $(ls "$SKILLS_DEST" | wc -l | tr -d ' ') skills."
+      mkdir -p "$SKILLS_DEST"
+      [ -f "$SKILLS_SRC/README.md" ] && cp "$SKILLS_SRC/README.md" "$SKILLS_DEST/README.md"
+      count=0
+      for skill_dir in "$SKILLS_SRC"/*/; do
+        skill_name=$(basename "$skill_dir")
+        if [ -f "$skill_dir/SKILL.md" ]; then
+          cp -r "$skill_dir" "$SKILLS_DEST/$skill_name"
+          count=$((count + 1))
+        fi
+      done
+      log "Copied $count skills."
     else
-      dry "cp -r $SKILLS_SRC $SKILLS_DEST"
-      dry "Would copy $(ls "$SKILLS_SRC" | wc -l | tr -d ' ') skills."
+      count=0
+      for skill_dir in "$SKILLS_SRC"/*/; do
+        [ -f "$skill_dir/SKILL.md" ] && count=$((count + 1))
+      done
+      dry "Would create $SKILLS_DEST/"
+      dry "Would copy $count skills (placeholders excluded)."
     fi
   fi
 fi
