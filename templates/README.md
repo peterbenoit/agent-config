@@ -23,6 +23,7 @@ The goal is not a complete file — it's a correct skeleton that asks the right 
 | `agents-js-library.md` | AGENTS.md for an open source JS library | npm packages, standalone tools |
 | `agents-web-app.md` | AGENTS.md for a web application | React, Vue, or server-rendered apps |
 | `agents-bigcommerce.md` | AGENTS.md for a BigCommerce Stencil store | BC theme + API integration projects |
+| `agents-federal-app.md` | AGENTS.md for a federal web project | USWDS, 508, FedRAMP, agency contracts |
 
 > `init.sh` generates a starter AGENTS.md inline (via heredoc). `agents-default.md` here
 > matches that output and can be used as a reference or copied manually. For project-type-specific

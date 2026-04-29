@@ -24,10 +24,13 @@ automation tools (scheduled tweeting, ledger files), and the content types this 
 
 ## Audience by Platform
 
-| Platform | Who's There | What Resonates |
-|----------|-------------|----------------|
-| Twitter/X | Web devs, CSS people, open source | Specific, nerdy, slightly opinionated. Technical threads, CSS tricks, "here's a thing I built" |
-| LinkedIn | Federal contractors, design systems people, hiring managers | Work context, credibility signals, "why this matters" framing |
+The audience composition for this project belongs in AGENTS.md. The platform character is
+consistent across projects:
+
+| Platform | Platform Character | What Resonates |
+|----------|--------------------|----------------|
+| Twitter/X | Short-form, public, technical | Specific, concrete, slightly opinionated. Observations, builds, things learned the hard way. |
+| LinkedIn | Professional context, longer-form | Work relevance, credibility signals, "why this matters" framing. |
 
 ---
 
@@ -38,15 +41,15 @@ Lead with the problem or the surprising thing — not the post title.
 - No: "New blog post: CSS color-mix()"
 - Yes: "You can mix CSS colors directly in the browser now without Sass. Here's how color-mix() actually works."
 
-### Open Source Project
+### Open Source Project / Tool
 Lead with what it solves, not what it is.
-- No: "Released getViewport.js — a responsive breakpoint detection library"
-- Yes: "Tired of magic numbers like `if window.innerWidth > 768` scattered everywhere? getViewport.js defines breakpoints once and reads them from CSS. No duplication."
+- No: "Released sortable-table — a JavaScript table sorting library"
+- Yes: "Writing the same table sort logic for the third time. sortable-table handles the edge cases — multi-column, type inference, accessible markup — so you don't have to."
 
-### Labs Experiment
+### Experiment / Demo
 Lead with curiosity or the unexpected finding.
-- No: "New labs page: AI Context Files Cheatsheet"
-- Yes: "I made a cheatsheet for the 5 AI context files every dev should know — CLAUDE.md, AGENTS.md, MEMORY.md, CONTEXT.md, SKILL.md. What each one does, when it loads, what belongs in it."
+- No: "New demo: CSS-only accordion"
+- Yes: "You don't need JavaScript for this anymore. CSS `:has()` + `<details>` gives you a fully accessible accordion with two elements and zero script."
 
 ### Personal/Non-technical
 These can be warmer. Lead with place, moment, or feeling — not the post structure.
@@ -58,14 +61,14 @@ These can be warmer. Lead with place, moment, or feeling — not the post struct
 
 - Max 280 chars; URLs count as 23 via t.co regardless of actual length
 - Best format: problem/observation → brief explanation → link
-- Hashtags: use the category tag from the post's `<meta name="category">` — #CSS, #JavaScript, etc.
+- Hashtags: one or two relevant ones max — #CSS, #JavaScript, #a11y, etc. Check AGENTS.md for any project-specific tagging convention.
 - Don't thread unless the idea genuinely needs more than 280 chars
 - The tweet tool truncates automatically — but the angle still needs to be human
 
 ## LinkedIn Format Notes
 
 - More context is acceptable; 2-3 short paragraphs is fine
-- Tie to professional relevance when possible (accessibility, federal web, design systems)
+- Tie to professional relevance when possible — check AGENTS.md for your audience's specific professional context
 - Don't reuse the same copy as Twitter — different framing for different audience
 - End with a direct link, no "link in comments" games
 

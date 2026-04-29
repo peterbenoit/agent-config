@@ -77,7 +77,8 @@ into a project, fill in the specifics, and commit it to the project root.
 |----------|-----|
 | `static-site.md` | Static HTML sites (Vite, Eleventy, plain HTML) |
 | `js-library.md` | Open source JavaScript/TypeScript libraries |
-| `web-app.md` | Single-page or server-rendered web applications || `bigcommerce.md` | BigCommerce stores with Stencil theme and API integrations |
+| `web-app.md` | Single-page or server-rendered web applications |
+| `bigcommerce.md` | BigCommerce stores with Stencil theme and API integrations |
 ---
 
 ## Where CONTEXT.md Lives
