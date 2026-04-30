@@ -24,7 +24,7 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
 - [x] **Fix `update.sh --force` warning messaging**
   Warning says "Local skill overlays will be overwritten." Under `.local.md` convention, overlays are never touched by `update.sh`. What `--force` actually overwrites is modified copied base `SKILL.md` files. Rewrite to distinguish the two.
 
-- [ ] **Fix `update.sh` skip counter for `skills/README.md`**
+- [x] **Fix `update.sh` skip counter for `skills/README.md`**
   When `skills/README.md` differs and `--force` is off, the script prints a skip line but does not increment `count_skipped` and does not add it to `skipped_names`. Summary underreports skips.
 
 - [ ] **Fix `validate.sh` heredoc check scope**

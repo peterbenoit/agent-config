@@ -148,6 +148,8 @@ if [ -f "$src_readme" ]; then
     fi
   else
     skipped "skills/README.md (local changes — skipped)"
+    skipped_names+=("skills/README.md")
+    count_skipped=$((count_skipped + 1))
   fi
 fi
 
