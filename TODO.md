@@ -16,8 +16,8 @@ Remaining work from the 2026-04-29 findings review.
 
 - [x] **VPAT "always use latest"** — `skills/508/SKILL.md` now tells the agent to retrieve the current template from the ITI website (itic.org) before starting, rather than assuming it knows the latest version.
 - [ ] **Root README skill discovery claim** — "Skills are loaded by the agent when the task matches the trigger phrases / You don't configure which skills load" — not true for all agents. Distinguish environments that support native skill loading from those that only read `AGENTS.md`.
-- [ ] **Thin skill descriptions** — `git-guardrails` and `tdd` lack explicit "Trigger on phrases like..." examples. Add 4–6 trigger phrases to each.
-- [ ] **"This project" wording in universal skills** — `content-strategy`, `design`, `docs`, `performance`, `security`, `social` say "this project" where they mean "the current project". Replace throughout.
+- [x] **Thin skill descriptions** — `git-guardrails` and `tdd` now have 4–6 explicit trigger phrases each in their frontmatter descriptions.
+- [x] **"This project" wording in universal skills** — replaced with "the current project" throughout `content-strategy`, `design`, `docs`, `performance`, `security`, `social`.
 - [ ] **Template over-specificity** — mark example-only guardrails as such in: `agents-js-library.md` (zero-dependency claim, no async delivery), `agents-web-app.md` (RLS assumption), `agents-federal-app.md` (`npm audit` before every deploy).
 - [x] **Hook README security note** — added warning before the global install block that hook scripts execute in every agent session and should be inspected before install.
 

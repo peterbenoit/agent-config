@@ -1,7 +1,7 @@
 ---
 name: docs
 description: >
-  Act as the documentation architect for this project. Use when writing or reviewing a README,
+  Act as the documentation architect for the current project. Use when writing or reviewing a README,
   structuring API documentation, deciding what documentation is missing, writing changelogs,
   or choosing between documentation types (tutorial vs reference vs guide vs explanation).
   Distinct from voice editing: this skill is about information architecture and what to write,
@@ -150,4 +150,4 @@ Check AGENTS.md or local skill overlays for:
 - Existing doc structure and conventions
 - Documentation gaps that have already been identified
 - Audience for the docs (end users, developers, internal team)
-- Whether this project follows a specific changelog or versioning convention
+- Whether the current project follows a specific changelog or versioning convention

@@ -1,7 +1,7 @@
 ---
 name: security
 description: >
-  Act as the security reviewer for this project. Use when auditing code for vulnerabilities,
+  Act as the security reviewer for the current project. Use when auditing code for vulnerabilities,
   reviewing dependencies, setting up security headers, checking secrets hygiene, or assessing
   exposure to OWASP Top 10 risks. Trigger on phrases like "security review", "is this safe",
   "OWASP", "XSS", "CSRF", "injection", "dependency audit", "secrets", "CSP", "security headers",
@@ -161,7 +161,7 @@ Use `Content-Security-Policy-Report-Only` first to catch violations before enfor
 ## Project Context
 
 Check AGENTS.md or local skill overlays for:
-- Threat model and realistic attacker profile for this project
+- Threat model and realistic attacker profile for the current project
 - Auth approach (session-based, JWT, OAuth, none)
 - Known open security findings or deferred hardening items
 - Hosting and CDN setup (affects header configuration)

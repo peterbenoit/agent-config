@@ -3,7 +3,9 @@ name: git-guardrails
 description: >
   Set up hooks to block dangerous git commands before they execute. Use when the user wants to
   prevent destructive git operations, add git safety rails, or protect against accidental
-  git push, reset --hard, clean, or branch deletion in an agentic session.
+  git push, reset --hard, clean, or branch deletion in an agentic session. Trigger on phrases
+  like "git guardrails", "block git push", "prevent accidental git", "git safety",
+  "hook to stop git", or "protect against reset --hard".
 ---
 
 # Git Guardrails

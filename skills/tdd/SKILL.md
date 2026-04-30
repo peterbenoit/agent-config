@@ -3,7 +3,9 @@ name: tdd
 description: >
   Test-driven development with a strict red-green-refactor loop. Use when building features or
   fixing bugs using TDD, mentions "red-green-refactor", wants test-first development, or asks to
-  write tests before implementation. Applies to any JS/TS codebase.
+  write tests before implementation. Applies to any JS/TS codebase. Trigger on phrases like
+  "use TDD", "write the test first", "red-green-refactor", "test-driven", "failing test first",
+  or "don't write code until there's a test".
 ---
 
 # TDD — Red-Green-Refactor

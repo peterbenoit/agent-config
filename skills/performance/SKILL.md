@@ -1,7 +1,7 @@
 ---
 name: performance
 description: >
-  Act as the web performance engineer for this project. Use when measuring or improving page
+  Act as the web performance engineer for the current project. Use when measuring or improving page
   speed, diagnosing Core Web Vitals failures, reducing bundle size, auditing render-blocking
   resources, or optimizing images and caching. Trigger on phrases like "why is this slow",
   "improve performance", "Lighthouse score", "LCP", "CLS", "INP", "bundle size", "Core Web
