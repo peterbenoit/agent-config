@@ -91,10 +91,16 @@ to overwrite all skills including modified ones (will clobber local overlays).
 
 ## Using Skills
 
-Skills are loaded by the agent when the task matches the trigger phrases in each `description`
-field. You don't configure which skills load — the agent reads descriptions and decides.
+How skills get loaded depends on the agent environment:
 
-To use a skill explicitly, just say what you want:
+- **Claude Code / agents with native skill loading** — The agent reads each skill's `description`
+  frontmatter and loads the relevant SKILL.md automatically when the task matches the trigger
+  phrases. You don't configure which skills load.
+- **GitHub Copilot / Cursor / VS Code** — These environments don't have native skill loaders.
+  Skills are only used if you reference them explicitly (e.g. `#` attach a SKILL.md) or if
+  the project's `AGENTS.md` / `.github/copilot-instructions.md` lists them.
+
+In any environment you can invoke a skill explicitly by saying what you want:
 
 | Skill | Say something like |
 |-------|--------------------|
