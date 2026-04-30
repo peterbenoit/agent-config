@@ -135,6 +135,114 @@ else
   fi
 fi
 
+# ── 6. instructions/*.instructions.md frontmatter ────────────────────────────
+
+section "Instruction frontmatter"
+
+INSTRUCTIONS_DIR="$AGENT_CONFIG_DIR/instructions"
+INSTRUCTIONS_README="$AGENT_CONFIG_DIR/instructions/README.md"
+
+for instr_file in "$INSTRUCTIONS_DIR"/*.instructions.md; do
+  [ -f "$instr_file" ] || continue
+  instr_name=$(basename "$instr_file")
+
+  if ! grep -q "^---" "$instr_file"; then
+    fail "$instr_name: missing YAML frontmatter"
+    continue
+  fi
+
+  for field in name description applyTo; do
+    if awk '/^---/{f=!f; next} f' "$instr_file" | grep -q "^$field:"; then
+      ok "$instr_name: has '$field'"
+    else
+      fail "$instr_name: frontmatter missing '$field'"
+    fi
+  done
+
+  # Coverage check against instructions/README.md
+  base="${instr_name%.instructions.md}"
+  if grep -q "$base" "$INSTRUCTIONS_README"; then
+    ok "$instr_name: listed in instructions/README.md"
+  else
+    fail "$instr_name: NOT listed in instructions/README.md"
+  fi
+done
+
+# ── 7. prompts/*.prompt.md frontmatter ───────────────────────────────────────
+
+section "Prompt frontmatter"
+
+PROMPTS_DIR="$AGENT_CONFIG_DIR/prompts"
+PROMPTS_README="$AGENT_CONFIG_DIR/prompts/README.md"
+
+for prompt_file in "$PROMPTS_DIR"/*.prompt.md; do
+  [ -f "$prompt_file" ] || continue
+  prompt_name=$(basename "$prompt_file")
+
+  if ! grep -q "^---" "$prompt_file"; then
+    fail "$prompt_name: missing YAML frontmatter"
+    continue
+  fi
+
+  for field in name description; do
+    if awk '/^---/{f=!f; next} f' "$prompt_file" | grep -q "^$field:"; then
+      ok "$prompt_name: has '$field'"
+    else
+      fail "$prompt_name: frontmatter missing '$field'"
+    fi
+  done
+
+  # Must have at least one of: agent, mode
+  if awk '/^---/{f=!f; next} f' "$prompt_file" | grep -qE "^(agent|mode):"; then
+    ok "$prompt_name: has 'agent' or 'mode'"
+  else
+    fail "$prompt_name: frontmatter missing 'agent' or 'mode' field"
+  fi
+
+  # Coverage check against prompts/README.md
+  base="${prompt_name%.prompt.md}"
+  if grep -q "$base" "$PROMPTS_README"; then
+    ok "$prompt_name: listed in prompts/README.md"
+  else
+    fail "$prompt_name: NOT listed in prompts/README.md"
+  fi
+done
+
+# ── 8. context/*.md listed in context/README.md ──────────────────────────────
+
+section "context/README.md coverage"
+
+CONTEXT_DIR="$AGENT_CONFIG_DIR/context"
+CONTEXT_README="$CONTEXT_DIR/README.md"
+
+for ctx_file in "$CONTEXT_DIR"/*.md; do
+  ctx_name=$(basename "$ctx_file")
+  [ "$ctx_name" = "README.md" ] && continue
+
+  base="${ctx_name%.md}"
+  if grep -q "$base" "$CONTEXT_README"; then
+    ok "$ctx_name: listed in context/README.md"
+  else
+    fail "$ctx_name: NOT listed in context/README.md"
+  fi
+done
+
+# ── 9. templates/agents-*.md listed in templates/README.md ───────────────────
+
+section "templates/README.md coverage"
+
+TEMPLATES_DIR="$AGENT_CONFIG_DIR/templates"
+TEMPLATES_README="$TEMPLATES_DIR/README.md"
+
+for tmpl_file in "$TEMPLATES_DIR"/agents-*.md; do
+  tmpl_name=$(basename "$tmpl_file")
+  if grep -q "$tmpl_name" "$TEMPLATES_README"; then
+    ok "$tmpl_name: listed in templates/README.md"
+  else
+    fail "$tmpl_name: NOT listed in templates/README.md"
+  fi
+done
+
 # ── Summary ───────────────────────────────────────────────────────────────────
 
 echo ""

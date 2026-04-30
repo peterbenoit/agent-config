@@ -56,22 +56,22 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
 
 ## Priority 3 — Validation Gaps (No Enforcement)
 
-- [ ] **Add `validate.sh` check: `instructions/*.instructions.md` frontmatter**
+- [x] **Add `validate.sh` check: `instructions/*.instructions.md` frontmatter**
   Verify `name`, `description`, and `applyTo` fields exist in each instruction file.
 
-- [ ] **Add `validate.sh` check: `prompts/*.prompt.md` frontmatter**
+- [x] **Add `validate.sh` check: `prompts/*.prompt.md` frontmatter**
   Verify `name`, `description`, and at minimum `agent` or `mode` fields exist.
 
-- [ ] **Add `validate.sh` coverage check: `prompts/README.md`**
+- [x] **Add `validate.sh` coverage check: `prompts/README.md`**
   Every `.prompt.md` file should appear in `prompts/README.md`. Same pattern as the existing skills check.
 
-- [ ] **Add `validate.sh` coverage check: `instructions/README.md`**
+- [x] **Add `validate.sh` coverage check: `instructions/README.md`**
   Every `.instructions.md` file should appear in `instructions/README.md`.
 
-- [ ] **Add `validate.sh` coverage check: `context/README.md`**
+- [x] **Add `validate.sh` coverage check: `context/README.md`**
   Every `context/*.md` file should appear in `context/README.md`.
 
-- [ ] **Add `validate.sh` coverage check: `templates/README.md`**
+- [x] **Add `validate.sh` coverage check: `templates/README.md`**
   Every `templates/agents-*.md` file should appear in `templates/README.md`.
 
 ---
