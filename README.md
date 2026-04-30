@@ -21,7 +21,7 @@ If it would be useful in any project, it belongs here.
 
 ```
 agent-config/
-├── skills/          # 18 SKILL.md instruction sets + 2 in-progress (see skills/README.md)
+├── skills/          # 19 SKILL.md instruction sets + 2 deferred (see skills/README.md)
 ├── hooks/           # Shell scripts for agent hook systems (Claude Code PreToolUse)
 ├── context/         # Domain context files (bigcommerce, js-library, static-site, web-app)
 ├── templates/       # 6 AGENTS.md starters for different project types
@@ -97,6 +97,7 @@ To use a skill explicitly, just say what you want:
 |-------|--------------------|
 | `508` | "audit this page for 508", "do we need a VPAT" |
 | `analytics` | "why did traffic drop", "what does Search Console say" |
+| `bigcommerce` | "Stencil template issue", "BC cart API", "storefront API call" |
 | `content-strategy` | "what should I write next", "what's missing from this site" |
 | `design` | "does this layout feel right", "pick a color for this section" |
 | `docs` | "write a README for this", "structure the API docs" |
@@ -114,17 +115,22 @@ To use a skill explicitly, just say what you want:
 | `voice` | "edit this copy", "does this README sound right" |
 | `zoom-out` | "I don't understand this code", "give me the big picture" |
 
-Skills `refactor` and `techwriter` are in progress (README only, no SKILL.md yet).
+Skills `refactor` and `techwriter` are deferred (README placeholder only, no SKILL.md yet).
 
 ---
 
 ## Project-Specific Overlays
 
-Universal skills define the role. Project skills extend it with local context.
+Universal skills define the role. Project overlays extend them with local context.
 
-Example: a project might have its own `skills/seo/SKILL.md` that says:
+**The overlay is a separate file, not a replacement.** When `init.sh` copies skills into a
+project, each skill lands at `./skills/<name>/SKILL.md`. Do not edit that file — it is the
+universal base and will be overwritten by `update.sh`.
+
+Instead, create an overlay at `./skills/<name>.local.md`. The agent reads both:
 
 ```markdown
+<!-- skills/seo.local.md -->
 Extends the universal SEO skill. Project-specific context:
 
 - Base URL: https://example.com
@@ -132,7 +138,16 @@ Extends the universal SEO skill. Project-specific context:
 - Known issue: 12 pages currently unindexed — prioritize diagnosis
 ```
 
-The agent reads both. The project overlay wins on conflicts.
+Tell the agent in your `AGENTS.md`:
+
+```markdown
+## Skills
+Skills are in `./skills/`. Each subfolder has a SKILL.md (universal base).
+If a matching `./skills/<name>.local.md` exists, read it after the SKILL.md.
+The local file wins on conflicts.
+```
+
+Overlays are never overwritten by `update.sh` because they use a different filename.
 
 ---
 

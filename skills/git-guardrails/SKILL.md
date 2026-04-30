@@ -20,38 +20,17 @@ Blocked by default: `push`, `reset --hard`, `reset --soft`, `clean`, `branch -D`
 Ask the user: install for this project only (`.claude/settings.json`) or all projects
 (`~/.claude/settings.json`)?
 
-Create the script at `.claude/hooks/block-dangerous-git.sh`:
+Copy the canonical hook script from `hooks/block-dangerous-git.sh` in agent-config.
+Do not recreate it inline — the canonical file is the source of truth for the blocked list.
 
 ```bash
-#!/bin/bash
-# Block dangerous git commands in Claude Code sessions
-
-COMMAND="$BASH_COMMAND"
-
-DANGEROUS_PATTERNS=(
-  "git push"
-  "git reset --hard"
-  "git reset --soft"
-  "git clean"
-  "git branch -D"
-  "git branch -d"
-  "git rebase"
-  "git checkout --force"
-  "git stash drop"
-)
-
-for pattern in "${DANGEROUS_PATTERNS[@]}"; do
-  if echo "$COMMAND" | grep -q "$pattern"; then
-    echo "BLOCKED: You do not have authority to run '$pattern' in this session."
-    echo "Ask the user to run this command manually if it is genuinely needed."
-    exit 1
-  fi
-done
-
-exit 0
+mkdir -p .claude/hooks
+cp ~/GitHub/agent-config/hooks/block-dangerous-git.sh .claude/hooks/
+chmod +x .claude/hooks/block-dangerous-git.sh
 ```
 
-Make it executable: `chmod +x .claude/hooks/block-dangerous-git.sh`
+The hook reads the command from Claude Code's stdin JSON payload (requires `jq`).
+If `jq` is not installed: `brew install jq`.
 
 Add to `.claude/settings.json` (merge if file exists — do not overwrite other settings):
 ```json

@@ -199,23 +199,27 @@ fetch(`https://api.bigcommerce.com/stores/${STORE_HASH}/v3/catalog/products`, {
 
 ### Pagination
 
-All v3 list endpoints use cursor-based pagination:
+BC v3 list endpoints use **page/limit** pagination by default. Some endpoints also support
+cursor-based pagination via an `after` parameter — check the endpoint's docs before assuming:
 
 ```js
-// First page
-GET /v3/catalog/products?limit=250
+// Page/limit (most v3 endpoints)
+GET /v3/catalog/products?limit=250&page=1
+GET /v3/catalog/products?limit=250&page=2
 
-// Next page — use the `next` cursor from the response meta
-GET /v3/catalog/products?limit=250&after={cursor}
+// Cursor-based (select endpoints only, e.g. /v3/orders/metafields)
+GET /v3/orders/metafields?limit=250
+// Next page — use the cursor from response meta if present
+GET /v3/orders/metafields?limit=250&after={cursor}
 ```
 
-Response shape:
+Response shape (page/limit):
 ```json
-{ "data": [...], "meta": { "pagination": { "next": "...", "total": 500 } } }
+{ "data": [...], "meta": { "pagination": { "total": 500, "count": 250, "per_page": 250, "current_page": 1, "total_pages": 2 } } }
 ```
 
-Never assume a single request returns all records — always paginate until `meta.pagination.next`
-is absent.
+Never assume a single request returns all records — always check `meta.pagination` and
+loop until you've retrieved all pages.
 
 ---
 

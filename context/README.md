@@ -79,6 +79,7 @@ into a project, fill in the specifics, and commit it to the project root.
 | `js-library.md` | Open source JavaScript/TypeScript libraries |
 | `web-app.md` | Single-page or server-rendered web applications |
 | `bigcommerce.md` | BigCommerce stores with Stencil theme and API integrations |
+| `federal-app.md` | Federal web projects (Section 508, USWDS, FedRAMP, ATO) |
 ---
 
 ## Where CONTEXT.md Lives

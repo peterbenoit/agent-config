@@ -98,7 +98,7 @@ if [ -f "$AGENTS_FILE" ]; then
   echo "  ## Skills"
   echo "  Agent skills are in \`./skills/\`. Each subfolder has a SKILL.md."
   echo "  Read the relevant skill before starting any matching task."
-  echo "  Add project-specific overlays as \`./skills/<name>/SKILL.md\`."
+  echo "  Add project-specific overlays as \`./skills/<name>.local.md\`."
   echo ""
 else
   action "Creating starter AGENTS.md"
@@ -114,8 +114,9 @@ Agent skills are in `./skills/`. Each subfolder contains a SKILL.md with the rol
 methodology, and trigger phrases for that specialist. Read the relevant skill before starting
 any matching task — don't rely on memory for things the skill defines.
 
-To add project-specific context to a universal skill, create a local overlay:
-`./skills/<name>/SKILL.md` — the agent reads both; the local file wins on conflicts.
+To add project-specific context to a universal skill, create a local overlay file:
+`./skills/<name>.local.md` — the agent reads both; the local file wins on conflicts.
+Do not edit the SKILL.md directly — it will be overwritten on updates.
 
 ## Context
 
@@ -131,11 +132,13 @@ not be silently reversed. AGENTS.md drives behavior; CONTEXT.md informs language
 
 ## Architecture
 
-<!-- Describe the structure of this project -->
+<!-- Describe the structure of this project: what calls what, where the source of truth
+     lives for each concern, and any non-obvious dependencies. -->
 
 ## What Not to Do
 
-<!-- Add project-specific guardrails here -->
+<!-- Add project-specific guardrails here: patterns that look like improvements but aren't,
+     decisions that were made deliberately, and anything that should never be changed silently. -->
 EOF
     log "Created AGENTS.md — fill in the project-specific sections."
   else

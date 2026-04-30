@@ -37,6 +37,11 @@ The project-specific layer that extends a universal skill. Base URL, known issue
 investigations, site-specific patterns, content backlog. An overlay doesn't redefine the role —
 it gives the specialist their briefing notes for this particular job.
 
+**Overlay file convention:** create `./skills/<name>.local.md` alongside the copied skill.
+Do not edit `./skills/<name>/SKILL.md` directly — that is the universal base and will be
+overwritten by `update.sh`. Using a separate `.local.md` file keeps base and overlay distinct
+and protects your project context from being clobbered on updates.
+
 Example — `seo` skill in agent-config:
 ```
 You are the SEO advisor. Fix what's broken before optimizing what's working.
@@ -45,7 +50,7 @@ You are the SEO advisor. Fix what's broken before optimizing what's working.
 Check AGENTS.md or local skill overlays for site-specific configuration.
 ```
 
-Example — `seo` overlay in a specific project:
+Example — `seo.local.md` overlay in a specific project:
 ```
 Extends the universal SEO skill.
 - Base URL: https://example.com
@@ -79,56 +84,27 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 
 ## Current Skills
 
-| Skill | Role |
-|-------|------|
-| `508` | Section 508 / WCAG compliance, VPAT preparation, federal a11y requirements |
-| `analytics` | GA4 and Search Console analysis, traffic diagnosis, conversion troubleshooting |
-| `bigcommerce` | Stencil theme dev, Storefront API, Page Builder widgets, BC REST API |
-| `content-strategy` | Content backlog prioritization, gap analysis, editorial planning |
-| `design` | Visual design decisions, layout, color, design system consistency |
-| `docs` | README writing, API documentation structure, changelogs |
-| `git-guardrails` | Hook setup to block destructive git commands before they execute |
-| `grill-me` | Adversarial plan review — stress-test ideas until every branch is resolved |
-| `new-blog-post` | Blog post creation: writing bar, head tags, JSON-LD, publication checklist |
-| `new-project-page` | Project page creation: file setup, OG meta, schema, analytics, design pattern |
-| `og-images` | OG image pipeline, AI generation workflow, dry-run strategy, review checklist |
-| `performance` | Core Web Vitals, bundle size, render-blocking resources, Lighthouse diagnosis |
-| `qa` | Page and component review: correctness, accessibility compliance, structure |
-| `security` | Code audits, dependency review, security headers, secrets hygiene |
-| `seo` | Indexing diagnosis, titles/descriptions, structured data, canonical tags |
-| `social` | Social copy, announcement framing, Twitter vs LinkedIn, timing |
-| `tdd` | Red-green-refactor loop, test-first development, failing test scaffolding |
-| `voice` | Copy editing, tone consistency, README prose, writing that represents the project |
-| `zoom-out` | High-level orientation to unfamiliar code — how it fits, what calls what |
-
-**In progress (README only, no SKILL.md yet):**
-
-| Skill | Planned Scope |
-|-------|--------------|
-| `refactor` | Systematic refactoring with a defined scope and safety net |
-| `techwriter` | Long-form technical writing: guides, tutorials, reference docs |
-
 | Skill | Role | Type |
 |-------|------|------|
-| `508` | Federal Section 508 compliance, VPAT, remediation | Universal |
-| `bigcommerce` | Stencil theme development, Storefront API, Management API | Universal |
-| `analytics` | Data interpretation → decisions | Universal |
-| `content-strategy` | What to build and write next | Universal |
-| `design` | Visual decisions and component patterns | Universal |
-| `docs` | Documentation architecture, READMEs, API docs, changelogs | Universal |
-| `git-guardrails` | Block dangerous git commands | Universal |
-| `grill-me` | Stress-test a plan before building | Universal |
-| `new-blog-post` | Create a new blog post | Universal |
-| `new-project-page` | Create a new project page | Universal |
-| `og-images` | OG image generation pipeline | Universal |
-| `performance` | Core Web Vitals, Lighthouse, bundle size, render-blocking | Universal |
-| `qa` | WCAG 2.1 AA and HTML correctness | Universal |
-| `security` | OWASP Top 10, CSP, dependency audits, secrets hygiene | Universal |
-| `seo` | Search visibility and indexing | Universal |
-| `social` | Social copy and promotion strategy | Universal |
-| `tdd` | Red-green-refactor loop | Universal |
-| `voice` | Writing quality and editing | Universal |
-| `zoom-out` | Step back and understand unfamiliar code | Universal |
+| `508` | Section 508 / WCAG compliance, VPAT preparation, federal a11y requirements | Universal |
+| `analytics` | GA4 and Search Console analysis, traffic diagnosis, conversion troubleshooting | Universal |
+| `bigcommerce` | Stencil theme dev, Storefront API, Page Builder widgets, BC REST API | Universal |
+| `content-strategy` | Content backlog prioritization, gap analysis, editorial planning | Universal |
+| `design` | Visual design decisions, layout, color, design system consistency | Universal |
+| `docs` | README writing, API documentation structure, changelogs | Universal |
+| `git-guardrails` | Hook setup to block destructive git commands before they execute | Universal |
+| `grill-me` | Adversarial plan review — stress-test ideas until every branch is resolved | Universal |
+| `new-blog-post` | Blog post creation: writing bar, head tags, JSON-LD, publication checklist | Universal |
+| `new-project-page` | Project page creation: file setup, OG meta, schema, analytics, design pattern | Universal |
+| `og-images` | OG image pipeline, AI generation workflow, dry-run strategy, review checklist | Universal |
+| `performance` | Core Web Vitals, bundle size, render-blocking resources, Lighthouse diagnosis | Universal |
+| `qa` | Page and component review: correctness, accessibility compliance, structure | Universal |
+| `security` | Code audits, dependency review, security headers, secrets hygiene | Universal |
+| `seo` | Indexing diagnosis, titles/descriptions, structured data, canonical tags | Universal |
+| `social` | Social copy, announcement framing, Twitter vs LinkedIn, timing | Universal |
+| `tdd` | Red-green-refactor loop, test-first development, failing test scaffolding | Universal |
+| `voice` | Copy editing, tone consistency, README prose, writing that represents the project | Universal |
+| `zoom-out` | High-level orientation to unfamiliar code — how it fits, what calls what | Universal |
 
 **Deferred (placeholder folders with reasoning):**
 
