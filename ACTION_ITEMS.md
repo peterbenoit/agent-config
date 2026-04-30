@@ -21,7 +21,7 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
 - [x] **Fix `hooks/README.md` blocked-command list**
   Prose list omits `git branch -d` and `git restore --staged`, both of which `block-dangerous-git.sh` actually blocks.
 
-- [ ] **Fix `update.sh --force` warning messaging**
+- [x] **Fix `update.sh --force` warning messaging**
   Warning says "Local skill overlays will be overwritten." Under `.local.md` convention, overlays are never touched by `update.sh`. What `--force` actually overwrites is modified copied base `SKILL.md` files. Rewrite to distinguish the two.
 
 - [ ] **Fix `update.sh` skip counter for `skills/README.md`**

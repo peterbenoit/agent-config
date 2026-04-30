@@ -52,8 +52,9 @@ if [ -L "$SKILLS_DEST" ]; then
 fi
 
 if [ "$FORCE" = true ]; then
-  warn "--force is set. Local skill overlays will be overwritten."
-  warn "If you have project-specific overlays, press Ctrl-C now and update manually."
+  warn "--force is set. Locally modified SKILL.md base files and skills/README.md will be overwritten."
+  warn "Local overlays (*.local.md) are not touched — they are never managed by this script."
+  warn "If you have edited base SKILL.md files directly, press Ctrl-C now and update manually."
   echo ""
 fi
 
