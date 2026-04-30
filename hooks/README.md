@@ -123,12 +123,19 @@ installing. The `git-guardrails` skill walks through this if you want agent-assi
 
 ## Writing a New Hook
 
-A hook script receives context via environment variables (Claude Code exposes `$BASH_COMMAND`,
-`$CLAUDE_PROJECT_DIR`, and others). It should:
+A hook script receives the full tool payload as JSON on stdin. For `PreToolUse` hooks,
+Claude Code sends:
 
-1. Read the relevant context
-2. Check against its rules
-3. Exit `0` to allow the action, exit `1` to block it with a message to stdout
+```json
+{ "tool_name": "Bash", "tool_input": { "command": "..." } }
+```
+
+Use `jq` to extract fields. The script should:
+
+1. Read stdin into a variable (`PAYLOAD=$(cat)`)
+2. Extract the relevant field (`jq -r '.tool_input.command'`)
+3. Check against its rules
+4. Exit `0` to allow the action, exit `1` to block it with a message to stdout
 
 Keep hooks focused. One concern per script. A hook that does too much becomes hard to debug
 when something unexpected gets blocked.

@@ -14,7 +14,7 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
   Affects: `templates/agents-default.md`, `agents-static-site.md`, `agents-web-app.md`, `agents-js-library.md`, `agents-bigcommerce.md`, `agents-federal-app.md`.
   `init.sh` and `skills/README.md` already use the correct path — this is pure template drift.
 
-- [ ] **Fix `hooks/README.md` "Writing a New Hook" section**
+- [x] **Fix `hooks/README.md` "Writing a New Hook" section**
   Says context arrives via `$BASH_COMMAND` environment variable. Actual contract is stdin JSON.
   This directly contradicts the hook script and the AGENTS.md hook spec note.
 
