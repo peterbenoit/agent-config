@@ -136,13 +136,17 @@ if [ -f "$src_readme" ]; then
       cp "$src_readme" "$dest_readme"
       added "skills/README.md"
     fi
-  elif ! cmp -s "$src_readme" "$dest_readme"; then
+  elif cmp -s "$src_readme" "$dest_readme"; then
+    : # already current, nothing to do
+  elif [ "$FORCE" = true ]; then
     if [ "$DRY_RUN" = true ]; then
-      dry "Would update skills/README.md"
+      dry "Would overwrite skills/README.md (forced)"
     else
       cp "$src_readme" "$dest_readme"
-      updated "skills/README.md"
+      updated "skills/README.md (forced)"
     fi
+  else
+    skipped "skills/README.md (local changes — skipped)"
   fi
 fi
 

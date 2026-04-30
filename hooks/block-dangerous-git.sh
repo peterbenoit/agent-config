@@ -51,6 +51,9 @@ if [ -z "$COMMAND" ]; then
   exit 0
 fi
 
+# Normalize whitespace so "git   push" matches the same as "git push"
+COMMAND=$(printf '%s' "$COMMAND" | tr -s ' ')
+
 DANGEROUS_PATTERNS=(
   "git push"
   "git reset --hard"

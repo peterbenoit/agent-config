@@ -6,9 +6,9 @@ Remaining work from the 2026-04-29 findings review.
 
 ## Code / Functional
 
-- [ ] **Hook pattern matching** — spacing variants like `git   push` slip through `grep -qF`. Normalize whitespace in the extracted command before matching, or use a stricter approach.
-- [ ] **Hook test coverage** — no fixture tests for block/allow cases. Add tests for: `git push`, `git push origin branch`, `git reset --hard`, `git clean -fd`, commands with "git push" in a comment or string, multiple commands in one invocation.
-- [ ] **`update.sh` README handling** — `skills/README.md` is overwritten even in safe mode. Apply the same modified-file check used for `SKILL.md` files.
+- [x] **Hook pattern matching** — whitespace normalized with `tr -s ' '` before pattern matching in `block-dangerous-git.sh`.
+- [x] **Hook test coverage** — `hooks/test-block-dangerous-git.sh` added; 38 fixture tests covering blocked patterns, whitespace variants, safe commands, and empty/missing payloads. Two known false positives (pattern in string/comment) documented in test output.
+- [x] **`update.sh` README handling** — `skills/README.md` now uses the same modified-file check as skill files: skipped in safe mode if locally changed, overwritten only with `--force`.
 
 ---
 

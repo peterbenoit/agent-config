@@ -38,6 +38,7 @@ Scripts here are reusable and project-agnostic. Copy or symlink them into a proj
 | Script | Purpose | Compatible With |
 |--------|---------|-----------------|
 | `block-dangerous-git.sh` | Blocks destructive git commands | Claude Code |
+| `test-block-dangerous-git.sh` | Fixture tests for block-dangerous-git.sh | Any |
 
 To add a new hook script:
 1. Write it as a standalone shell script with a clear name
