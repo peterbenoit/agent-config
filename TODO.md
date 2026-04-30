@@ -25,5 +25,5 @@ Remaining work from the 2026-04-29 findings review.
 
 ## Missing
 
-- [ ] **Contributor guidance** — a short doc (or section in AGENTS.md) covering: how to review a new skill, the universality test, how to test `init.sh` / `update.sh`, how to communicate breaking changes downstream.
-- [ ] **License** — none exists; reuse rights are ambiguous if this toolkit is ever shared.
+- [x] **Contributor guidance** — added `## Changing the Toolkit` section to AGENTS.md covering skill review, init/update testing, hook modification, and downstream release notes.
+- [x] **License** — MIT license added (`LICENSE`).

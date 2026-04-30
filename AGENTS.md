@@ -82,6 +82,41 @@ that agents can read for orientation. They are not instructions; they're referen
 
 ---
 
+## Changing the Toolkit
+
+### Before modifying a skill
+
+1. Run `./validate.sh` first so you know the baseline state.
+2. Make your change.
+3. Run `./validate.sh` again — all checks must still pass.
+4. Apply the universality test: would a developer on any project use this unchanged?
+   If no, move the project-specific parts into a `## Project Context` section.
+
+### Before modifying `init.sh` or `update.sh`
+
+- Test with `--dry-run` against a scratch directory before running for real.
+- If the `init.sh` heredoc changes, verify `./validate.sh` still passes the heredoc check.
+- If the behavior changes in a way that affects downstream projects, note what overlays
+  may need updating.
+
+### Before modifying `hooks/`
+
+- The hook input contract (stdin JSON from Claude Code) is documented at the top of each
+  script. Do not change the input-reading logic without verifying against the Claude Code
+  hook spec.
+- After any change, manually test the block and allow cases (see `hooks/README.md`).
+- The blocked pattern list in `block-dangerous-git.sh` is the canonical source. Do not
+  maintain a separate list in skill files.
+
+### Releasing changes to downstream projects
+
+There is no automated distribution. Downstream projects pull updates via `update.sh`.
+If a change is breaking (e.g., overlay path convention, frontmatter format), note it
+clearly in a commit message. Downstream projects using `--force` will get the update;
+safe-mode runs will skip modified files and require manual review.
+
+---
+
 ## What Not to Do Here
 
 - Do not add skills that only work for one project — those live in that project's repo
