@@ -45,7 +45,8 @@ during procurement to evaluate whether a product meets their accessibility needs
 
 ### VPAT Versions
 - **VPAT 2.x (WCAG 2.x Edition)** — most common for web products
-- Always use the latest version from the ITI website; don't reuse old templates
+- Before starting a VPAT, retrieve the current template from the ITI website (itic.org/policy/accessibility/vpat). Do not assume you know the latest version number — check the site and use whatever template is currently offered for download.
+- Do not reuse an old template from a previous project; the structure and criteria may have changed.
 
 ### Conformance Levels
 - **Supports** — meets the criteria fully

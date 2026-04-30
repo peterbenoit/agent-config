@@ -86,6 +86,11 @@ Then add to `.claude/settings.json` (merge with existing — don't overwrite):
 
 **Install globally (all projects):**
 
+> **Security note:** Hook scripts registered globally execute automatically inside every agent
+> session on your machine. Before installing any hook globally, read the script and confirm
+> you trust what it does. This applies to scripts from this repo too — inspect before you
+> install.
+
 ```bash
 mkdir -p ~/.claude/hooks
 cp ~/GitHub/agent-config/hooks/block-dangerous-git.sh ~/.claude/hooks/
