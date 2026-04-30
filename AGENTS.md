@@ -63,6 +63,36 @@ skeleton immediately after copying.
 
 Each template must be documented in `templates/README.md`.
 
+### Prompts
+
+Prompt files (`.prompt.md`) are on-demand slash commands. They must be reusable across
+any project — do not hardcode URLs, file paths, or project names in the prompt body.
+
+Required frontmatter fields: `name`, `description`, `agent` (or `mode`).
+Document every prompt in `prompts/README.md`.
+
+Do not set `agent: agent` for prompts that only read and report — use `agent: ask` so the
+prompt cannot silently modify files.
+
+Installation: copy or symlink `.prompt.md` files into the VS Code user prompts folder
+(`~/Library/Application Support/Code/User/prompts/` on macOS). They are not distributed
+by `init.sh` or `update.sh` — install manually.
+
+### Instructions
+
+Instruction files (`.instructions.md`) apply automatically whenever the `applyTo` glob
+matches the active file. Keep the scope narrow — an instruction that fires on every file
+in every session will create noise and override context that doesn't need overriding.
+
+Required frontmatter fields: `name`, `description`, `applyTo`.
+Document every instruction in `instructions/README.md`.
+
+Do not put project-specific rules in universal instructions. If a rule only makes sense
+for one codebase, it belongs in that project's AGENTS.md or a local `.instructions.md`.
+
+Installation: copy or symlink `.instructions.md` files into the VS Code user instructions
+folder or the project's `.github/instructions/` directory. Not distributed by `init.sh`.
+
 ### Context files
 
 Files in `context/` are domain briefings — background knowledge about a technology or platform
@@ -121,6 +151,10 @@ safe-mode runs will skip modified files and require manual review.
 
 - Do not add skills that only work for one project — those live in that project's repo
 - Do not add hardcoded URLs, credentials, or project names to universal skills
+- Do not add project-specific rules to universal instructions — they fire on every file matching
+  the `applyTo` pattern across all projects that install them
+- Do not set `agent: agent` on a prompt that only reads and reports — use `ask` mode
 - Do not modify `init.sh` without verifying the heredoc AGENTS.md it generates still matches
   `templates/agents-default.md`
-- Do not use `--force` with `update.sh` without reading what local overlays will be overwritten
+- Do not use `--force` with `update.sh` without understanding that it overwrites locally
+  modified base `SKILL.md` files — `.local.md` overlays are never touched

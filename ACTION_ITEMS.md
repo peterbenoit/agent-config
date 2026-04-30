@@ -88,14 +88,14 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
 
 ## Priority 5 — Architecture / Distribution Gaps
 
-- [ ] **Add tool-installation matrix to README or a new `INSTALL.md`**
+- [x] **Add tool-installation matrix to README or a new `INSTALL.md`**
   No single place says where each asset type should land per agent environment (Claude Code, VS Code/Copilot, Cursor, AGENTS.md-only). Without this, users see the assets but can't reliably wire them.
   Examples: where hooks go for Claude Code, where `.instructions.md` goes for VS Code vs Cursor vs Claude Code.
 
-- [ ] **Add AGENTS.md conventions for `prompts/` and `instructions/`**
+- [x] **Add AGENTS.md conventions for `prompts/` and `instructions/`**
   AGENTS.md documents skill, hook, template, and context conventions but has no "What Not to Do" rules for prompts or instructions. Needed: reusability rule (no hardcoded project URLs), `applyTo` conservatism, ask-only `agent` mode awareness.
 
-- [ ] **Decide on and document evaluation report convention**
+- [x] **Decide on and document evaluation report convention**
   `CODEX_findings.md` and `Gemini_evaluation_report.md` live at the repo root with no documented convention. Either: define a `reports/` directory with a naming convention and retention policy, or note they are temporary artifacts and move/remove them after action items are resolved.
 
 ---

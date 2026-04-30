@@ -183,6 +183,24 @@ to use this skill and when not to?
 
 ---
 
+## Asset Installation by Environment
+
+Different asset types land in different places depending on your agent environment.
+
+| Asset | Claude Code | VS Code / Copilot | Cursor | AGENTS.md-only |
+|-------|-------------|-------------------|--------|----------------|
+| `skills/` | Copy/symlink into project `./skills/` via `init.sh` | Same — reference via AGENTS.md | Same | Same |
+| `hooks/` | Copy into `.claude/hooks/`, register in `.claude/settings.json` | Not supported (use AGENTS.md guardrails) | Not supported | Not applicable |
+| `instructions/` | Not natively supported | Copy to `~/Library/Application Support/Code/User/instructions/` or `.github/instructions/` | Copy to `.cursor/rules/` | Not applicable |
+| `prompts/` | Not natively supported | Copy to `~/Library/Application Support/Code/User/prompts/` | Not applicable | Not applicable |
+| `context/` | Read manually or reference in AGENTS.md | Same | Same | Same |
+| `templates/` | Copy as project `AGENTS.md`, then fill placeholders | Same | Same | Same |
+
+`init.sh` and `update.sh` only manage `skills/` and the starter `AGENTS.md`. All other
+asset types must be installed manually.
+
+---
+
 ## What Doesn't Belong Here
 
 - Skills that reference specific URLs, property IDs, file paths, or project names
