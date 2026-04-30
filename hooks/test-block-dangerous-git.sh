@@ -112,10 +112,12 @@ assert_allowed "cat README.md"
 
 # Known limitation: grep-based matching cannot distinguish a blocked pattern
 # that appears inside a string or comment from one being executed. These
-# commands will be incorrectly blocked. Documented, not fixed, because
-# reliable shell-syntax parsing is out of scope for this hook.
-echo "  note  known false positive: echo 'git push would be bad' (blocked, expected)"
-echo "  note  known false positive: # git push comment (blocked, expected)"
+# commands will be incorrectly blocked. Documented as explicit fixtures so
+# regressions in the opposite direction (false negatives) are caught.
+echo ""
+echo "── Known false positives (blocked, accepted limitation)"
+assert_blocked "echo 'git push would be bad'" "echo containing blocked phrase"
+assert_blocked "# git push comment" "comment containing blocked phrase"
 
 echo ""
 echo "── Allowed: empty/unparseable payload"

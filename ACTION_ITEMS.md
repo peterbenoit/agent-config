@@ -78,10 +78,10 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
 
 ## Priority 4 — Hook Test Gaps
 
-- [ ] **Promote known false-positive cases to asserted test fixtures in `test-block-dangerous-git.sh`**
+- [x] **Promote known false-positive cases to asserted test fixtures in `test-block-dangerous-git.sh`**
   Currently the test prints notes for `echo 'git push ...'` and `# git push comment` cases but does not run them as expected-pass cases. They should be explicit fixtures so regressions are caught.
 
-- [ ] **Decide on fallback parser safety**
+- [x] **Decide on fallback parser safety**
   Without `jq`, the `grep`/`sed` fallback mishandles escaped quotes. Options: (a) make `jq` a hard dependency and fail closed on missing `jq`, (b) document the limitation explicitly and accept the tradeoff, (c) improve the fallback. Currently the risk is undocumented.
 
 ---

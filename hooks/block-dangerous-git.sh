@@ -42,7 +42,10 @@ PAYLOAD=$(cat)
 if command -v jq &>/dev/null; then
   COMMAND=$(printf '%s' "$PAYLOAD" | jq -r '.tool_input.command // empty')
 else
-  # Fallback: naive extraction without jq (less reliable, matches first "command" value)
+  # Fallback: naive extraction without jq (less reliable).
+  # Known limitation: this parser does not handle JSON-escaped quotes correctly.
+  # A command containing escaped quotes may be misread, potentially allowing a
+  # blocked command through. Install jq to eliminate this risk.
   COMMAND=$(printf '%s' "$PAYLOAD" | grep -o '"command"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed 's/.*"command"[[:space:]]*:[[:space:]]*"\(.*\)"/\1/')
 fi
 
