@@ -52,7 +52,7 @@ To add a new hook script:
 
 Intercepts bash commands and blocks patterns that could cause irreversible data loss:
 `git push`, `git reset --hard`, `git reset --soft`, `git clean`, `git branch -D`,
-`git rebase`, `git checkout --force`, `git stash drop`.
+`git branch -d`, `git rebase`, `git checkout --force`, `git restore --staged`, `git stash drop`.
 
 When blocked, the agent sees a message telling it the command is not permitted and to ask
 the user to run it manually.

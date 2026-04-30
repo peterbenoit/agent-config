@@ -18,7 +18,7 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
   Says context arrives via `$BASH_COMMAND` environment variable. Actual contract is stdin JSON.
   This directly contradicts the hook script and the AGENTS.md hook spec note.
 
-- [ ] **Fix `hooks/README.md` blocked-command list**
+- [x] **Fix `hooks/README.md` blocked-command list**
   Prose list omits `git branch -d` and `git restore --staged`, both of which `block-dangerous-git.sh` actually blocks.
 
 - [ ] **Fix `update.sh --force` warning messaging**
