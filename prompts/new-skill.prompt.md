@@ -3,7 +3,7 @@ name: 'new-skill'
 description: 'Scaffold a new SKILL.md with correct frontmatter, structure, and the universal/project-specific split'
 argument-hint: 'Name of the skill to create (e.g., "database", "api-design")'
 agent: 'agent'
-tools: ['search/codebase', 'vscode/openFile', 'vscode/askQuestions']
+tools: ['search/codebase', 'vscode/openFile']
 ---
 
 Create a new skill file for: ${input:skillName:skill name, e.g. "database" or "api-design"}

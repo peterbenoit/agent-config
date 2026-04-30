@@ -22,9 +22,12 @@ If it would be useful in any project, it belongs here.
 ```
 agent-config/
 ├── skills/          # 19 SKILL.md instruction sets + 2 deferred (see skills/README.md)
+├── prompts/         # .prompt.md slash commands for VS Code chat (/pre-publish, /new-skill, etc.)
+├── instructions/    # .instructions.md always-on rules (accessibility, security, writing)
 ├── hooks/           # Shell scripts for agent hook systems (Claude Code PreToolUse)
-├── context/         # Domain context files (bigcommerce, js-library, static-site, web-app)
+├── context/         # Domain context files (bigcommerce, js-library, static-site, federal, web-app)
 ├── templates/       # 6 AGENTS.md starters for different project types
+├── validate.sh      # Validate skill frontmatter, README tables, hook executability
 ├── init.sh          # Wire agent-config into a new project (copy or symlink)
 └── update.sh        # Pull skill updates into an already-initialized project
 ```
