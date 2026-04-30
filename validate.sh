@@ -120,36 +120,18 @@ if [ ! -f "$template_file" ]; then
 else
   # Extract heredoc content from init.sh (between << 'EOF' and ^EOF$)
   start_line=$(grep -n "<< 'EOF'" "$INIT_SH" | head -1 | cut -d: -f1)
-  if [ -n "$start_line" ]; then
+  if [ -z "$start_line" ]; then
+    fail "Could not locate heredoc in init.sh"
+  else
     heredoc=$(awk "NR==$start_line,/^EOF\$/{if(NR>$start_line && /^EOF\$/) exit; if(NR>$start_line) print}" "$INIT_SH")
-  else
-    heredoc=""
-  fi
 
-  # Check key sections match
-  for section_header in "## Skills" "## Context" "## Build & Dev" "## Architecture" "## What Not to Do"; do
-    if echo "$heredoc" | grep -qF "$section_header"; then
-      if grep -qF "$section_header" "$template_file"; then
-        ok "heredoc has '$section_header' (also in template)"
-      else
-        warn "heredoc has '$section_header' but template does not — template may be outdated"
-      fi
+    diff_output=$(diff <(echo "$heredoc") "$template_file")
+    if [ -z "$diff_output" ]; then
+      ok "init.sh heredoc matches templates/agents-default.md exactly"
     else
-      if grep -qF "$section_header" "$template_file"; then
-        fail "heredoc missing '$section_header' that exists in templates/agents-default.md"
-      fi
+      fail "init.sh heredoc differs from templates/agents-default.md"
+      echo "$diff_output" | head -30 | sed 's/^/    /'
     fi
-  done
-
-  # Check Architecture placeholder text matches
-  heredoc_arch=$(echo "$heredoc" | grep -A1 "## Architecture" | tail -1)
-  template_arch=$(grep -A1 "## Architecture" "$template_file" | tail -1)
-  if [ "$heredoc_arch" = "$template_arch" ]; then
-    ok "Architecture placeholder matches template"
-  else
-    warn "Architecture placeholder differs from template"
-    echo "    init.sh : $heredoc_arch"
-    echo "    template: $template_arch"
   fi
 fi
 

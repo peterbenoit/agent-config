@@ -27,7 +27,7 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
 - [x] **Fix `update.sh` skip counter for `skills/README.md`**
   When `skills/README.md` differs and `--force` is off, the script prints a skip line but does not increment `count_skipped` and does not add it to `skipped_names`. Summary underreports skips.
 
-- [ ] **Fix `validate.sh` heredoc check scope**
+- [x] **Fix `validate.sh` heredoc check scope**
   Currently only checks section header presence and one placeholder line — reports pass even when overlay path in `init.sh` differs from templates. Either do a full heredoc-vs-template diff or explicitly document that the check is header-only (so it stops implying full sync).
 
 ---
