@@ -82,7 +82,7 @@ doesn't exist. See `init.sh` for what it does before running it.
 
 Adds new skills that don't exist yet. Updates skills whose files haven't been locally modified.
 Skips skills with local changes and reports them with a diff command to review. Use `--force`
-to overwrite all skills including modified ones (will clobber local overlays).
+to overwrite all locally modified base `SKILL.md` files and `skills/README.md`. `.local.md` overlays are never touched by `update.sh`.
 
 > **Which to use:** Symlink for active projects you own solo. Copy for anything going to CI,
 > being shared, or where you want stability over keeping current.

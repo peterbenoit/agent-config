@@ -116,6 +116,12 @@ Then add to `~/.claude/settings.json`:
 }
 ```
 
+**Dependencies:** `jq` is required for reliable JSON parsing. Install with `brew install jq`. Without it, the script falls back to a naive `grep`/`sed` parser that can misread commands containing escaped quotes — if `jq` is missing, install it before relying on this hook in security-sensitive contexts.
+
+**Parse-failure behavior:** If the hook cannot parse the stdin payload (e.g. malformed JSON), it exits `0` and allows the command through. This is an intentional availability tradeoff — the hook prefers not to block legitimate work over an unparseable payload. Be aware this means a sufficiently malformed input bypasses the check.
+
+**Known false positives:** The hook matches on plain string presence, so commands that contain a blocked phrase as a substring will be blocked even if not executed. Examples: `echo 'git push would be bad'`, `# git push comment`, or documentation being written to a file. This is a known limitation.
+
 **Adjusting the blocked list:** Edit the `DANGEROUS_PATTERNS` array in the script before
 installing. The `git-guardrails` skill walks through this if you want agent-assisted setup.
 

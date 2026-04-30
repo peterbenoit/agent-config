@@ -6,8 +6,7 @@ applyTo: '**/*.md'
 
 # Writing & Voice
 
-Apply these principles whenever writing or editing prose — README files, blog posts,
-documentation, copy, comments, commit messages, or any text that represents the work publicly.
+Apply these principles whenever writing or editing prose in Markdown files — README files, blog posts, documentation, and similar text. This instruction is scoped to `**/*.md` files and does not automatically apply to commit messages or inline code comments.
 
 ## Core Principles
 

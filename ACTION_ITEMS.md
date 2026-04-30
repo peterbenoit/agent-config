@@ -34,22 +34,22 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
 
 ## Priority 2 — Stale Documentation (Misleading But Not Broken)
 
-- [ ] **Fix `README.md` `--force` warning**
+- [x] **Fix `README.md` `--force` warning**
   Root README says `--force` "will clobber local overlays." Under `.local.md` convention this is wrong. Rewrite to name the actual risk: edited base `SKILL.md` files and `skills/README.md`.
 
-- [ ] **Add `jq` as a listed dependency in `hooks/README.md`**
+- [x] **Add `jq` as a listed dependency in `hooks/README.md`**
   Install instructions don't mention `jq`. The git-guardrails skill covers it, but hooks are copied independently. Dependency should live where the hook is documented.
 
-- [ ] **Add `hooks/README.md` note on parse-failure behavior**
+- [x] **Add `hooks/README.md` note on parse-failure behavior**
   If hook can't parse stdin, it exits `0` (allow). This is an intentional availability tradeoff but undocumented. A security-conscious user needs to know the threat model.
 
-- [ ] **Add `hooks/README.md` note on known false positives**
+- [x] **Add `hooks/README.md` note on known false positives**
   Comments, strings, and echoed docs containing blocked phrases will trigger blocks. Documented in test output but absent from the user-facing hook README.
 
-- [ ] **Fix `writing.instructions.md` scope statement**
+- [x] **Fix `writing.instructions.md` scope statement**
   `applyTo: '**/*.md'` — body says it covers "commit messages" and "comments in code files." Those are out of scope for the `applyTo` pattern. Either narrow the prose or broaden the pattern.
 
-- [ ] **Update `init.sh` "Next steps" output**
+- [x] **Update `init.sh` "Next steps" output**
   Step 2 says "Add project-specific skill overlays to skills/ as needed." Now that the repo ships context templates, prompts, instructions, and hooks, next steps should either stay skill-focused (and say so explicitly) or enumerate the other optional assets.
 
 ---
