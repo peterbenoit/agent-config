@@ -102,16 +102,16 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
 
 ## Priority 6 — Lower-Impact Improvements
 
-- [ ] **Test fixtures for `init.sh`, `update.sh`, `validate.sh`**
+- [x] **Test fixtures for `init.sh`, `update.sh`, `validate.sh`**
   No test infrastructure exists for the setup/update/validation scripts. Useful cases: blank project init, existing AGENTS.md, copied vs symlinked skills, `.local.md` overlays, force mode, dry-run output. High risk, low coverage.
 
-- [ ] **Label personal-style rules in `prompts/pre-publish.prompt.md` and `writing.instructions.md`**
+- [x] **Label personal-style rules in `prompts/pre-publish.prompt.md` and `writing.instructions.md`**
   "No em-dashes" and personal contact-info checks are valid preferences but not universal engineering standards. If this repo is shared as a general toolkit, mark them as project-profile defaults or move to an overlay layer.
 
-- [ ] **Review `pre-publish` robots meta requirement**
+- [x] **Review `pre-publish` robots meta requirement**
   Prompt flags missing `<meta name="robots" content="index, follow">` as a failure. Omitting this tag is valid — index/follow is the default. The check produces false failures for valid pages.
 
-- [ ] **Add a routing guide: skill vs prompt vs instruction**
+- [x] **Add a routing guide: skill vs prompt vs instruction**
   README explains each asset type separately but provides no decision matrix. As the toolkit grows, new additions risk landing in the wrong layer. A short "When to use which" section prevents drift.
 
 ---

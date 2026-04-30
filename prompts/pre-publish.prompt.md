@@ -43,7 +43,7 @@ At the end, produce a summary: what passed, what failed, what needs a decision.
 - [ ] `og:image` URL is absolute (not relative)
 - [ ] Correct JSON-LD schema type for this page (BlogPosting / SoftwareSourceCode / Article)
 - [ ] JSON-LD includes: `headline` or `name`, `url`, `author`
-- [ ] `<meta name="robots" content="index, follow">` present (or confirm noindex is intentional)
+- [ ] If noindex is intentional, confirm `<meta name="robots" content="noindex">` is present
 
 ## 4. Security
 
@@ -54,6 +54,9 @@ At the end, produce a summary: what passed, what failed, what needs a decision.
 - [ ] GitHub repo links — confirm repos are public before publishing
 
 ## 5. Content Quality
+
+> The checks below reflect personal publishing preferences, not universal standards.
+> Adjust to match the project's own voice and style guidelines.
 
 - [ ] No em-dashes anywhere (titles, meta, body, related links, comments)
 - [ ] No "battle-tested", "robust", "seamless", or marketing language

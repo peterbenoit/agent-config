@@ -89,6 +89,25 @@ to overwrite all locally modified base `SKILL.md` files and `skills/README.md`. 
 
 ---
 
+## Choosing the Right Layer
+
+Not every new idea is a skill. Use this to decide where it belongs:
+
+| If you want to... | Use |
+|-------------------|-----|
+| Package standing expertise for a task type | `skills/` SKILL.md |
+| Enforce a rule automatically on every matching file | `instructions/` .instructions.md |
+| Create a repeatable on-demand workflow | `prompts/` .prompt.md |
+| Prevent dangerous actions at the agent level | `hooks/` shell script |
+| Give an agent background on a domain or platform | `context/` .md file |
+| Bootstrap a project with the right AGENTS.md | `templates/` agents-*.md |
+
+**Skills** load on task intent. **Instructions** fire automatically by file pattern.
+**Prompts** are invoked manually. If the idea only makes sense for one project, it belongs
+in that project's repo, not here.
+
+---
+
 ## Using Skills
 
 How skills get loaded depends on the agent environment:

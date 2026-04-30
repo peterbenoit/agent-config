@@ -29,6 +29,9 @@ without losing meaning, cut it.
 
 ## Always Avoid
 
+> The style rules below are personal toolkit preferences, not universal standards.
+> If this instruction is used in a shared project, review these against the project's voice guidelines.
+
 - "Battle-tested", "robust", "seamless", "powerful", "game-changing", "intuitive" — describe
   behavior instead
 - "Excited to share", "thrilled to announce" — cut entirely
