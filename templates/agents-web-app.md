@@ -64,7 +64,7 @@ Never point a development instance at the production database.
 
 ## What Not to Do
 
-- Never disable Row Level Security (or equivalent access control) to simplify a query — fix the policy
 - Never commit `.env` files or credentials — use environment variables at runtime
 - Never bypass auth middleware at the route level — check authentication inside route handlers too
+- <!-- Example guardrail (replace or remove if not using RLS): Never disable Row Level Security (or equivalent access control) to simplify a query — fix the policy -->
 - <!-- Add project-specific guardrails here: optimistic update policy, soft-delete pattern, etc. -->

@@ -18,7 +18,7 @@ Remaining work from the 2026-04-29 findings review.
 - [ ] **Root README skill discovery claim** — "Skills are loaded by the agent when the task matches the trigger phrases / You don't configure which skills load" — not true for all agents. Distinguish environments that support native skill loading from those that only read `AGENTS.md`.
 - [x] **Thin skill descriptions** — `git-guardrails` and `tdd` now have 4–6 explicit trigger phrases each in their frontmatter descriptions.
 - [x] **"This project" wording in universal skills** — replaced with "the current project" throughout `content-strategy`, `design`, `docs`, `performance`, `security`, `social`.
-- [ ] **Template over-specificity** — mark example-only guardrails as such in: `agents-js-library.md` (zero-dependency claim, no async delivery), `agents-web-app.md` (RLS assumption), `agents-federal-app.md` (`npm audit` before every deploy).
+- [x] **Template over-specificity** — moved zero-dependency and no-async-delivery guardrails to `<!-- Example guardrail -->` comments in `agents-js-library.md`; same for RLS in `agents-web-app.md` and `npm audit` in `agents-federal-app.md`. Universal guardrails kept as-is.
 - [x] **Hook README security note** — added warning before the global install block that hook scripts execute in every agent session and should be inspected before install.
 
 ---

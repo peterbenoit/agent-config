@@ -78,7 +78,7 @@ keyboard navigation or screen reader compatibility.
 - FedRAMP authorization: `<!-- Yes — authorized at [Low/Moderate/High] / Not required -->`
 - Agency ATO (Authority to Operate): `<!-- In place / Pending / Not required -->`
 - Scanning: `<!-- OWASP ZAP / Fortify / agency-mandated scanner -->`
-- Dependency scanning: run `npm audit` before every deployment; no high/critical unresolved
+- <!-- Example guardrail (replace with agency-specific requirement): Dependency scanning: run `npm audit` before every deployment; no high/critical unresolved -->
 
 ## Agency Constraints
 

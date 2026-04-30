@@ -49,7 +49,8 @@ When in doubt: major. A surprised consumer is worse than an early major bump.
 
 ## What Not to Do
 
-- Never add a runtime dependency without an explicit decision — this is a zero-dependency library
 - Never expose internal module paths as part of the public API — import from `src/index.ts` only
-- Never make delivery behavior async if it is currently synchronous — that changes the observable contract
+- Never commit `.env` files or credentials — use environment variables at runtime
+- <!-- Example guardrail (replace or remove): Never add a runtime dependency without an explicit decision — this is a zero-dependency library -->
+- <!-- Example guardrail (replace or remove): Never make delivery behavior async if it is currently synchronous — that changes the observable contract -->
 - <!-- Add project-specific guardrails here -->
