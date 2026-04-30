@@ -11,7 +11,8 @@ methodology, and trigger phrases for that specialist. Read the relevant skill be
 any matching task — don't rely on memory for things the skill defines.
 
 To add project-specific context to a universal skill, create a local overlay:
-`./skills/<name>/SKILL.md` — the agent reads both; the local file wins on conflicts.
+`./skills/<name>.local.md` — the agent reads both; the local file wins on conflicts.
+Do not edit `SKILL.md` directly — it will be overwritten on updates.
 
 ## Context
 

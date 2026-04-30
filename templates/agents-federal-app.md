@@ -14,7 +14,8 @@ methodology, and trigger phrases for that specialist. Read the relevant skill be
 any matching task — don't rely on memory for things the skill defines.
 
 For this project, the most relevant skills are: `508`, `qa`, `security`, `performance`.
-To add project-specific context, create a local overlay: `./skills/<name>/SKILL.md`.
+To add project-specific context, create a local overlay: `./skills/<name>.local.md`.
+Do not edit `SKILL.md` directly — it will be overwritten on updates.
 
 ## Context
 

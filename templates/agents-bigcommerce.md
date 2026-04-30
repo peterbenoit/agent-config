@@ -13,8 +13,8 @@ methodology, and trigger phrases for that specialist. Read the relevant skill be
 any matching task — don't rely on memory for things the skill defines.
 
 Start with the `bigcommerce` skill for any Stencil or API work. To add project-specific context
-to a universal skill, create a local overlay: `./skills/<name>/SKILL.md` — the agent reads both;
-the local file wins on conflicts.
+to a universal skill, create a local overlay: `./skills/<name>.local.md` — the agent reads both;
+the local file wins on conflicts. Do not edit `SKILL.md` directly — it will be overwritten on updates.
 
 ## Context
 

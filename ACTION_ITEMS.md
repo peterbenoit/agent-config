@@ -9,7 +9,7 @@ Statuses: `[ ]` not started · `[~]` partial · `[x]` done · `[-]` won't fix / 
 
 ## Priority 1 — Confirmed Bugs (Wrong Behavior Today)
 
-- [ ] **Fix overlay path in all six AGENTS templates**
+- [x] **Fix overlay path in all six AGENTS templates**
   All templates say `./skills/<name>/SKILL.md` for the overlay. Correct path is `./skills/<name>.local.md`.
   Affects: `templates/agents-default.md`, `agents-static-site.md`, `agents-web-app.md`, `agents-js-library.md`, `agents-bigcommerce.md`, `agents-federal-app.md`.
   `init.sh` and `skills/README.md` already use the correct path — this is pure template drift.
