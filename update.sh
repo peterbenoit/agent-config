@@ -65,6 +65,23 @@ echo "  target : $PROJECT_DIR"
 [ "$FORCE" = true ] && echo "  mode   : force (overwrites local changes)"
 echo ""
 
+# ── Global symlink health ─────────────────────────────────────────────────────
+
+echo "Global symlinks:"
+symlink_ok=true
+for target in ~/.agents/skills ~/.claude/skills ~/.codex/skills; do
+  if [ ! -L "$target" ]; then
+    warn "Missing symlink: $target"
+    warn "  Fix: ln -s $SKILLS_SRC $target"
+    symlink_ok=false
+  else
+    log "✓ $target"
+  fi
+done
+[ "$symlink_ok" = false ] && echo ""
+
+echo ""
+
 count_added=0
 count_updated=0
 count_current=0
