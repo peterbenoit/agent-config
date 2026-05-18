@@ -12,7 +12,7 @@ worth hardening. Sorted roughly by effort, not by priority.
 
 ## Repository Structure and Documentation
 
-- [ ] **1. Add CHANGELOG.md**
+- [x] **1. Add CHANGELOG.md**
 Track what changed between versions of skills and scripts. Even a flat `## Unreleased` format
 is enough. Hasna tracks this at the package level. For a personal toolkit it matters because
 projects using `update.sh` have no way to know what changed between their install and now.
@@ -21,11 +21,11 @@ projects using `update.sh` have no way to know what changed between their instal
 Even for a solo repo, the discipline of writing contribution rules clarifies the conventions
 you've already decided and makes the repo shareable without a verbal handoff.
 
-- [ ] **3. Add SECURITY.md**
+- [x] **3. Add SECURITY.md**
 One page. What to do if you find a problem. Responsible disclosure if you ever share this
 publicly. Hasna has a proper one. Doesn't take long and signals intent.
 
-- [ ] **4. Add a VERSION file or version field**
+- [x] **4. Add a VERSION file or version field**
 No way to know what "version" of agent-config a project was initialized from. Even a plain
 `VERSION` file (`0.1.0`) would let `update.sh` report whether a project is behind. Pairs
 with CHANGELOG.md.
@@ -35,7 +35,7 @@ Hasna has `docs/architecture/`, `docs/product/`, `docs/release/`. Even for agent
 a `docs/` folder for design decisions ("why is the overlay pattern `.local.md` and not a
 directory?") would be useful reference and context for agents working on the toolkit itself.
 
-- [ ] **6. Add `.claude/settings.json` in the repo root**
+- [x] **6. Add `.claude/settings.json` in the repo root**
 When Claude Code works inside agent-config, it currently has no project-level hook config.
 Add `.claude/settings.json` wiring `block-dangerous-git.sh` as a hook for this repo itself.
 Eat your own cooking.
@@ -123,12 +123,12 @@ belong in this repo. Update `validate.sh` to ignore that path and document the c
 `validate.sh` checks skills, hooks, and instructions. It doesn't check `prompts/`. At minimum,
 verify each `.prompt.md` has `name:`, `description:`, and `agent:` fields.
 
-- [ ] **18. Validate context file structure**
+- [x] **18. Validate context file structure**
 Context files are plain markdown templates. validate.sh doesn't check them. Add a check that
 each `.md` in `context/` has at least a heading and is non-empty. Optionally check that
 template placeholder comments (`<!-- ... -->`) exist.
 
-- [ ] **19. Validate templates for required placeholders**
+- [x] **19. Validate templates for required placeholders**
 Templates in `templates/` use HTML comment placeholders. validate.sh doesn't touch them.
 Add a check that each template file contains at least one `<!-- ... -->` placeholder (to
 catch templates that got fully filled in by mistake and committed as project-specific content).
@@ -138,7 +138,7 @@ The AGENTS.md convention says descriptions should have 4-6 trigger phrases. vali
 doesn't verify this. Add a check that each skill description contains at least 4 quoted
 or italicized phrases, or at least 4 instances of something that looks like a trigger phrase.
 
-- [ ] **21. Validate `category:` and `tags:` fields if added**
+- [x] **21. Validate `category:` and `tags:` fields if added**
 Once frontmatter is extended (items 7-8 above), validate.sh should check that `category:`
 is one of the allowed values and that `tags:` is a non-empty list.
 
@@ -350,7 +350,7 @@ Hasna has a `completion` command. A `completion.sh` for agent-config that genera
 zsh/bash completions for skill names would make `--select` flags on init.sh and search.sh
 tab-completable. Minor quality-of-life, but Hasna thought it was worth doing.
 
-- [ ] **57. Add a machine-readable skill registry (`registry.json`)**
+- [x] **57. Add a machine-readable skill registry (`registry.json`)**
 A generated JSON file listing all skills with their frontmatter. Built by a `build.sh`
 or as a side effect of validate.sh. Useful for: IDE integrations, piping into other scripts,
 and for agents that want to inspect the full library without parsing markdown.
@@ -365,7 +365,7 @@ When init.sh runs, write a `.agent-config` file to the project root with: source
 init date, and skill list. This lets update.sh detect projects initialized from this repo,
 diagnose.sh report their status, and diff.sh know what to compare against.
 
-- [ ] **60. Add a `CLAUDE.md` at the repo root**
+- [x] **60. Add a `CLAUDE.md` at the repo root**
 AGENTS.md is the general agent manifest. CLAUDE.md is Claude Code-specific and has
 distinct loading behavior (it's always loaded in the session context, not just when named).
 A root-level CLAUDE.md pointing at AGENTS.md and noting the `.claude/settings.json`
@@ -376,14 +376,14 @@ without any manual setup step.
 
 ## Housekeeping
 
-- [ ] **61. Remove `.DS_Store` from the repo**
+- [x] **61. Remove `.DS_Store` from the repo**
 It's in the directory listing. It should be in `.gitignore` and removed from tracking.
 ```bash
 echo ".DS_Store" >> .gitignore
 git rm --cached .DS_Store
 ```
 
-- [ ] **62. Audit `skills/.system/` folder**
+- [x] **62. Audit `skills/.system/` folder**
 The listing shows a `skills/.system/` directory with no `SKILL.md`. validate.sh skips it
 (no SKILL.md = skipped). What's in there and does it belong? If it's internal scaffolding,
 document it. If it's a deferred skill, apply the deferred convention (item 12).
@@ -504,7 +504,7 @@ bundlesize constraints, semver rules, and publish checklist reference.
 
 ### Structural / Discoverability
 
-- [ ] **83. Add `registry.json` (machine-readable skill index)**
+- [x] **83. Add `registry.json` (machine-readable skill index)**
 *(already in backlog as item 57, re-listed for emphasis)*
 The AI is too dependent on the user knowing to ask for a specific skill. A registry.json
 built by validate.sh or a separate build.sh makes the full library inspectable without

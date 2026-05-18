@@ -66,10 +66,17 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     fail "$skill_name: frontmatter missing 'description' field"
   fi
 
-  # Check category field exists
-  fm_cat=$(awk '/^---/{f=!f; next} f && /^category:/{print $2; exit}' "$skill_file")
+  # Check category field exists and is an allowed value
+  fm_cat=$(awk '/^---/{f=!f; next} f && /^category:/{sub(/^category:[[:space:]]*/, ""); print; exit}' "$skill_file")
   if [ -z "$fm_cat" ]; then
     fail "$skill_name: frontmatter missing 'category' field"
+  else
+    case "$fm_cat" in
+      Accessibility|"Code Quality"|Content|Security|Workflow|Meta)
+        ok "$skill_name: category '$fm_cat' is valid" ;;
+      *)
+        fail "$skill_name: category '$fm_cat' is not an allowed value (Accessibility, Code Quality, Content, Security, Workflow, Meta)" ;;
+    esac
   fi
 
   # Check tags field exists and is non-empty
@@ -239,6 +246,23 @@ for ctx_file in "$CONTEXT_DIR"/*.md; do
   fi
 done
 
+# ── 8b. context/*.md content structure ───────────────────────────────────────
+
+section "context file structure"
+
+for ctx_file in "$CONTEXT_DIR"/*.md; do
+  ctx_name=$(basename "$ctx_file")
+  [ "$ctx_name" = "README.md" ] && continue
+
+  if [ ! -s "$ctx_file" ]; then
+    fail "$ctx_name: file is empty"
+  elif ! grep -q "^#" "$ctx_file"; then
+    fail "$ctx_name: no markdown heading found"
+  else
+    ok "$ctx_name: has content and heading"
+  fi
+done
+
 # ── 9. templates/agents-*.md listed in templates/README.md ───────────────────
 
 section "templates/README.md coverage"
@@ -252,6 +276,19 @@ for tmpl_file in "$TEMPLATES_DIR"/agents-*.md; do
     ok "$tmpl_name: listed in templates/README.md"
   else
     fail "$tmpl_name: NOT listed in templates/README.md"
+  fi
+done
+
+# ── 9b. templates: required HTML comment placeholders ────────────────────────
+
+section "template placeholder check"
+
+for tmpl_file in "$TEMPLATES_DIR"/agents-*.md; do
+  tmpl_name=$(basename "$tmpl_file")
+  if grep -q "<!--" "$tmpl_file"; then
+    ok "$tmpl_name: has HTML comment placeholders"
+  else
+    fail "$tmpl_name: no <!-- --> placeholders found (may have been filled in and committed)"
   fi
 done
 
