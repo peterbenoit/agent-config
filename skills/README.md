@@ -108,6 +108,10 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `voice` | Copy editing, tone consistency, README prose, writing that represents the project | Universal |
 | `vads` | VA Design System component selection, correct implementation, deviation rules | Universal |
 | `zoom-out` | High-level orientation to unfamiliar code — how it fits, what calls what | Universal |
+| `drupal` | Drupal theming, Twig templates, preprocess hooks, config sync, drush, render arrays | Universal |
+| `debug` | Systematic debugging: reproduce, isolate, hypothesize, verify — JS, CSS, network | Universal |
+| `npm-publish` | npm package publish lifecycle: semver, CHANGELOG, dual ESM/CJS, pre-publish checklist | Universal |
+| `css-architecture` | CSS custom properties, cascade layers, specificity, responsive strategy, design tokens | Universal |
 
 **Deferred (placeholder folders with reasoning):**
 

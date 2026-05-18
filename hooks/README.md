@@ -39,6 +39,12 @@ Scripts here are reusable and project-agnostic. Copy or symlink them into a proj
 |--------|---------|-----------------|
 | `block-dangerous-git.sh` | Blocks destructive git commands | Claude Code |
 | `test-block-dangerous-git.sh` | Fixture tests for block-dangerous-git.sh | Any |
+| `block-file-writes.sh` | Blocks agent writes to .env, keys, and secrets paths | Claude Code |
+| `test-block-file-writes.sh` | Fixture tests for block-file-writes.sh | Any |
+| `log-tool-use.sh` | Appends agent tool use to .agent-session.log (PostToolUse) | Claude Code |
+| `test-log-tool-use.sh` | Fixture tests for log-tool-use.sh | Any |
+| `check-test-before-commit.sh` | Blocks git commit if test suite is failing | Claude Code |
+| `test-check-test-before-commit.sh` | Fixture tests for check-test-before-commit.sh | Any |
 
 To add a new hook script:
 1. Write it as a standalone shell script with a clear name

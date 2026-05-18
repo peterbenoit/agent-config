@@ -24,6 +24,8 @@ The goal is not a complete file — it's a correct skeleton that asks the right 
 | `agents-web-app.md` | AGENTS.md for a web application | React, Vue, or server-rendered apps |
 | `agents-bigcommerce.md` | AGENTS.md for a BigCommerce Stencil store | BC theme + API integration projects |
 | `agents-federal-app.md` | AGENTS.md for a federal web project | USWDS, 508, FedRAMP, agency contracts |
+| `agents-drupal.md` | AGENTS.md for a Drupal project | Drupal theming, module work, config sync, VA/client Drupal sites |
+| `agents-npm-package.md` | AGENTS.md for an npm package | @peterbenoit scoped packages, JS libraries |
 
 > `init.sh` generates a starter AGENTS.md inline (via heredoc). `agents-default.md` here
 > matches that output and can be used as a reference or copied manually. For project-type-specific

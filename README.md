@@ -145,6 +145,10 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `voice` | "edit this copy", "does this README sound right" |
 | `vads` | "which VADS component", "is there a VADS pattern for", "va- web component" |
 | `zoom-out` | "I don't understand this code", "give me the big picture" |
+| `drupal` | "Twig template", "preprocess hook", "drush", "config sync", "render array" |
+| `debug` | "something's broken", "why is this happening", "help me debug" |
+| `npm-publish` | "publish to npm", "version bump", "semver", "pre-publish checklist" |
+| `css-architecture` | "how should I structure my CSS", "specificity problem", "design tokens" |
 
 Skills `refactor` and `techwriter` are deferred (README placeholder only, no SKILL.md yet).
 
