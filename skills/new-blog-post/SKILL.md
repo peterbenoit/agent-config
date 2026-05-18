@@ -1,5 +1,7 @@
 ---
 name: new-blog-post
+category: Content
+tags: [blog, content, publishing, seo, json-ld, writing]
 description: >
   Use when creating a new blog post. Covers the writing quality bar, content requirements, head
   tags, JSON-LD schema, layout pattern, and publication checklist. Trigger on phrases like

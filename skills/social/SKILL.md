@@ -1,5 +1,7 @@
 ---
 name: social
+category: Content
+tags: [social, twitter, linkedin, promotion, announcement, copy]
 description: >
   Act as the social and promotion strategist for the current project. Use when deciding how to announce
   a new post or project, writing social copy, framing content for Twitter vs LinkedIn, or planning

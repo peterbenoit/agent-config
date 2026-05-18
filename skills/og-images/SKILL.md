@@ -1,5 +1,7 @@
 ---
 name: og-images
+category: Content
+tags: [og, social, images, open-graph, meta, generation]
 description: >
   Use when working with OG image generation. Covers the OG pipeline workflow, dry-run strategy,
   AI generation options, and review checklist. Trigger on phrases like "OG image", "og:image",

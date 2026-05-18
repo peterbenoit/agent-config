@@ -243,6 +243,20 @@ for tmpl_file in "$TEMPLATES_DIR"/agents-*.md; do
   fi
 done
 
+# ── 10. Global symlink health ─────────────────────────────────────────────────
+
+section "Global symlink health"
+
+SKILLS_SRC="$AGENT_CONFIG_DIR/skills"
+for target in ~/.agents/skills ~/.claude/skills ~/.codex/skills; do
+  expanded="${target/#\~/$HOME}"
+  if [ ! -L "$expanded" ]; then
+    warn "$target: missing symlink (fix: ln -s $SKILLS_SRC $expanded)"
+  else
+    ok "$target: symlink present"
+  fi
+done
+
 # ── Summary ───────────────────────────────────────────────────────────────────
 
 echo ""

@@ -1,5 +1,7 @@
 ---
 name: zoom-out
+category: Workflow
+tags: [architecture, planning, refactor, big-picture, codebase, orientation]
 description: >
   Tell the agent to zoom out and give a higher-level perspective on an unfamiliar section of code
   or a problem. Use when you don't know this area of the codebase well, need to understand how

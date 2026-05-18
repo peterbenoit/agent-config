@@ -1,5 +1,7 @@
 ---
 name: security
+category: Security
+tags: [security, owasp, vulnerabilities, headers, secrets, review]
 description: >
   Act as the security reviewer for the current project. Use when auditing code for vulnerabilities,
   reviewing dependencies, setting up security headers, checking secrets hygiene, or assessing

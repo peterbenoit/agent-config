@@ -1,5 +1,7 @@
 ---
 name: analytics
+category: Workflow
+tags: [analytics, ga4, gtm, search-console, data, traffic]
 description: >
   Act as the analytics advisor for any web project. Use when reading GA4 or Search Console data,
   diagnosing traffic or indexing problems, interpreting what's working, or deciding where to focus

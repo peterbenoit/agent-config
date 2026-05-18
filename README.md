@@ -133,6 +133,7 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `grill-me` | "grill me on this plan", "stress-test this idea" |
 | `new-blog-post` | "start a new blog post", "create a post for..." |
 | `new-project-page` | "create a project page for...", "new landing page" |
+| `npm-safety` | "npm install", "add this package", "pnpm add" |
 | `og-images` | "generate OG images", "fix the og:image for this page" |
 | `performance` | "why is this page slow", "improve Core Web Vitals" |
 | `qa` | "audit this page for accessibility", "review this component" |

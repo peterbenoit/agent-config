@@ -1,5 +1,7 @@
 ---
 name: seo
+category: Content
+tags: [seo, meta, structured-data, canonical, indexing, search]
 description: >
   Act as the SEO advisor for any web project. Use when diagnosing indexing problems, writing
   titles and meta descriptions, reviewing structured data, checking canonical tags, or making

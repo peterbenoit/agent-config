@@ -96,6 +96,7 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `grill-me` | Adversarial plan review — stress-test ideas until every branch is resolved | Universal |
 | `new-blog-post` | Blog post creation: writing bar, head tags, JSON-LD, publication checklist | Universal |
 | `new-project-page` | Project page creation: file setup, OG meta, schema, analytics, design pattern | Universal |
+| `npm-safety` | Security checks before any npm/pnpm install — audit, provenance, supply chain | Universal |
 | `og-images` | OG image pipeline, AI generation workflow, dry-run strategy, review checklist | Universal |
 | `performance` | Core Web Vitals, bundle size, render-blocking resources, Lighthouse diagnosis | Universal |
 | `qa` | Page and component review: correctness, accessibility compliance, structure | Universal |
@@ -112,6 +113,13 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 |--------|--------|----------------|
 | `refactor/` | Not yet written | Overlaps with `zoom-out` + implementation; write when you hit specific friction |
 | `techwriter/` | Not yet written | Overlaps with `voice` + `docs`; write when you can define the distinct role |
+
+**System folder (`.system/`):**
+
+Not agent-config skills. These were auto-installed by the OpenAI Codex runtime and are
+managed by Codex, not by this repo. Contents: `imagegen`, `openai-docs`, `plugin-creator`,
+`skill-creator`, `skill-installer`. Do not edit, move, or add these to the skills table.
+`validate.sh` ignores this folder because there is no top-level `SKILL.md`.
 
 ---
 

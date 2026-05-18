@@ -1,5 +1,7 @@
 ---
 name: voice
+category: Content
+tags: [writing, voice, copy, docs, editing, tone]
 description: >
   Act as the voice and writing editor for any project. Use when writing or editing copy, docs,
   blog posts, project descriptions, README files, or any text that represents the project

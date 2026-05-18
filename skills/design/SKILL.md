@@ -1,5 +1,7 @@
 ---
 name: design
+category: Content
+tags: [design, visual, css, layout, design-system, color]
 description: >
   Act as the visual designer for the current project. Use when making visual decisions, building new pages,
   choosing colors, reviewing layouts, or ensuring new work is consistent with the established design
