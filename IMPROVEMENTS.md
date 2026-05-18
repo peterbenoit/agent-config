@@ -513,6 +513,92 @@ but don't get invoked because the user doesn't know to ask.
 
 ---
 
+## Global Agent Distribution — May 2026
+
+The goal: one repo (agent-config), latest skills available everywhere agents look for them,
+nothing manually copied or stale.
+
+**85. Audit and complete the global symlink map**
+
+Current symlinks checked by validate.sh and update.sh:
+- `~/.agents/skills` → `agent-config/skills/`
+- `~/.claude/skills` → `agent-config/skills/`
+- `~/.codex/skills` → `agent-config/skills/`
+
+Missing or unverified:
+- `~/.copilot/` — does VS Code Copilot read from here? What path/filename does it expect?
+- Claude Desktop — reads from `~/Library/Application Support/Claude/` — are skills wired there?
+- Cursor — reads from `~/.cursor/` — not in the symlink map
+- Any other agents added in the future
+
+Action: inventory exactly where each agent looks for skills, instructions, and prompts.
+Document the full map in README.md. Add every verified path to the symlink check in validate.sh.
+
+**86. Add `setup.sh` — one-command global wiring**
+
+Right now the symlinks are not created by any script. They exist because they were set up
+manually at some point. There is no documented setup step, no script to run on a new machine,
+and no way to verify the full set is correct without running validate.sh and reading its output.
+
+A `setup.sh` that creates (or verifies) all global symlinks would make the system reproducible:
+
+```bash
+~/GitHub/agent-config/setup.sh
+# Creates:
+#   ~/.agents/skills → ~/GitHub/agent-config/skills
+#   ~/.claude/skills → ~/GitHub/agent-config/skills
+#   ~/.codex/skills  → ~/GitHub/agent-config/skills
+#   ~/.copilot/...   → (whatever Copilot reads)
+#   + any prompts and instructions each agent loads globally
+# Skips symlinks that already point to the right place.
+# Reports broken or missing symlinks.
+```
+
+Flags: `--dry-run` to preview, `--force` to replace incorrect symlinks.
+This is the missing "install agent-config on a new machine" script.
+
+**87. Wire prompts globally for agents that support them**
+
+Skills are symlinked globally. Prompts are not. VS Code Copilot reads `.prompt.md` files
+from `~/Library/Application Support/Code/User/prompts/`. Claude Code has its own prompt
+path. Neither is currently wired.
+
+`setup.sh` (item 86) should also symlink or copy `prompts/` files to wherever each agent
+expects them. The goal: `/new-skill`, `/diagnose`, `/code-review`, etc. available in every
+agent session without any per-project setup.
+
+**88. Wire instructions globally for agents that support them**
+
+VS Code Copilot reads `.instructions.md` from the VS Code user instructions folder. Currently
+these require per-project installation via `install-instructions.sh`. There may be a global
+path that fires across all workspaces.
+
+Research: does VS Code support a user-level instructions folder (not workspace-level)?
+If yes, symlink `instructions/` there in `setup.sh`. If no, this stays per-project only
+and `install-instructions.sh` is the right tool.
+
+**89. Add `~/.copilot` (or equivalent) to the symlink map**
+
+The existing symlinks cover `~/.claude` and `~/.codex` but not anything Copilot-specific.
+Research what path (if any) VS Code Copilot reads for user-level skills or instructions,
+then add it to the symlink map and to validate.sh's health check.
+
+**90. Document the full distribution matrix in README.md**
+
+No single place currently explains what each agent gets and how. Add a table:
+
+| Asset | Claude Code | Claude Desktop | VS Code Copilot | Codex | Cursor |
+|-------|-------------|---------------|-----------------|-------|--------|
+| Skills | `~/.claude/skills` symlink | ? | attached manually / `#file` | `~/.codex/skills` symlink | `~/.cursor/` ? |
+| Prompts | ? | ? | `~/Library/.../User/prompts/` | ? | ? |
+| Instructions | project `.github/instructions/` | n/a | project `.github/instructions/` | ? | ? |
+| Hooks | `.claude/settings.json` | n/a | n/a | ? | ? |
+
+Fill in every cell. Where an agent doesn't support a mechanism, note that explicitly so
+future investigation starts from a documented gap, not a guess.
+
+---
+
 ## Human Notes
 
 - I'd like a way to set goals. I think there's a built-in skill for that? I just don't know how to apply it to projects. Just thoughts.
