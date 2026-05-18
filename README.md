@@ -215,17 +215,27 @@ to use this skill and when not to?
 
 Different asset types land in different places depending on your agent environment.
 
-| Asset | Claude Code | VS Code / Copilot | Cursor | AGENTS.md-only |
-|-------|-------------|-------------------|--------|----------------|
-| `skills/` | Copy/symlink into project `./skills/` via `init.sh` | Same — reference via AGENTS.md | Same | Same |
-| `hooks/` | Copy into `.claude/hooks/`, register in `.claude/settings.json` | Not supported (use AGENTS.md guardrails) | Not supported | Not applicable |
-| `instructions/` | Not natively supported | Copy to `~/Library/Application Support/Code/User/instructions/` or `.github/instructions/` | Copy to `.cursor/rules/` | Not applicable |
-| `prompts/` | Not natively supported | Copy to `~/Library/Application Support/Code/User/prompts/` | Not applicable | Not applicable |
-| `context/` | Read manually or reference in AGENTS.md | Same | Same | Same |
-| `templates/` | Copy as project `AGENTS.md`, then fill placeholders | Same | Same | Same |
+| Asset | Claude Code | Claude Desktop | VS Code Copilot | Codex | Cursor |
+|-------|-------------|----------------|-----------------|-------|--------|
+| `skills/` | `~/.claude/skills/` symlink or project `./skills/` via `init.sh` | Not supported natively | Attach via `#file` or reference in AGENTS.md | `~/.codex/skills/` symlink | Reference in `.cursor/rules/` |
+| `hooks/` | `.claude/hooks/` + `.claude/settings.json` | n/a | Not supported | Not supported | Not supported |
+| `instructions/` | Not natively supported | n/a | User-level: `~/Library/Application Support/Code/User/instructions/`; project: `.github/instructions/` | Not supported | `.cursor/rules/` (project-level) |
+| `prompts/` | Not natively supported | n/a | `~/Library/Application Support/Code/User/prompts/` | Not supported | Not supported |
+| `context/` | Read manually or referenced in AGENTS.md | n/a | Same | Same | Same |
+| `templates/` | Copy as project `AGENTS.md`, fill placeholders | Same | Same | Same | Same |
+| `AGENTS.md` | Read natively | Read natively | Read natively | Read natively | Read natively |
 
-`init.sh` and `update.sh` only manage `skills/` and the starter `AGENTS.md`. All other
-asset types must be installed manually.
+**Global symlinks** (created by `setup.sh`, checked by `validate.sh`):
+
+| Path | Points to | Agent |
+|------|-----------|-------|
+| `~/.claude/skills/` | `agent-config/skills/` | Claude Code |
+| `~/.codex/skills/` | `agent-config/skills/` | Codex |
+| `~/.agents/skills/` | `agent-config/skills/` | Generic / future agents |
+
+`init.sh` and `update.sh` only manage `skills/` and the starter `AGENTS.md`. Use
+`install-hooks.sh` for hooks and `install-instructions.sh` for instructions. Prompts
+must be installed manually per agent. Run `setup.sh` to wire global symlinks on a new machine.
 
 ---
 

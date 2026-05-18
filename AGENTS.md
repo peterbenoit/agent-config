@@ -8,18 +8,23 @@ are editing the toolkit, not a project that uses it.
 
 ## What This Repo Is
 
-- `skills/` — Universal SKILL.md files. 21 active skills, 2 deferred.
-- `prompts/` — `.prompt.md` slash commands for VS Code chat (`/pre-publish`, `/new-skill`, `/announce`, `/weekly-review`, `/diagnose`).
+- `skills/` — Universal SKILL.md files. 27 active skills, 2 deferred.
+- `prompts/` — `.prompt.md` slash commands for VS Code chat (`/pre-publish`, `/new-skill`, `/announce`, `/diagnose`, `/context-chooser`, and more).
 - `instructions/` — `.instructions.md` always-on rules loaded automatically by file pattern (accessibility, security, writing).
 - `hooks/` — Shell scripts for Claude Code PreToolUse hooks.
-- `context/` — Domain briefing files for BigCommerce, JS libraries, static sites, federal apps, web apps, Drupal, VA.gov.
-- `templates/` — AGENTS.md starters for 6 project types.
+- `context/` — Domain briefing files for BigCommerce, Drupal, JS libraries, Node APIs, npm packages, static sites, federal apps, VA.gov, and web apps.
+- `templates/` — AGENTS.md starters for 10 project types.
 - `validate.sh` — Checks skill frontmatter, README tables, hook executability, symlinks, and heredoc sync.
+- `build.sh` — Generates `registry.json` (machine-readable skill index) from skill frontmatter.
+- `diagnose.sh` — Full system health check: validate, symlinks, registry, hooks, VS Code prompts.
+- `setup.sh` — Creates global symlinks on a new machine (`~/.claude/skills`, `~/.codex/skills`, `~/.agents/skills`).
 - `list.sh` — List all skills with category and description (`--json` for machine-readable output).
 - `search.sh` — Search skills by name, category, tags, or description.
 - `new-skill.sh` — Scaffold a new skill directory and SKILL.md stub.
 - `init.sh` — Wires agent-config into a new project (copy or symlink + starter AGENTS.md).
 - `update.sh` — Pulls skill updates into an already-initialized project.
+- `install-hooks.sh` — Copies hooks into a target project and wires `.claude/settings.json`.
+- `install-instructions.sh` — Copies `.instructions.md` files into a target project.
 
 ---
 
@@ -47,6 +52,12 @@ is not well-defined yet.
 any project. Strip out any hardcoded URLs, file paths, property IDs, project names, or
 site-specific known issues. Those go in a `## Project Context` section that instructs the agent
 to check the project's AGENTS.md or a local overlay.
+
+**Deferred skills** have a folder in `skills/` with a `README.md` but no `SKILL.md`. The README
+explains why the skill is deferred and what would prompt writing it. `validate.sh` skips folders
+without a `SKILL.md`. Deferred skills are listed in `skills/README.md` under the deferred table.
+Do not create a stub SKILL.md for a deferred skill — an empty or placeholder SKILL.md is worse
+than no file because it may be accidentally loaded.
 
 ### Hooks
 

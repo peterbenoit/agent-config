@@ -123,6 +123,10 @@ with fixture inputs, snapshot tests for output format. -->
 - Destructive operations must have a `--dry-run` flag and require explicit confirmation without it
 - Exit codes must be consistent: 0 for success, non-zero for any failure
 
+## Skills
+
+Agent skills are in `./skills/`. **Recommended for CLI tools:** `security`, `tdd`, `qa`, `npm-publish`, `git-guardrails`
+
 ---
 
 ## Known Issues / Gotchas

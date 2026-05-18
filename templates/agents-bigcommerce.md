@@ -12,6 +12,8 @@ Agent skills are in `./skills/`. Each subfolder contains a SKILL.md with the rol
 methodology, and trigger phrases for that specialist. Read the relevant skill before starting
 any matching task — don't rely on memory for things the skill defines.
 
+**Recommended for BigCommerce projects:** `bigcommerce`, `security`, `seo`, `performance`, `qa`
+
 Start with the `bigcommerce` skill for any Stencil or API work. To add project-specific context
 to a universal skill, create a local overlay: `./skills/<name>.local.md` — the agent reads both;
 the local file wins on conflicts. Do not edit `SKILL.md` directly — it will be overwritten on updates.

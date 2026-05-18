@@ -17,7 +17,7 @@ Track what changed between versions of skills and scripts. Even a flat `## Unrel
 is enough. Hasna tracks this at the package level. For a personal toolkit it matters because
 projects using `update.sh` have no way to know what changed between their install and now.
 
-- [ ] **2. Add CONTRIBUTING.md**
+- [x] **2. Add CONTRIBUTING.md**
 Even for a solo repo, the discipline of writing contribution rules clarifies the conventions
 you've already decided and makes the repo shareable without a verbal handoff.
 
@@ -30,7 +30,7 @@ No way to know what "version" of agent-config a project was initialized from. Ev
 `VERSION` file (`0.1.0`) would let `update.sh` report whether a project is behind. Pairs
 with CHANGELOG.md.
 
-- [ ] **5. Add a `docs/` folder**
+- [x] **5. Add a `docs/` folder**
 Hasna has `docs/architecture/`, `docs/product/`, `docs/release/`. Even for agent-config,
 a `docs/` folder for design decisions ("why is the overlay pattern `.local.md` and not a
 directory?") would be useful reference and context for agents working on the toolkit itself.
@@ -88,7 +88,7 @@ triggers:
   - "stress-test this"
 ```
 
-- [ ] **12. Formalize the deferred skill structure**
+- [x] **12. Formalize the deferred skill structure**
 AGENTS.md mentions 2 deferred skills but they don't appear in the directory listing with any
 consistent marker. Hasna handles this by simply not having the directory. Define a convention:
 either a `_deferred/` folder with a `SKILL.md` containing `status: deferred`, or a plain
@@ -109,7 +109,7 @@ No way to know when a skill last changed or what version a project has installed
 simple `version: 1.3` or a date (`updated: 2026-05-01`) would let `update.sh` report
 actual drift instead of relying on file hash comparison.
 
-- [ ] **16. Add a custom skill discovery path**
+- [x] **16. Add a custom skill discovery path**
 Hasna discovers skills from `~/.hasna/skills/custom/`. agent-config references
 `~/.agents/skills/` in update.sh symlinks but never loads custom skills from a user directory.
 Define `~/.agents/skills/custom/` as the place for personal non-universal skills that don't
@@ -133,7 +133,7 @@ Templates in `templates/` use HTML comment placeholders. validate.sh doesn't tou
 Add a check that each template file contains at least one `<!-- ... -->` placeholder (to
 catch templates that got fully filled in by mistake and committed as project-specific content).
 
-- [ ] **20. Check minimum trigger phrase count in skill descriptions**
+- [x] **20. Check minimum trigger phrase count in skill descriptions**
 The AGENTS.md convention says descriptions should have 4-6 trigger phrases. validate.sh
 doesn't verify this. Add a check that each skill description contains at least 4 quoted
 or italicized phrases, or at least 4 instances of something that looks like a trigger phrase.
@@ -176,7 +176,7 @@ compare each installed skill against the agent-config source and report: current
 or locally modified. This is the gap update.sh currently papers over by skipping modified
 files silently.
 
-- [ ] **27. `diagnose.sh` — full system health check**
+- [x] **27. `diagnose.sh` — full system health check**
 A script combining: symlink check, hook install status per project, outdated skill count,
 missing instructions, and missing prompts. The goal is a single command that tells you
 the state of your agent tooling without reading three different READMEs.
@@ -206,27 +206,27 @@ with a `--with-instructions` flag) closes the gap.
 
 ## init.sh Improvements
 
-- [ ] **31. Add `--select` flag to install only named skills**
+- [x] **31. Add `--select` flag to install only named skills**
 Hasna supports `skills pin --category`. A `--select seo,tdd,security` flag on init.sh
 would let you wire a subset of skills without manually deleting the rest post-copy.
 Useful for projects that don't need the full library.
 
-- [ ] **32. Add `--with-hooks` flag**
+- [x] **32. Add `--with-hooks` flag**
 Wire hooks in the same init run. Currently you have to read the hooks README and do it
 manually. At minimum, ask during init whether to install `block-dangerous-git.sh`.
 
-- [ ] **33. Add `--with-instructions` flag**
+- [x] **33. Add `--with-instructions` flag**
 Same for instructions. Always-on rules are arguably more important than skills to have
 wired correctly from day one.
 
-- [ ] **34. Add `--template` flag to select which AGENTS.md starter to drop**
+- [x] **34. Add `--template` flag to select which AGENTS.md starter to drop**
 init.sh always drops `agents-default.md`. But if you're initializing a federal app, you
 want `agents-federal-app.md`. The flag could be:
 ```bash
 ~/GitHub/agent-config/init.sh --template federal-app
 ```
 
-- [ ] **35. Detect and warn if target project already has a different version of agent-config**
+- [x] **35. Detect and warn if target project already has a different version of agent-config**
 init.sh skips existing skills/ directories. But it doesn't detect the case where a project
 was initialized from a significantly older agent-config and the skills are out of date.
 A "last initialized" timestamp in a `.agent-config` dotfile would make this detectable.
@@ -235,12 +235,12 @@ A "last initialized" timestamp in a `.agent-config` dotfile would make this dete
 
 ## update.sh Improvements
 
-- [ ] **36. Update hooks alongside skills**
+- [x] **36. Update hooks alongside skills**
 update.sh updates skills but leaves hooks untouched. If `block-dangerous-git.sh` gets an
 important security fix, there's no automated path to update it in projects. Add optional
 hook update (with the same "skip if locally modified" logic as skills).
 
-- [ ] **37. Update instructions alongside skills**
+- [x] **37. Update instructions alongside skills**
 Same gap. Instructions change. update.sh should offer to sync them.
 
 - [ ] **38. Report skill version delta explicitly**
@@ -315,7 +315,7 @@ input validation, error handling, logging, and test patterns.
 A context for building and publishing npm packages: package.json conventions, the
 `files` field, CJS vs ESM dual publish, semantic versioning, and publish checklist.
 
-- [ ] **51. Add a `context-chooser` skill or prompt**
+- [x] **51. Add a `context-chooser` skill or prompt**
 No current mechanism tells an agent which context file applies to the current project.
 A skill or prompt could ask the agent to inspect the project and suggest which context
 file to load. Or init.sh could drop a `.agent-context` file naming the relevant context.
@@ -336,7 +336,7 @@ conventions, error exit codes, and test strategy.
 A template scoped to npm library development: exports map, dual CJS/ESM, peer deps,
 bundlesize constraints, and semver rules.
 
-- [ ] **55. Add skill recommendations to each template**
+- [x] **55. Add skill recommendations to each template**
 Hasna's `BASIC_SKILL_NAMES` concept — a curated subset for common use. Each AGENTS.md
 template could include a "Recommended skills for this project type" section listing which
 skills to install from agent-config. Makes init.sh's `--template` flag (item 34) more valuable.
@@ -360,7 +360,7 @@ Wire validate.sh, list.sh, search.sh, and test-scripts.sh as VS Code tasks so th
 be run from the command palette without switching to a terminal. Low effort, high usability
 when working on agent-config in VS Code.
 
-- [ ] **59. Track a `.agent-config` dotfile in initialized projects**
+- [x] **59. Track a `.agent-config` dotfile in initialized projects**
 When init.sh runs, write a `.agent-config` file to the project root with: source path,
 init date, and skill list. This lets update.sh detect projects initialized from this repo,
 diagnose.sh report their status, and diff.sh know what to compare against.
@@ -388,7 +388,7 @@ The listing shows a `skills/.system/` directory with no `SKILL.md`. validate.sh 
 (no SKILL.md = skipped). What's in there and does it belong? If it's internal scaffolding,
 document it. If it's a deferred skill, apply the deferred convention (item 12).
 
-- [ ] **63. Add a `bunfig.toml` or runtime config equivalent if scripts grow**
+- [x] **63. Add a `bunfig.toml` or runtime config equivalent if scripts grow**
 Hasna's `bunfig.toml` configures the test runner. agent-config uses bash, so no equivalent
 is needed now. But if test-scripts.sh grows to cover all scripts, a `test.config.sh`
 sourced by each test file would prevent common setup from being duplicated across test files.
@@ -510,7 +510,7 @@ The AI is too dependent on the user knowing to ask for a specific skill. A regis
 built by validate.sh or a separate build.sh makes the full library inspectable without
 parsing markdown. Foundation for context-chooser and future IDE integrations.
 
-- [ ] **84. Add `context-chooser` skill or prompt**
+- [x] **84. Add `context-chooser` skill or prompt**
 Inspects a project (package.json, composer.json, file structure, AGENTS.md) and recommends
 which context file(s) and skills to load. Closes the discoverability gap where skills exist
 but don't get invoked because the user doesn't know to ask.
@@ -522,7 +522,7 @@ but don't get invoked because the user doesn't know to ask.
 The goal: one repo (agent-config), latest skills available everywhere agents look for them,
 nothing manually copied or stale.
 
-- [ ] **85. Audit and complete the global symlink map**
+- [x] **85. Audit and complete the global symlink map**
 
 Current symlinks checked by validate.sh and update.sh:
 - `~/.agents/skills` → `agent-config/skills/`
@@ -538,7 +538,7 @@ Missing or unverified:
 Action: inventory exactly where each agent looks for skills, instructions, and prompts.
 Document the full map in README.md. Add every verified path to the symlink check in validate.sh.
 
-- [ ] **86. Add `setup.sh` — one-command global wiring**
+- [x] **86. Add `setup.sh` — one-command global wiring**
 
 Right now the symlinks are not created by any script. They exist because they were set up
 manually at some point. There is no documented setup step, no script to run on a new machine,
@@ -561,7 +561,7 @@ A `setup.sh` that creates (or verifies) all global symlinks would make the syste
 Flags: `--dry-run` to preview, `--force` to replace incorrect symlinks.
 This is the missing "install agent-config on a new machine" script.
 
-- [ ] **87. Wire prompts globally for agents that support them**
+- [x] **87. Wire prompts globally for agents that support them**
 
 Skills are symlinked globally. Prompts are not. VS Code Copilot reads `.prompt.md` files
 from `~/Library/Application Support/Code/User/prompts/`. Claude Code has its own prompt
@@ -571,7 +571,7 @@ path. Neither is currently wired.
 expects them. The goal: `/new-skill`, `/diagnose`, `/code-review`, etc. available in every
 agent session without any per-project setup.
 
-- [ ] **88. Wire instructions globally for agents that support them**
+- [x] **88. Wire instructions globally for agents that support them**
 
 VS Code Copilot reads `.instructions.md` from the VS Code user instructions folder. Currently
 these require per-project installation via `install-instructions.sh`. There may be a global
@@ -581,13 +581,13 @@ Research: does VS Code support a user-level instructions folder (not workspace-l
 If yes, symlink `instructions/` there in `setup.sh`. If no, this stays per-project only
 and `install-instructions.sh` is the right tool.
 
-- [ ] **89. Add `~/.copilot` (or equivalent) to the symlink map**
+- [x] **89. Add `~/.copilot` (or equivalent) to the symlink map**
 
 The existing symlinks cover `~/.claude` and `~/.codex` but not anything Copilot-specific.
 Research what path (if any) VS Code Copilot reads for user-level skills or instructions,
 then add it to the symlink map and to validate.sh's health check.
 
-- [ ] **90. Document the full distribution matrix in README.md**
+- [x] **90. Document the full distribution matrix in README.md**
 
 No single place currently explains what each agent gets and how. Add a table:
 

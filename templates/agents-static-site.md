@@ -10,6 +10,8 @@ Agent skills are in `./skills/`. Each subfolder contains a SKILL.md with the rol
 methodology, and trigger phrases for that specialist. Read the relevant skill before starting
 any matching task — don't rely on memory for things the skill defines.
 
+**Recommended for static sites:** `seo`, `performance`, `og-images`, `content-strategy`, `qa`
+
 To add project-specific context to a universal skill, create a local overlay:
 `./skills/<name>.local.md` — the agent reads both; the local file wins on conflicts.
 Do not edit `SKILL.md` directly — it will be overwritten on updates.

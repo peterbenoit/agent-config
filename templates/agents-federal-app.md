@@ -13,6 +13,8 @@ Agent skills are in `./skills/`. Each subfolder contains a SKILL.md with the rol
 methodology, and trigger phrases for that specialist. Read the relevant skill before starting
 any matching task — don't rely on memory for things the skill defines.
 
+**Recommended for federal projects:** `508`, `security`, `qa`, `performance`, `content-strategy`
+
 For this project, the most relevant skills are: `508`, `qa`, `security`, `performance`.
 To add project-specific context, create a local overlay: `./skills/<name>.local.md`.
 Do not edit `SKILL.md` directly — it will be overwritten on updates.

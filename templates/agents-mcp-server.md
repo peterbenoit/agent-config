@@ -152,6 +152,12 @@ For local-only stdio servers, note that here. -->
 
 ---
 
+## Skills
+
+Agent skills are in `./skills/`. **Recommended for MCP servers:** `security`, `tdd`, `qa`, `debug`, `npm-publish`
+
+---
+
 ## Known Issues / Gotchas
 
 <!-- List anything non-obvious: edge cases, rate limits, known model behaviors, auth quirks. -->

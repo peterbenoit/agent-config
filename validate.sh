@@ -84,6 +84,13 @@ for skill_dir in "$SKILLS_DIR"/*/; do
   if [ -z "$fm_tags" ] || [ "$fm_tags" = "[]" ]; then
     fail "$skill_name: frontmatter missing or empty 'tags' field"
   fi
+
+  # Check description has at least 4 trigger phrases (quoted or backtick phrases)
+  desc_block=$(awk '/^---/{f=!f; next} f && /^description:/{p=1} p{print} p && /^[a-z]/ && !/^description/{exit}' "$skill_file")
+  trigger_count=$(echo "$desc_block" | grep -oE '"[^"]{3,}"|`[^`]{3,}`' | wc -l | tr -d ' ')
+  if [ "$trigger_count" -lt 4 ]; then
+    warn "$skill_name: description has $trigger_count quoted/backtick trigger phrases (recommend at least 4)"
+  fi
 done
 
 # ── 2. Skills listed in skills/README.md ─────────────────────────────────────

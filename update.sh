@@ -16,13 +16,29 @@ SKILLS_SRC="$AGENT_CONFIG_DIR/skills"
 SKILLS_DEST="$PROJECT_DIR/skills"
 DRY_RUN=false
 FORCE=false
+WITH_HOOKS=false
+WITH_INSTRUCTIONS=false
 
 # Parse flags
-for arg in "$@"; do
-  case $arg in
+while [ $# -gt 0 ]; do
+  case "$1" in
     --dry-run) DRY_RUN=true ;;
     --force) FORCE=true ;;
+    --with-hooks) WITH_HOOKS=true ;;
+    --with-instructions) WITH_INSTRUCTIONS=true ;;
+    --help|-h)
+      echo "Usage: ~/GitHub/agent-config/update.sh [options]"
+      echo ""
+      echo "Options:"
+      echo "  --with-hooks        Also update hooks/ in this project"
+      echo "  --with-instructions Also update .github/instructions/ in this project"
+      echo "  --force             Overwrite locally modified files"
+      echo "  --dry-run           Preview changes without writing files"
+      exit 0
+      ;;
+    *) echo "Unknown flag: $1" >&2; exit 1 ;;
   esac
+  shift
 done
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -167,6 +183,80 @@ if [ -f "$src_readme" ]; then
     skipped "skills/README.md (local changes — skipped)"
     skipped_names+=("skills/README.md")
     count_skipped=$((count_skipped + 1))
+  fi
+fi
+
+# ── Update hooks (--with-hooks) ───────────────────────────────────────────────
+
+if [ "$WITH_HOOKS" = true ]; then
+  HOOKS_DEST="$PROJECT_DIR/hooks"
+  if [ -d "$HOOKS_DEST" ]; then
+    echo "Hooks:"
+    for src_hook in "$AGENT_CONFIG_DIR/hooks/"*.sh; do
+      [ -f "$src_hook" ] || continue
+      hook_name=$(basename "$src_hook")
+      dest_hook="$HOOKS_DEST/$hook_name"
+      if [ ! -f "$dest_hook" ]; then
+        if [ "$DRY_RUN" = true ]; then
+          dry "Would add hooks/$hook_name"
+        else
+          cp "$src_hook" "$dest_hook"
+          chmod +x "$dest_hook"
+          added "hooks/$hook_name (new)"
+        fi
+      elif cmp -s "$src_hook" "$dest_hook"; then
+        : # current
+      elif [ "$FORCE" = true ]; then
+        if [ "$DRY_RUN" = true ]; then
+          dry "Would overwrite hooks/$hook_name (forced)"
+        else
+          cp "$src_hook" "$dest_hook"
+          chmod +x "$dest_hook"
+          updated "hooks/$hook_name (forced)"
+        fi
+      else
+        skipped "hooks/$hook_name (local changes — skipped)"
+      fi
+    done
+    echo ""
+  else
+    log "No hooks/ directory found — run with --with-hooks after init.sh --with-hooks to create it"
+  fi
+fi
+
+# ── Update instructions (--with-instructions) ─────────────────────────────────
+
+if [ "$WITH_INSTRUCTIONS" = true ]; then
+  INSTR_DEST="$PROJECT_DIR/.github/instructions"
+  if [ -d "$INSTR_DEST" ]; then
+    echo "Instructions:"
+    for src_instr in "$AGENT_CONFIG_DIR/instructions/"*.instructions.md; do
+      [ -f "$src_instr" ] || continue
+      instr_name=$(basename "$src_instr")
+      dest_instr="$INSTR_DEST/$instr_name"
+      if [ ! -f "$dest_instr" ]; then
+        if [ "$DRY_RUN" = true ]; then
+          dry "Would add .github/instructions/$instr_name"
+        else
+          cp "$src_instr" "$dest_instr"
+          added ".github/instructions/$instr_name (new)"
+        fi
+      elif cmp -s "$src_instr" "$dest_instr"; then
+        : # current
+      elif [ "$FORCE" = true ]; then
+        if [ "$DRY_RUN" = true ]; then
+          dry "Would overwrite .github/instructions/$instr_name (forced)"
+        else
+          cp "$src_instr" "$dest_instr"
+          updated ".github/instructions/$instr_name (forced)"
+        fi
+      else
+        skipped ".github/instructions/$instr_name (local changes — skipped)"
+      fi
+    done
+    echo ""
+  else
+    log "No .github/instructions/ directory found — run with --with-instructions after init.sh --with-instructions to create it"
   fi
 fi
 
