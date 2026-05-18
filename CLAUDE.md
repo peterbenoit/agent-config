@@ -51,6 +51,7 @@ EOF
 ```bash
 ./validate.sh              # full health check — run before committing
 ./build.sh                 # regenerate registry.json after skill changes
+./backlog.sh               # show open IMPROVEMENTS.md items grouped by section
 ./completion.sh            # generate shell tab completions (--install-zsh / --install-bash)
 ./list.sh                  # list all skills with category and description
 ./list.sh --json           # machine-readable skill list

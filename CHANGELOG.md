@@ -7,6 +7,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- `backlog.sh` — shows open IMPROVEMENTS.md items grouped by section with completion percentage; `--all` flag includes completed items
+
 ---
 
 ## [0.2.0] — 2026-05-18
