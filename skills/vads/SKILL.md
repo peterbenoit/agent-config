@@ -2,6 +2,7 @@
 name: vads
 category: Accessibility
 tags: [vads, uswds, design-system, va-gov, components, federal, accessibility]
+updated: 2026-05-18
 description: >
   Act as the VA Design System (VADS) component advisor. Use when selecting, implementing,
   or auditing UI components on VA.gov properties. Trigger on phrases like "which VADS

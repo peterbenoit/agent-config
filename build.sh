@@ -32,10 +32,11 @@ for skill_dir in "$SKILLS_DIR"/*/; do
   # Extract frontmatter fields
   fm_name=$(awk '/^---/{f=!f; next} f && /^name:/{sub(/^name:[[:space:]]*/, ""); print; exit}' "$skill_file")
   fm_category=$(awk '/^---/{f=!f; next} f && /^category:/{sub(/^category:[[:space:]]*/, ""); print; exit}' "$skill_file")
+  fm_updated=$(awk '/^---/{f=!f; next} f && /^updated:/{sub(/^updated:[[:space:]]*/, ""); print; exit}' "$skill_file")
 
   # Tags: strip leading "tags:" and surrounding brackets
   fm_tags_raw=$(awk '/^---/{f=!f; next} f && /^tags:/{sub(/^tags:[[:space:]]*/, ""); print; exit}' "$skill_file" | sed 's/^\[//; s/\]$//')
-  
+
   # Use jq to handle the CSV-like list of tags, whether quoted or not
   fm_tags_json=$(jq -Rn --arg tags "$fm_tags_raw" '$tags | split(",") | map(gsub("^[[:space:]]+|[[:space:]]+$"; "")) | map(gsub("^\"|\"$"; "")) | map(select(. != ""))')
 
@@ -57,9 +58,10 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     --arg name "$fm_name" \
     --arg dir "$skill_name" \
     --arg category "$fm_category" \
+    --arg updated "$fm_updated" \
     --argjson tags "$fm_tags_json" \
     --arg description "$fm_desc" \
-    '{name: $name, dir: $dir, category: $category, tags: $tags, description: $description}')
+    '{name: $name, dir: $dir, category: $category, updated: $updated, tags: $tags, description: $description}')
 
   skills_json=$(echo "$skills_json" | jq --argjson s "$skill_obj" '. + [$s]')
 done

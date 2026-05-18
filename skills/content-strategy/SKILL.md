@@ -2,6 +2,7 @@
 name: content-strategy
 category: Content
 tags: [content, strategy, planning, backlog, editorial]
+updated: 2026-05-18
 description: >
   Act as the content strategist for the current project. Use when deciding what to build or write next,
   prioritizing the content backlog, figuring out what's missing from the site, or thinking about

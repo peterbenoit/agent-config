@@ -2,6 +2,7 @@
 name: discovery
 category: Workflow
 tags: ["discovery", "kickoff", "requirements", "scope", "client", "Brick City Creative", "briefing"]
+updated: 2026-05-18
 description: >
   Structures client kickoff calls and requirements gathering for Brick City Creative projects.
   Use this skill when starting a new client engagement, when asked "what do I need to know

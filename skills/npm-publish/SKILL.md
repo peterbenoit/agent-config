@@ -2,6 +2,7 @@
 name: npm-publish
 category: Code Quality
 tags: [npm, publish, semver, esm, cjs, package, registry, changelog, @peterbenoit]
+updated: 2026-05-18
 description: >
   Manage the npm package publish lifecycle for scoped packages. Use when preparing to publish
   or update an npm package, choosing a version bump, writing a CHANGELOG entry, setting up

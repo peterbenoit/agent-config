@@ -2,6 +2,7 @@
 name: grill-me
 category: Workflow
 tags: [planning, design, review, questioning, stress-test, critique]
+updated: 2026-05-18
 description: >
   Interview the user relentlessly about a plan or design until reaching shared understanding,
   resolving each branch of the decision tree. Use when user wants to stress-test a plan, get

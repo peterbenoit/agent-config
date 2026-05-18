@@ -2,6 +2,7 @@
 name: qa
 category: Accessibility
 tags: [qa, accessibility, wcag, testing, audit, correctness]
+updated: 2026-05-18
 description: >
   Act as the QA and accessibility auditor for any web project. Use when reviewing a page or
   component for correctness, accessibility compliance, or structural consistency. Trigger on

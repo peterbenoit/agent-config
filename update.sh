@@ -150,8 +150,14 @@ for skill_dir in "$SKILLS_SRC"/*/; do
     count_updated=$((count_updated + 1))
 
   else
-    # ── Files differ, safe mode — skip ─────────────────────────────────────
-    skipped "$skill_name (local changes — skipped)"
+    # ── Files differ, safe mode — report delta then skip ───────────────────
+    src_date=$(awk '/^---/{f=!f; next} f && /^updated:/{sub(/^updated:[[:space:]]*/, ""); print; exit}' "$src_skill")
+    dest_date=$(awk '/^---/{f=!f; next} f && /^updated:/{sub(/^updated:[[:space:]]*/, ""); print; exit}' "$dest_skill")
+    if [ -n "$src_date" ] && [ -n "$dest_date" ] && [ "$src_date" != "$dest_date" ]; then
+      skipped "$skill_name (source: $src_date, installed: $dest_date) — run with --force to update"
+    else
+      skipped "$skill_name (local changes — skipped)"
+    fi
     skipped_names+=("$skill_name")
     count_skipped=$((count_skipped + 1))
   fi

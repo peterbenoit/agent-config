@@ -104,7 +104,7 @@ Hasna generates `generateEnvExample()` from skill metadata. For skills that requ
 (any skill that might call an external API), a `.env.example` file documents what's needed
 in the form people expect. Even a one-liner is better than nothing.
 
-- [ ] **15. Add skill-level `version:` frontmatter**
+- [x] **15. Add skill-level `version:` frontmatter**
 No way to know when a skill last changed or what version a project has installed. Even a
 simple `version: 1.3` or a date (`updated: 2026-05-01`) would let `update.sh` report
 actual drift instead of relying on file hash comparison.
@@ -243,7 +243,7 @@ hook update (with the same "skip if locally modified" logic as skills).
 - [x] **37. Update instructions alongside skills**
 Same gap. Instructions change. update.sh should offer to sync them.
 
-- [ ] **38. Report skill version delta explicitly**
+- [x] **38. Report skill version delta explicitly**
 Instead of "skill X is modified, skipping", report "skill X installed at version 1.1,
 source is 1.3 — run with --force to update or diff with ./diff.sh". Requires version
 frontmatter (item 15).
@@ -345,7 +345,7 @@ skills to install from agent-config. Makes init.sh's `--template` flag (item 34)
 
 ## Agent Integration Improvements
 
-- [ ] **56. Add shell completion for skill names**
+- [x] **56. Add shell completion for skill names**
 Hasna has a `completion` command. A `completion.sh` for agent-config that generates
 zsh/bash completions for skill names would make `--select` flags on init.sh and search.sh
 tab-completable. Minor quality-of-life, but Hasna thought it was worth doing.

@@ -1,11 +1,12 @@
 {
   "version": "0.1.0",
-  "generated": "2026-05-18T15:32:09Z",
+  "generated": "2026-05-18T17:37:38Z",
   "skills": [
     {
       "name": "508",
       "dir": "508",
       "category": "Accessibility",
+      "updated": "2026-05-18",
       "tags": [
         "accessibility",
         "508",
@@ -21,6 +22,7 @@
       "name": "analytics",
       "dir": "analytics",
       "category": "Workflow",
+      "updated": "2026-05-18",
       "tags": [
         "analytics",
         "ga4",
@@ -35,6 +37,7 @@
       "name": "bigcommerce",
       "dir": "bigcommerce",
       "category": "Workflow",
+      "updated": "2026-05-18",
       "tags": [
         "bigcommerce",
         "stencil",
@@ -48,6 +51,7 @@
       "name": "content-strategy",
       "dir": "content-strategy",
       "category": "Content",
+      "updated": "2026-05-18",
       "tags": [
         "content",
         "strategy",
@@ -61,6 +65,7 @@
       "name": "css-architecture",
       "dir": "css-architecture",
       "category": "Code Quality",
+      "updated": "2026-05-18",
       "tags": [
         "css",
         "custom-properties",
@@ -77,6 +82,7 @@
       "name": "debug",
       "dir": "debug",
       "category": "Code Quality",
+      "updated": "2026-05-18",
       "tags": [
         "debugging",
         "devtools",
@@ -93,6 +99,7 @@
       "name": "design",
       "dir": "design",
       "category": "Content",
+      "updated": "2026-05-18",
       "tags": [
         "design",
         "visual",
@@ -107,6 +114,7 @@
       "name": "discovery",
       "dir": "discovery",
       "category": "Workflow",
+      "updated": "2026-05-18",
       "tags": [
         "discovery",
         "kickoff",
@@ -122,6 +130,7 @@
       "name": "drupal",
       "dir": "drupal",
       "category": "Code Quality",
+      "updated": "2026-05-18",
       "tags": [
         "drupal",
         "twig",
@@ -139,6 +148,7 @@
       "name": "git-guardrails",
       "dir": "git-guardrails",
       "category": "Security",
+      "updated": "2026-05-18",
       "tags": [
         "git",
         "hooks",
@@ -153,6 +163,7 @@
       "name": "goal-setting",
       "dir": "goal-setting",
       "category": "Workflow",
+      "updated": "2026-05-18",
       "tags": [
         "goals",
         "planning",
@@ -167,6 +178,7 @@
       "name": "grill-me",
       "dir": "grill-me",
       "category": "Workflow",
+      "updated": "2026-05-18",
       "tags": [
         "planning",
         "design",
@@ -181,6 +193,7 @@
       "name": "handoff",
       "dir": "handoff",
       "category": "Workflow",
+      "updated": "2026-05-18",
       "tags": [
         "handoff",
         "client",
@@ -196,6 +209,7 @@
       "name": "new-blog-post",
       "dir": "new-blog-post",
       "category": "Content",
+      "updated": "2026-05-18",
       "tags": [
         "blog",
         "content",
@@ -210,6 +224,7 @@
       "name": "new-project-page",
       "dir": "new-project-page",
       "category": "Content",
+      "updated": "2026-05-18",
       "tags": [
         "project-page",
         "html",
@@ -224,6 +239,7 @@
       "name": "npm-publish",
       "dir": "npm-publish",
       "category": "Code Quality",
+      "updated": "2026-05-18",
       "tags": [
         "npm",
         "publish",
@@ -241,6 +257,7 @@
       "name": "npm-safety",
       "dir": "npm-safety",
       "category": "Security",
+      "updated": "2026-05-18",
       "tags": [
         "npm",
         "security",
@@ -255,6 +272,7 @@
       "name": "og-images",
       "dir": "og-images",
       "category": "Content",
+      "updated": "2026-05-18",
       "tags": [
         "og",
         "social",
@@ -269,6 +287,7 @@
       "name": "performance",
       "dir": "performance",
       "category": "Code Quality",
+      "updated": "2026-05-18",
       "tags": [
         "performance",
         "core-web-vitals",
@@ -283,6 +302,7 @@
       "name": "qa",
       "dir": "qa",
       "category": "Accessibility",
+      "updated": "2026-05-18",
       "tags": [
         "qa",
         "accessibility",
@@ -297,6 +317,7 @@
       "name": "security",
       "dir": "security",
       "category": "Security",
+      "updated": "2026-05-18",
       "tags": [
         "security",
         "owasp",
@@ -311,6 +332,7 @@
       "name": "seo",
       "dir": "seo",
       "category": "Content",
+      "updated": "2026-05-18",
       "tags": [
         "seo",
         "meta",
@@ -325,6 +347,7 @@
       "name": "social",
       "dir": "social",
       "category": "Content",
+      "updated": "2026-05-18",
       "tags": [
         "social",
         "twitter",
@@ -339,6 +362,7 @@
       "name": "tdd",
       "dir": "tdd",
       "category": "Code Quality",
+      "updated": "2026-05-18",
       "tags": [
         "tdd",
         "testing",
@@ -352,6 +376,7 @@
       "name": "vads",
       "dir": "vads",
       "category": "Accessibility",
+      "updated": "2026-05-18",
       "tags": [
         "vads",
         "uswds",
@@ -367,6 +392,7 @@
       "name": "voice",
       "dir": "voice",
       "category": "Content",
+      "updated": "2026-05-18",
       "tags": [
         "writing",
         "voice",
@@ -381,6 +407,7 @@
       "name": "zoom-out",
       "dir": "zoom-out",
       "category": "Workflow",
+      "updated": "2026-05-18",
       "tags": [
         "architecture",
         "planning",

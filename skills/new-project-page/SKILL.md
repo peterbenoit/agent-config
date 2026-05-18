@@ -2,6 +2,7 @@
 name: new-project-page
 category: Content
 tags: [project-page, html, seo, og, json-ld, tailwind]
+updated: 2026-05-18
 description: >
   Use when creating a new project page. Covers the full checklist: file location, required head
   tags, OG metadata, JSON-LD schema, analytics, page structure, accent color selection, Related
