@@ -17,6 +17,20 @@ This is the meta-repo. Documentation drift here means every downstream project i
 | `AGENTS.md` | New/removed scripts, skill count, new context files, templates, prompts, instructions |
 | `CLAUDE.md` | `## Key Scripts` section changes |
 
+## VERSION
+
+`VERSION` contains the current release number (`major.minor.patch`). Bump it when cutting a release:
+- Move `## [Unreleased]` to `## [X.Y.Z] — YYYY-MM-DD` in CHANGELOG
+- Add a fresh empty `## [Unreleased]` above it
+- Write the new version to `VERSION`
+
+Rules:
+- `patch` (0.2.x) — any commit that changes code, docs, or skills. Default bump. If in doubt, patch.
+- `minor` (0.x.0) — new skills, new scripts, new flags, new prompts or templates
+- `major` (x.0.0) — breaking changes to init.sh/update.sh behavior, skill format changes
+
+Do not leave VERSION stale across sessions. Every session that produces a commit should produce a version bump.
+
 ## CHANGELOG Rules
 
 Every session must write at least one entry under `## [Unreleased]`.

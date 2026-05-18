@@ -42,6 +42,15 @@ Check and update:
 Check and update:
 1. `## Key Scripts` block: must list all scripts a developer would run (`validate.sh`, `build.sh`, `completion.sh`, `list.sh`, `search.sh`, `new-skill.sh`, `init.sh`, `update.sh`, `diagnose.sh`, `setup.sh`)
 
-## Step 6: Verify
+## Step 6: Check VERSION
+
+Read `VERSION`. If any code, docs, or skills changed this session, cut a release:
+1. Bump `VERSION` — `patch` by default; `minor` if new skills/scripts/flags/prompts were added; `major` for breaking changes
+2. Rename `## [Unreleased]` to `## [X.Y.Z] — YYYY-MM-DD` in CHANGELOG
+3. Add a fresh `## [Unreleased]` above it
+
+When in doubt, bump patch. Do not leave VERSION stale.
+
+## Step 7: Verify
 
 Run `./validate.sh` to confirm nothing was broken by the edits.

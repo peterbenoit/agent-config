@@ -7,6 +7,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [0.2.0] — 2026-05-18
+
 ### Added
 - `.github/instructions/doc-sync.instructions.md` — always-on rule enforcing CHANGELOG/README/AGENTS.md/CLAUDE.md updates during sessions in this repo
 - `prompts/doc-sync.prompt.md` — `/doc-sync` slash command to audit and sync all four documentation files on demand
