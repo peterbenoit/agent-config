@@ -21,15 +21,23 @@ If it would be useful in any project, it belongs here.
 
 ```
 agent-config/
-├── skills/          # 19 SKILL.md instruction sets + 2 deferred (see skills/README.md)
-├── prompts/         # .prompt.md slash commands for VS Code chat (/pre-publish, /new-skill, etc.)
-├── instructions/    # .instructions.md always-on rules (accessibility, security, writing)
-├── hooks/           # Shell scripts for agent hook systems (Claude Code PreToolUse)
-├── context/         # Domain context files (bigcommerce, js-library, static-site, federal, web-app)
-├── templates/       # 6 AGENTS.md starters for different project types
-├── validate.sh      # Validate skill frontmatter, README tables, hook executability
-├── init.sh          # Wire agent-config into a new project (copy or symlink)
-└── update.sh        # Pull skill updates into an already-initialized project
+├── skills/              # 27 SKILL.md instruction sets + 2 deferred (see skills/README.md)
+├── prompts/             # .prompt.md slash commands for VS Code chat (/doc-sync, /pre-publish, /new-skill, etc.)
+├── instructions/        # .instructions.md always-on rules (accessibility, security, writing)
+├── hooks/               # Shell scripts for agent hook systems (Claude Code PreToolUse)
+├── context/             # Domain briefings (bigcommerce, drupal, federal-app, js-library, node-api, npm-package, static-site, va-gov, web-app)
+├── templates/           # 10 AGENTS.md starters for different project types
+├── validate.sh          # Full health check: frontmatter, READMEs, hooks, symlinks, heredoc sync
+├── build.sh             # Generate registry.json (machine-readable skill index) from frontmatter
+├── completion.sh        # Generate zsh/bash tab completions for init.sh and search.sh
+├── init.sh              # Wire agent-config into a new project (copy + starter AGENTS.md)
+├── update.sh            # Pull skill updates into an already-initialized project
+├── setup.sh             # Create global symlinks and wire prompts/instructions on a new machine
+├── list.sh              # List all skills with category and description
+├── search.sh            # Search skills by name, category, tags, or description
+├── new-skill.sh         # Scaffold a new skill directory and SKILL.md stub
+├── install-hooks.sh     # Copy hooks into a target project
+└── install-instructions.sh  # Copy .instructions.md files into a target project
 ```
 
 ---
@@ -71,8 +79,18 @@ Run from inside any project:
 ~/GitHub/agent-config/init.sh
 ```
 
-This copies the universal skills into `./skills/` and drops a starter `AGENTS.md` if one
-doesn't exist. See `init.sh` for what it does before running it.
+Copies the universal skills into `./skills/` and drops a starter `AGENTS.md` if one doesn't
+exist. Also writes a `.agent-config` dotfile recording source, date, and installed skills.
+
+Flags:
+- `--select NAME,...` — install only the named skills (comma-separated)
+- `--template NAME` — use `agents-NAME.md` instead of the default starter
+- `--with-hooks` — also install `block-dangerous-git.sh` and wire `.claude/settings.json`
+- `--with-instructions` — also copy `.instructions.md` files to `.github/instructions/`
+- `--dry-run` — show what would happen without making changes
+- `--force` — overwrite existing files
+
+See `init.sh` for the full list of options.
 
 ### Updating skills in an existing project
 
@@ -81,8 +99,14 @@ doesn't exist. See `init.sh` for what it does before running it.
 ```
 
 Adds new skills that don't exist yet. Updates skills whose files haven't been locally modified.
-Skips skills with local changes and reports them with a diff command to review. Use `--force`
-to overwrite all locally modified base `SKILL.md` files and `skills/README.md`. `.local.md` overlays are never touched by `update.sh`.
+When a skill differs and has `updated:` frontmatter, reports the date delta so you know how far
+behind the installed version is. Use `--force` to overwrite. `.local.md` overlays are never touched.
+
+Flags:
+- `--with-hooks` — also update hooks if present in the project
+- `--with-instructions` — also update instructions if present
+- `--dry-run` — show what would happen without making changes
+- `--force` — overwrite locally modified files
 
 > **Which to use:** Symlink for active projects you own solo. Copy for anything going to CI,
 > being shared, or where you want stability over keeping current.

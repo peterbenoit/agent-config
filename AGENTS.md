@@ -16,8 +16,9 @@ are editing the toolkit, not a project that uses it.
 - `templates/` — AGENTS.md starters for 10 project types.
 - `validate.sh` — Checks skill frontmatter, README tables, hook executability, symlinks, and heredoc sync.
 - `build.sh` — Generates `registry.json` (machine-readable skill index) from skill frontmatter.
+- `completion.sh` — Generates zsh/bash tab completions for `init.sh` and `search.sh`.
 - `diagnose.sh` — Full system health check: validate, symlinks, registry, hooks, VS Code prompts.
-- `setup.sh` — Creates global symlinks on a new machine (`~/.claude/skills`, `~/.codex/skills`, `~/.agents/skills`).
+- `setup.sh` — Creates global symlinks and wires VS Code prompts/instructions dirs on a new machine.
 - `list.sh` — List all skills with category and description (`--json` for machine-readable output).
 - `search.sh` — Search skills by name, category, tags, or description.
 - `new-skill.sh` — Scaffold a new skill directory and SKILL.md stub.

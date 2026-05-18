@@ -49,13 +49,15 @@ EOF
 ## Key Scripts
 
 ```bash
-./validate.sh         # full health check — run before committing
-./list.sh             # list all skills with category and description
-./list.sh --json      # machine-readable skill list
-./search.sh <query>   # search skills by name, category, tags, or description
-./new-skill.sh <name> # scaffold a new skill directory and SKILL.md stub
-./init.sh             # wire agent-config into a target project
-./update.sh           # pull skill updates into an already-initialized project
+./validate.sh              # full health check — run before committing
+./build.sh                 # regenerate registry.json after skill changes
+./completion.sh            # generate shell tab completions (--install-zsh / --install-bash)
+./list.sh                  # list all skills with category and description
+./list.sh --json           # machine-readable skill list
+./search.sh <query>        # search skills by name, category, tags, or description
+./new-skill.sh <name>      # scaffold a new skill directory and SKILL.md stub
+./init.sh                  # wire agent-config into a target project
+./update.sh                # pull skill updates into an already-initialized project
 ```
 
 ---
@@ -63,11 +65,12 @@ EOF
 ## Before Committing
 
 1. Run `./validate.sh` — all checks must pass
-2. Confirm any new skill has `category:` and `tags:` in its frontmatter
+2. Confirm any new skill has `name:`, `category:`, `tags:`, and `updated:` in its frontmatter
 3. Confirm any new skill is listed in `skills/README.md` and root `README.md`
 4. Confirm any new context file is listed in `context/README.md`
 5. Confirm any new template is listed in `templates/README.md`
 6. Update `CHANGELOG.md` under `## [Unreleased]`
+7. Update `README.md`, `AGENTS.md`, and `CLAUDE.md` if scripts or counts changed
 
 ---
 

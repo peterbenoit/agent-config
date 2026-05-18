@@ -54,6 +54,7 @@ Can prompt for user input with: ${input:variableName:placeholder text}
 | `new-context.prompt.md` | `/new-context` | Scaffold a new domain context file in `context/` |
 | `update-skill.prompt.md` | `/update-skill` | Review an existing skill for staleness, scope, and universality |
 | `context-chooser.prompt.md` | `/context-chooser` | Inspect a project and recommend which context files and skills to load |
+| `doc-sync.prompt.md` | `/doc-sync` | Audit and sync CHANGELOG, README, AGENTS.md, and CLAUDE.md to current repo state |
 
 ---
 
