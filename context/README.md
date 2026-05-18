@@ -82,6 +82,8 @@ into a project, fill in the specifics, and commit it to the project root.
 | `federal-app.md` | Federal web projects (Section 508, USWDS, FedRAMP, ATO) |
 | `drupal.md` | Drupal sites — hook system, config management, Twig theming |
 | `va-gov.md` | VA.gov properties — VADS, 508, GTM/GA4, vets-website/content-build |
+| `npm-package.md` | npm package projects — entry points, dual ESM/CJS, publish lifecycle |
+| `node-api.md` | Node.js REST APIs — routes, middleware, auth, validation, error handling |
 ---
 
 ## Where CONTEXT.md Lives

@@ -1,0 +1,85 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "agent-config: Validate",
+      "type": "shell",
+      "command": "./validate.sh",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "agent-config: List Skills",
+      "type": "shell",
+      "command": "./list.sh",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "agent-config: List Skills (JSON)",
+      "type": "shell",
+      "command": "./list.sh --json",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "agent-config: Search Skills",
+      "type": "shell",
+      "command": "./search.sh ${input:query}",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "agent-config: Run Tests",
+      "type": "shell",
+      "command": "./test-scripts.sh",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "agent-config: Run Hook Tests",
+      "type": "shell",
+      "command": "bash hooks/test-block-dangerous-git.sh && bash hooks/test-block-file-writes.sh && bash hooks/test-check-test-before-commit.sh && bash hooks/test-log-tool-use.sh",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "query",
+      "type": "promptString",
+      "description": "Search query (skill name, category, tag, or keyword)",
+      "default": ""
+    }
+  ]
+}

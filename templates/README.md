@@ -26,6 +26,8 @@ The goal is not a complete file — it's a correct skeleton that asks the right 
 | `agents-federal-app.md` | AGENTS.md for a federal web project | USWDS, 508, FedRAMP, agency contracts |
 | `agents-drupal.md` | AGENTS.md for a Drupal project | Drupal theming, module work, config sync, VA/client Drupal sites |
 | `agents-npm-package.md` | AGENTS.md for an npm package | @peterbenoit scoped packages, JS libraries |
+| `agents-mcp-server.md` | AGENTS.md for an MCP server | Model Context Protocol servers (Claude Code, Copilot, Claude Desktop) |
+| `agents-cli-tool.md` | AGENTS.md for a CLI tool | Node.js command-line tools, bin packages |
 
 > `init.sh` generates a starter AGENTS.md inline (via heredoc). `agents-default.md` here
 > matches that output and can be used as a reference or copied manually. For project-type-specific

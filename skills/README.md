@@ -112,6 +112,8 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `debug` | Systematic debugging: reproduce, isolate, hypothesize, verify — JS, CSS, network | Universal |
 | `npm-publish` | npm package publish lifecycle: semver, CHANGELOG, dual ESM/CJS, pre-publish checklist | Universal |
 | `css-architecture` | CSS custom properties, cascade layers, specificity, responsive strategy, design tokens | Universal |
+| `discovery` | Client kickoff and requirements gathering — scope definition, project brief, risk surfacing | Universal |
+| `handoff` | Project handoff to clients — README, runbooks, credentials, maintenance guide, training notes | Universal |
 
 **Deferred (placeholder folders with reasoning):**
 

@@ -51,6 +51,8 @@ Can prompt for user input with: ${input:variableName:placeholder text}
 | `diagnose.prompt.md` | `/diagnose` | Full agent-config health check — validate, symlinks, skill count, version |
 | `code-review.prompt.md` | `/code-review` | Structured code review against Pete's personal standards |
 | `accessibility-audit.prompt.md` | `/accessibility-audit` | Full 508/WCAG 2.1 AA audit workflow with prioritized findings report |
+| `new-context.prompt.md` | `/new-context` | Scaffold a new domain context file in `context/` |
+| `update-skill.prompt.md` | `/update-skill` | Review an existing skill for staleness, scope, and universality |
 
 ---
 

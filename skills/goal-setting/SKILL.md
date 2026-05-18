@@ -2,7 +2,12 @@
 name: goal-setting
 category: Workflow
 tags: [goals, planning, productivity, clarity, next-action, reflection]
-description: Help Pete set, clarify, and work through goals of any scale or type. Use this skill whenever Pete mentions a goal, ambition, wish, thing he wants to do, or problem he wants to solve. Trigger on phrases like "I want to", "I've been meaning to", "my goal is", "I should really", "I need to get better at", "someday I want to", "help me think through", or any mention of something Pete is trying to achieve. Also trigger when Pete seems stuck, unfocused, or unsure where to start with something. This handles both tiny tactical goals (lose 5 lbs) and massive directional ones (change careers, build something big).
+description: >
+  Help Pete set, clarify, and work through goals of any scale or type. Use this skill whenever Pete
+  mentions a goal, ambition, wish, thing he wants to do, or problem he wants to solve. Trigger on
+  phrases like "I want to", "I've been meaning to", "my goal is", "I should really", "I need to get
+  better at", "someday I want to", "help me think through", or any mention of something Pete is
+  trying to achieve. Also trigger when Pete seems stuck, unfocused, or unsure where to start.
 ---
 
 # Goal Setting
