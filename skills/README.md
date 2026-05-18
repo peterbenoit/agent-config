@@ -94,6 +94,7 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `docs` | README writing, API documentation structure, changelogs | Universal |
 | `git-guardrails` | Hook setup to block destructive git commands before they execute | Universal |
 | `grill-me` | Adversarial plan review — stress-test ideas until every branch is resolved | Universal |
+| `goal-setting` | Goal clarification, decomposition, and next-action definition for any scale of goal | Universal |
 | `new-blog-post` | Blog post creation: writing bar, head tags, JSON-LD, publication checklist | Universal |
 | `new-project-page` | Project page creation: file setup, OG meta, schema, analytics, design pattern | Universal |
 | `npm-safety` | Security checks before any npm/pnpm install — audit, provenance, supply chain | Universal |

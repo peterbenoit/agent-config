@@ -131,6 +131,7 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `docs` | "write a README for this", "structure the API docs" |
 | `git-guardrails` | "add git safety hooks", "block dangerous git commands" |
 | `grill-me` | "grill me on this plan", "stress-test this idea" |
+| `goal-setting` | "I want to", "my goal is", "help me think through", "I feel scattered" |
 | `new-blog-post` | "start a new blog post", "create a post for..." |
 | `new-project-page` | "create a project page for...", "new landing page" |
 | `npm-safety` | "npm install", "add this package", "pnpm add" |
