@@ -403,6 +403,116 @@ Items 9, 10, 11, 13, 15, 18, 19, 20, 25, 26, 28, 43, 44, 46, 47, 48, 57, 60
 Items 2, 4, 5, 6, 12, 14, 16, 27, 29, 30, 31-35, 36-38, 39-42, 45, 51, 52-55, 58, 59
 
 
+---
+
+## Gap Analysis — May 2026
+
+Identified by auditing Pete's actual work domains (VA/federal, Brick City Creative client work,
+vanilla JS/CSS frontend, Drupal, npm packages) against what the toolkit currently covers.
+
+### New Skills
+
+**64. Add `drupal` skill**
+Covers Drupal theming and development: Twig templates, preprocess hooks, config sync, render
+arrays, cache tags, hook system, drush workflow. Context file exists (`context/drupal.md`) but
+there is no agent specialist. Used constantly on VA work.
+
+**65. Add `debug` skill**
+Systematic debugging methodology: reproduce → isolate → hypothesize → verify. Covers DevTools
+usage, binary search isolation, reading stack traces, common JS/CSS/network failure patterns.
+No current skill for when something is broken.
+
+**66. Add `npm-publish` skill**
+Covers the @peterbenoit package publish lifecycle: semver decisions, CHANGELOG maintenance,
+dual ESM/CJS, pre-publish checklist, `npm pack` dry run, registry hygiene, deprecation.
+npm-safety covers install time; nothing covers publish time.
+
+**67. Add `css-architecture` skill**
+Custom properties strategy, specificity decisions, responsive patterns, BEM vs utility
+tradeoffs, when to use a class vs a property, cascade management. CSS is a major part
+of daily work with zero dedicated coverage.
+
+**68. Add `discovery` skill**
+Structures client kickoffs and requirements gathering: right questions to ask, how to scope
+a project, what to document before writing a line of code. For Brick City Creative client work.
+
+**69. Add `handoff` skill**
+Covers project handoff to clients: README conventions, deployment runbooks, training notes,
+"things that will break" lists, credentials documentation, maintenance guide structure.
+
+### New Prompts
+
+**70. Add `code-review.prompt.md`**
+Structured code review against Pete's standards: no var, no jQuery, no React for simple
+problems, accessible, native APIs first, functions small and single-purpose. Avoids having
+to re-specify personal standards each session.
+
+**71. Add `accessibility-audit.prompt.md`**
+Full 508/WCAG page audit workflow. Different from invoking the `qa` skill ad-hoc — this
+is a structured prompt that produces a prioritized findings report.
+
+**72. Add `new-context.prompt.md`** *(already in backlog as item 43, re-listed for completeness)*
+
+**73. Add `update-skill.prompt.md`** *(already in backlog as item 44, re-listed for completeness)*
+
+### New Hooks
+
+**74. Add `log-tool-use.sh` (PostToolUse)**
+Appends a one-liner to `.agent-session.log` every time the agent writes a file or runs a
+command. For VA work specifically, being able to produce an audit trail of what the AI
+touched in a session is important. Pairs with test file per item 42 convention.
+
+**75. Add `block-file-writes.sh` (PreToolUse)**
+Blocks agent writes to `.env`, `*.secret`, `secrets/`, and other sensitive path patterns.
+The git hook blocks commits; this blocks writes before they happen. Pairs with test file.
+
+**76. Add `check-test-before-commit.sh` (PreToolUse)**
+Blocks `git commit` commands if the test suite is failing. Enforces TDD at the hook layer
+rather than relying on the `tdd` skill to instill discipline. Pairs with test file.
+
+### New Scripts
+
+**77. Add `install-hooks.sh`**
+Copies hook scripts into a target project and creates or merges `.claude/settings.json`.
+init.sh copies skills; hooks require a separate manual step that this closes.
+
+**78. Add `diff.sh`**
+Compares each installed skill in a project against the agent-config source. Reports: current,
+behind, or locally modified. Addresses the gap where update.sh silently skips modified files.
+
+### New Context Files
+
+**79. Add `npm-package.md` context** *(already in backlog as item 50, re-listed for completeness)*
+For @peterbenoit package repos: package.json conventions, `files` field, CJS vs ESM,
+semver, publish checklist.
+
+**80. Add `node-api.md` context** *(already in backlog as item 49, re-listed for completeness)*
+
+### New Templates
+
+**81. Add `agents-drupal.md` template**
+Starter AGENTS.md for Drupal projects. Covers: Drupal version, theme layer, module list,
+config sync process, deployment workflow, and which skills to install.
+
+**82. Add `agents-npm-package.md` template**
+Starter for @peterbenoit npm package repos: exports map, dual CJS/ESM, peer deps,
+bundlesize constraints, semver rules, and publish checklist reference.
+
+### Structural / Discoverability
+
+**83. Add `registry.json` (machine-readable skill index)**
+*(already in backlog as item 57, re-listed for emphasis)*
+The AI is too dependent on the user knowing to ask for a specific skill. A registry.json
+built by validate.sh or a separate build.sh makes the full library inspectable without
+parsing markdown. Foundation for context-chooser and future IDE integrations.
+
+**84. Add `context-chooser` skill or prompt**
+Inspects a project (package.json, composer.json, file structure, AGENTS.md) and recommends
+which context file(s) and skills to load. Closes the discoverability gap where skills exist
+but don't get invoked because the user doesn't know to ask.
+
+---
+
 ## Human Notes
 
 - I'd like a way to set goals. I think there's a built-in skill for that? I just don't know how to apply it to projects. Just thoughts.
