@@ -150,6 +150,18 @@ safe-mode runs will skip modified files and require manual review.
 
 ---
 
+## Task Lists and Backlog Items
+
+When working on any backlog/task file in any repo:
+
+- Items are formatted as `- [ ]` checkboxes
+- Mark an item `- [x]` immediately when it is fully complete — not at the end of a session
+- Never mark an item complete if it is partially done or only planned
+- If you add new items, add them as `- [ ]` checkboxes in the same format
+- The checkbox state is the source of truth for what is done and what is not
+
+---
+
 ## What Not to Do Here
 
 - Do not add skills that only work for one project — those live in that project's repo
