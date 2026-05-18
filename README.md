@@ -143,6 +143,7 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `social` | "write a tweet for this", "how do I announce this" |
 | `tdd` | "run TDD on this feature", "red-green-refactor this" |
 | `voice` | "edit this copy", "does this README sound right" |
+| `vads` | "which VADS component", "is there a VADS pattern for", "va- web component" |
 | `zoom-out` | "I don't understand this code", "give me the big picture" |
 
 Skills `refactor` and `techwriter` are deferred (README placeholder only, no SKILL.md yet).

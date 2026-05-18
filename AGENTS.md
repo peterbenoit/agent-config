@@ -8,13 +8,16 @@ are editing the toolkit, not a project that uses it.
 
 ## What This Repo Is
 
-- `skills/` — Universal SKILL.md files. 19 active skills, 2 deferred.
-- `prompts/` — `.prompt.md` slash commands for VS Code chat (`/pre-publish`, `/new-skill`, `/announce`, `/weekly-review`).
+- `skills/` — Universal SKILL.md files. 21 active skills, 2 deferred.
+- `prompts/` — `.prompt.md` slash commands for VS Code chat (`/pre-publish`, `/new-skill`, `/announce`, `/weekly-review`, `/diagnose`).
 - `instructions/` — `.instructions.md` always-on rules loaded automatically by file pattern (accessibility, security, writing).
 - `hooks/` — Shell scripts for Claude Code PreToolUse hooks.
-- `context/` — Domain briefing files for BigCommerce, JS libraries, static sites, federal apps, web apps.
+- `context/` — Domain briefing files for BigCommerce, JS libraries, static sites, federal apps, web apps, Drupal, VA.gov.
 - `templates/` — AGENTS.md starters for 6 project types.
-- `validate.sh` — Checks skill frontmatter, README tables, hook executability, and heredoc sync.
+- `validate.sh` — Checks skill frontmatter, README tables, hook executability, symlinks, and heredoc sync.
+- `list.sh` — List all skills with category and description (`--json` for machine-readable output).
+- `search.sh` — Search skills by name, category, tags, or description.
+- `new-skill.sh` — Scaffold a new skill directory and SKILL.md stub.
 - `init.sh` — Wires agent-config into a new project (copy or symlink + starter AGENTS.md).
 - `update.sh` — Pulls skill updates into an already-initialized project.
 

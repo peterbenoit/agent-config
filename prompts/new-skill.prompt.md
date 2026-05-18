@@ -28,6 +28,8 @@ Then ask:
 ```markdown
 ---
 name: '${input:skillName}'
+category: '[Workflow | Content | Code Quality | Accessibility | Security | Meta]'
+tags: '[tag1, tag2, tag3]'
 description: >
   [One paragraph. Role definition, when to use it, and 4–6 explicit trigger phrases.
   The description is load-bearing — agents read it to decide whether to load this skill.

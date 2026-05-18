@@ -48,6 +48,7 @@ Can prompt for user input with: ${input:variableName:placeholder text}
 | `new-skill.prompt.md` | `/new-skill` | Scaffold a new SKILL.md with correct frontmatter and structure |
 | `announce.prompt.md` | `/announce` | Generate platform-appropriate social copy for new content |
 | `weekly-review.prompt.md` | `/weekly-review` | Run the analytics weekly check-in workflow |
+| `diagnose.prompt.md` | `/diagnose` | Full agent-config health check — validate, symlinks, skill count, version |
 
 ---
 

@@ -65,6 +65,18 @@ for skill_dir in "$SKILLS_DIR"/*/; do
   if [ "$fm_desc" -eq 0 ]; then
     fail "$skill_name: frontmatter missing 'description' field"
   fi
+
+  # Check category field exists
+  fm_cat=$(awk '/^---/{f=!f; next} f && /^category:/{print $2; exit}' "$skill_file")
+  if [ -z "$fm_cat" ]; then
+    fail "$skill_name: frontmatter missing 'category' field"
+  fi
+
+  # Check tags field exists and is non-empty
+  fm_tags=$(awk '/^---/{f=!f; next} f && /^tags:/{sub(/^tags:[[:space:]]*/, ""); print; exit}' "$skill_file")
+  if [ -z "$fm_tags" ] || [ "$fm_tags" = "[]" ]; then
+    fail "$skill_name: frontmatter missing or empty 'tags' field"
+  fi
 done
 
 # ── 2. Skills listed in skills/README.md ─────────────────────────────────────

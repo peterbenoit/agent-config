@@ -106,6 +106,7 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `social` | Social copy, announcement framing, Twitter vs LinkedIn, timing | Universal |
 | `tdd` | Red-green-refactor loop, test-first development, failing test scaffolding | Universal |
 | `voice` | Copy editing, tone consistency, README prose, writing that represents the project | Universal |
+| `vads` | VA Design System component selection, correct implementation, deviation rules | Universal |
 | `zoom-out` | High-level orientation to unfamiliar code — how it fits, what calls what | Universal |
 
 **Deferred (placeholder folders with reasoning):**
