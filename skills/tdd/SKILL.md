@@ -3,6 +3,7 @@ name: tdd
 category: Code Quality
 tags: [tdd, testing, red-green-refactor, test-first, javascript]
 updated: 2026-05-18
+triggers: ["don't write code until there's a test","failing test first","red-green-refactor","test-driven","use TDD","write the test first"]
 description: >
   Test-driven development with a strict red-green-refactor loop. Use when building features or
   fixing bugs using TDD, mentions "red-green-refactor", wants test-first development, or asks to

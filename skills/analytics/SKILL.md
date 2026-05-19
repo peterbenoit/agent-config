@@ -3,6 +3,7 @@ name: analytics
 category: Workflow
 tags: [analytics, ga4, gtm, search-console, data, traffic]
 updated: 2026-05-18
+triggers: ["GA4","Search Console","check the analytics","what pages are performing","what's the data say"]
 description: >
   Act as the analytics advisor for any web project. Use when reading GA4 or Search Console data,
   diagnosing traffic or indexing problems, interpreting what's working, or deciding where to focus

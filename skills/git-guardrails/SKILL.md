@@ -3,6 +3,7 @@ name: git-guardrails
 category: Security
 tags: [git, hooks, safety, destructive-commands, pre-commit, guardrails]
 updated: 2026-05-18
+triggers: ["block git push","git guardrails","git safety","hook to stop git","prevent accidental git","protect against reset --hard"]
 description: >
   Set up hooks to block dangerous git commands before they execute. Use when the user wants to
   prevent destructive git operations, add git safety rails, or protect against accidental

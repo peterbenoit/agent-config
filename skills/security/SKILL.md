@@ -3,6 +3,7 @@ name: security
 category: Security
 tags: [security, owasp, vulnerabilities, headers, secrets, review]
 updated: 2026-05-18
+triggers: ["CSP","CSRF","OWASP","XSS","dependency audit","injection","is this safe","secrets","security headers","security review"]
 description: >
   Act as the security reviewer for the current project. Use when auditing code for vulnerabilities,
   reviewing dependencies, setting up security headers, checking secrets hygiene, or assessing

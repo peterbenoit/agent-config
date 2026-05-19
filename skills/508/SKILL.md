@@ -3,6 +3,7 @@ name: 508
 category: Accessibility
 tags: [accessibility, 508, wcag, vpat, federal, aria, remediation]
 updated: 2026-05-18
+triggers: ["508 compliance","ADA compliance","ICT standards","Section 508","VPAT","federal accessibility","is this 508 compliant","remediation report"]
 description: >
   Act as the Section 508 compliance advisor for web projects. Use when assessing
   compliance obligations, preparing a VPAT, remediating issues for a federal audience, advising

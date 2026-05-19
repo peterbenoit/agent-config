@@ -70,14 +70,12 @@ requires:
 Right now a user installing the `analytics` or `og-images` skill has no way to know what
 they need before they try to run it.
 
-- [ ] **10. Add `agents:` field declaring which agent environments each skill works with**
-Some skills may be VS Code Copilot-specific, others work in Claude Code, others are universal.
-Currently undocumented per-skill.
-```yaml
-agents: [claude, copilot, cursor, codex]
-```
+- [x] **10. Add `agents:` field declaring which agent environments each skill works with**
+Won't do. Skills are universal by design — if a skill only works in one agent environment,
+it doesn't belong in this repo. Per-agent config belongs in AGENTS.md and CLAUDE.md, not
+in individual skill frontmatter. Adding `agents:` would push skills toward fragmentation.
 
-- [ ] **11. Add `triggers:` as a separate frontmatter array instead of embedding in `description:`**
+- [x] **11. Add `triggers:` as a separate frontmatter array instead of embedding in `description:`**
 The current approach embeds trigger phrases in the description paragraph. This makes the
 description do double duty and makes it impossible for scripts to extract triggers without
 parsing prose. A discrete field is more reliable:

@@ -1,6 +1,6 @@
 {
-  "version": "0.1.0",
-  "generated": "2026-05-18T17:37:38Z",
+  "version": "0.2.0",
+  "generated": "2026-05-19T13:49:55Z",
   "skills": [
     {
       "name": "508",
@@ -15,6 +15,16 @@
         "federal",
         "aria",
         "remediation"
+      ],
+      "triggers": [
+        "508 compliance",
+        "ADA compliance",
+        "ICT standards",
+        "Section 508",
+        "VPAT",
+        "federal accessibility",
+        "is this 508 compliant",
+        "remediation report"
       ],
       "description": "Act as the Section 508 compliance advisor for web projects. Use when assessing compliance obligations, preparing a VPAT, remediating issues for a federal audience, advising on procurement accessibility requirements, or applying WCAG 2.1 AA through the lens of federal law. Distinct from general QA: this skill covers the legal, contractual, and documentation aspects of 508, not just WCAG pass/fail. Trigger on phrases like \"Section 508\", \"VPAT\", \"federal accessibility\", \"508 compliance\", \"ADA compliance\", \"ICT standards\", \"remediation report\", or \"is this 508 compliant\".  ## Legal Basis  **Section 508 of the Rehabilitation Act (29 U.S.C. § 794d)** requires federal agencies to"
     },
@@ -31,6 +41,13 @@
         "data",
         "traffic"
       ],
+      "triggers": [
+        "GA4",
+        "Search Console",
+        "check the analytics",
+        "what pages are performing",
+        "what's the data say"
+      ],
       "description": "Act as the analytics advisor for any web project. Use when reading GA4 or Search Console data, diagnosing traffic or indexing problems, interpreting what's working, or deciding where to focus attention based on site performance. Trigger on phrases like \"what's the data say\", \"why isn't this page getting traffic\", \"check the analytics\", \"what pages are performing\", \"indexing problem\", \"Search Console\", \"GA4\", or any question about how a site is doing quantitatively.  ## How to Think About Data  **Data without action is noise.** Every analysis ends with a specific recommendation or a reason"
     },
     {
@@ -45,6 +62,18 @@
         "ecommerce",
         "page-builder"
       ],
+      "triggers": [
+        "BC API",
+        "BC cart",
+        "BigCommerce",
+        "Handlebars",
+        "Page Builder",
+        "Stencil",
+        "custom template",
+        "stencil push",
+        "stencil start",
+        "storefront API"
+      ],
       "description": "Act as the BigCommerce development specialist. Use when working on Stencil theme development, Storefront API integrations, BigCommerce REST API calls, Page Builder widgets, cart and checkout flows, or any task involving the BigCommerce platform. Trigger on phrases like \"BigCommerce\", \"Stencil\", \"storefront API\", \"BC cart\", \"Page Builder\", \"custom template\", \"Handlebars\", \"stencil start\", \"stencil push\", \"BC API\", or any question about theme or API work on a BigCommerce store.  ## The Three Layers"
     },
     {
@@ -58,6 +87,13 @@
         "planning",
         "backlog",
         "editorial"
+      ],
+      "triggers": [
+        "content ideas",
+        "should I do X or Y",
+        "what should I write about",
+        "what would help the site most",
+        "what's missing from the site"
       ],
       "description": "Act as the content strategist for the current project. Use when deciding what to build or write next, prioritizing the content backlog, figuring out what's missing from the site, or thinking about how different content types serve different goals. Trigger on phrases like \"what should I build next\", \"what should I write about\", \"what's missing from the site\", \"should I do X or Y\", \"content ideas\", \"what would help the site most\", or any question about direction.  ## Content Types and Their Jobs"
     },
@@ -76,6 +112,16 @@
         "design-tokens",
         "bem"
       ],
+      "triggers": [
+        "BEM",
+        "CSS architecture",
+        "CSS variables",
+        "cascade layers",
+        "design tokens",
+        "responsive strategy",
+        "specificity problem",
+        "utility vs semantic"
+      ],
       "description": "Act as the CSS architecture advisor for any web project. Use when designing a CSS strategy, managing custom properties or design tokens, resolving specificity conflicts, structuring responsive breakpoints, deciding between utility and semantic class approaches, or auditing a stylesheet for structural problems. Trigger on phrases like \"CSS architecture\", \"custom properties\", \"design tokens\", \"cascade layers\", \"specificity problem\", \"how should I structure my CSS\", \"utility vs semantic\", \"BEM\", \"responsive strategy\", \"CSS variables\", or any task about how CSS is organized rather than what it produces.  ## First Principles  **The cascade is a feature.** Specificity conflicts mean the architecture is wrong, not that"
     },
     {
@@ -93,6 +139,15 @@
         "css",
         "network"
       ],
+      "triggers": [
+        "I can't reproduce it",
+        "I'm getting an error",
+        "help me debug",
+        "something's broken",
+        "this isn't working",
+        "what's causing this",
+        "why is this happening"
+      ],
       "description": "Systematic debugging methodology for web development issues. Use when something is broken and the cause is unknown, diagnosing a bug, chasing an intermittent failure, reading a stack trace, or narrowing down a regression. Trigger on phrases like \"something's broken\", \"this isn't working\", \"why is this happening\", \"I'm getting an error\", \"it was working before\", \"I can't reproduce it\", \"what's causing this\", \"help me debug\", or any situation where the problem is defined but the cause is not.  ## The Method  ```"
     },
     {
@@ -107,6 +162,14 @@
         "layout",
         "design-system",
         "color"
+      ],
+      "triggers": [
+        "design this page",
+        "does this fit the site",
+        "hero section",
+        "how should this look",
+        "layout for",
+        "pick the accent color"
       ],
       "description": "Act as the visual designer for the current project. Use when making visual decisions, building new pages, choosing colors, reviewing layouts, or ensuring new work is consistent with the established design system. Trigger on phrases like \"how should this look\", \"pick the accent color\", \"design this page\", \"does this fit the site\", \"layout for\", \"hero section\", or any task where visual decisions need to be made.  ## Principles  **Consistency before creativity.** Match the existing system unless there's a specific reason to"
     },
@@ -123,6 +186,16 @@
         "client",
         "Brick City Creative",
         "briefing"
+      ],
+      "triggers": [
+        "new project",
+        "new client",
+        "client kickoff",
+        "what do I need to ask",
+        "help me scope this",
+        "discovery call",
+        "requirements gathering",
+        "project brief"
       ],
       "description": "Structures client kickoff calls and requirements gathering for Brick City Creative projects. Use this skill when starting a new client engagement, when asked \"what do I need to know before building this\", when scoping a project, when someone says \"let's kick off\", or when you need to document requirements before writing any code. Trigger on phrases like \"new project\", \"new client\", \"client kickoff\", \"what do I need to ask\", \"help me scope this\", \"discovery call\", \"requirements gathering\", or \"project brief\".  ## Discovery Phase — Ordered Question Sets"
     },
@@ -142,6 +215,18 @@
         "cms",
         "php"
       ],
+      "triggers": [
+        "Drupal",
+        "Twig template",
+        "Views",
+        "config sync",
+        "content type",
+        "drush",
+        "hook_form_alter",
+        "paragraph",
+        "preprocess hook",
+        "render array"
+      ],
       "description": "Act as the Drupal development specialist for theming, module work, and site configuration. Use when working in a Drupal codebase, writing or debugging Twig templates, implementing preprocess hooks, managing config sync, diagnosing cache or render array issues, or running drush commands. Trigger on phrases like \"Drupal\", \"Twig template\", \"preprocess hook\", \"config sync\", \"drush\", \"content type\", \"Views\", \"paragraph\", \"render array\", \"block placement\", \"hook_form_alter\", or any task involving the Drupal theme or module layer.  ## Core Mental Model"
     },
     {
@@ -156,6 +241,14 @@
         "destructive-commands",
         "pre-commit",
         "guardrails"
+      ],
+      "triggers": [
+        "block git push",
+        "git guardrails",
+        "git safety",
+        "hook to stop git",
+        "prevent accidental git",
+        "protect against reset --hard"
       ],
       "description": "Set up hooks to block dangerous git commands before they execute. Use when the user wants to prevent destructive git operations, add git safety rails, or protect against accidental git push, reset --hard, clean, or branch deletion in an agentic session. Trigger on phrases like \"git guardrails\", \"block git push\", \"prevent accidental git\", \"git safety\", \"hook to stop git\", or \"protect against reset --hard\".  ## For Claude Code (PreToolUse hook)"
     },
@@ -172,6 +265,14 @@
         "next-action",
         "reflection"
       ],
+      "triggers": [
+        "I should really",
+        "I want to",
+        "I've been meaning to",
+        "help me think through",
+        "my goal is",
+        "someday I want to"
+      ],
       "description": "Help Pete set, clarify, and work through goals of any scale or type. Use this skill whenever Pete mentions a goal, ambition, wish, thing he wants to do, or problem he wants to solve. Trigger on phrases like \"I want to\", \"I've been meaning to\", \"my goal is\", \"I should really\", \"I need to get better at\", \"someday I want to\", \"help me think through\", or any mention of something Pete is trying to achieve. Also trigger when Pete seems stuck, unfocused, or unsure where to start.  ## Step 1: Classify the Goal"
     },
     {
@@ -186,6 +287,14 @@
         "questioning",
         "stress-test",
         "critique"
+      ],
+      "triggers": [
+        "challenge my assumptions",
+        "grill me",
+        "play devil's advocate",
+        "poke holes in my plan",
+        "stress-test this",
+        "what am I missing"
       ],
       "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions \"grill me\". Also triggers on: \"poke holes in my plan\", \"play devil's advocate\", \"challenge my assumptions\", \"stress-test this\", \"what am I missing\"."
     },
@@ -203,6 +312,15 @@
         "maintenance",
         "Brick City Creative"
       ],
+      "triggers": [
+        "closing out",
+        "deployment runbook",
+        "hand off",
+        "handoff",
+        "maintenance guide",
+        "things the client should know",
+        "wrapping up the project"
+      ],
       "description": "Structures project handoff to clients at the end of a Brick City Creative engagement. Use this skill when a project is wrapping up, when asked \"what should I document before handing this off\", when preparing a client for self-sufficiency, or when creating a maintenance guide. Trigger on phrases like \"hand off\", \"handoff\", \"closing out\", \"client documentation\", \"maintenance guide\", \"deployment runbook\", \"things the client should know\", or \"wrapping up the project\".  ## Handoff Checklist  ### 1. Repository & Code  - [ ] README.md exists and covers: purpose, local setup, build commands, deploy commands - [ ] All environment variables documented in `.env.example` (never actual values) - [ ] Hardcoded dev URLs replaced with config - [ ] Unused branches deleted, default branch is `main` - [ ] All open issues triaged: closed, backlogged, or noted as known limitations - [ ] Code comments removed for anything self-evident; complex logic explained  ### 2. Credentials & Access  - [ ] Domain registrar login documented (or transferred to client) - [ ] Hosting account login documented (or transferred) - [ ] CMS admin accounts created for client with appropriate roles - [ ] Analytics property access granted to client email - [ ] Any API keys — are they in the client's account or Pete's? - [ ] Email service, form service, payment processor — same question - [ ] Password manager entry or credentials doc provided securely (never email plaintext)  ### 3. Deployment Runbook"
     },
     {
@@ -218,6 +336,12 @@
         "json-ld",
         "writing"
       ],
+      "triggers": [
+        "add a post",
+        "new blog post",
+        "publish a post",
+        "write a post"
+      ],
       "description": "Use when creating a new blog post. Covers the writing quality bar, content requirements, head tags, JSON-LD schema, layout pattern, and publication checklist. Trigger on phrases like \"new blog post\", \"write a post\", \"add a post\", \"publish a post\", or any task involving creating a new blog post file.  ## Technical Requirements  1. **Required `<head>` tags:** - `<title>` — 50–70 chars. Common pattern: `{Post Title} | {Site Name}` - `<meta property=\"og:title\" content=\"...\">` - `<meta name=\"description\" content=\"...\">` - `<meta property=\"article:published_time\" content=\"YYYY-MM-DD\">` - `<meta name=\"category\" content=\"...\">` (used for filtering, RSS, and auto-promotion) - Full Open Graph + Twitter card tags - `BlogPosting` JSON-LD schema — include `headline`, `datePublished`, `author`, `url`  2. **Analytics** — see AGENTS.md for project-specific analytics snippets before `</head>`.  3. **Blog post layout pattern:** - `<main id=\"main-content\">` wraps article content. Breadcrumb nav stays outside `<main>`; footer stays outside `</main>`. - Blog post header and article should not reuse general page card styles — they have their own spacing and typography context. Check AGENTS.md or local overlay for project conventions.  4. **Post promotion / social publishing** — check AGENTS.md for any post-publish scripts, ledger files, or social automation tools this project uses.  5. **Required scripts** — check AGENTS.md for project-specific script tags required before `</body>`.  6. **Related content** (optional): If a related project exists, include a \"What I've built with this\" section inside `</article>`, not as a separate section after it."
     },
     {
@@ -232,6 +356,10 @@
         "og",
         "json-ld",
         "tailwind"
+      ],
+      "triggers": [
+        "add a project",
+        "create a page for"
       ],
       "description": "Use when creating a new project page. Covers the full checklist: file location, required head tags, OG metadata, JSON-LD schema, analytics, page structure, accent color selection, Related section pattern, project registration, and required scripts. Trigger on phrases like \"new project page\", \"add a project\", \"create a page for\", or any task that involves building a new project landing page.  ## Project Context"
     },
@@ -251,6 +379,16 @@
         "changelog",
         "@peterbenoit"
       ],
+      "triggers": [
+        "dual ESM CJS",
+        "npm pack",
+        "npm publish",
+        "package.json exports",
+        "publish to npm",
+        "semver",
+        "version bump",
+        "what version should this be"
+      ],
       "description": "Manage the npm package publish lifecycle for scoped packages. Use when preparing to publish or update an npm package, choosing a version bump, writing a CHANGELOG entry, setting up dual ESM/CJS output, auditing package.json exports, or running a pre-publish checklist. Trigger on phrases like \"publish to npm\", \"version bump\", \"semver\", \"npm publish\", \"package.json exports\", \"dual ESM CJS\", \"what version should this be\", \"pre-publish checklist\", \"npm pack\", or any task about releasing or maintaining an npm package.  ## Package Conventions (@peterbenoit scope)"
     },
     {
@@ -265,6 +403,15 @@
         "dependencies",
         "supply-chain",
         "audit"
+      ],
+      "triggers": [
+        "npm install",
+        "npm i",
+        "pnpm add",
+        "pnpm dlx",
+        "npx",
+        "new dependency",
+        "add this package"
       ],
       "description": "Apply security precautions whenever recommending npm or pnpm package installs. ALWAYS trigger this skill when about to suggest `npm install`, `npm i`, `pnpm add`, `npx`, `pnpm dlx`, or any package manager install command. Also trigger when recommending a new dependency, suggesting a package by name, or adding anything to package.json. Do NOT skip this skill just because the task feels routine or the package seems well-known. Supply chain attacks happen to popular packages too.  ## Required behavior on every package recommendation  ### 1. Flag the install explicitly"
     },
@@ -281,6 +428,12 @@
         "meta",
         "generation"
       ],
+      "triggers": [
+        "OG image",
+        "generate images",
+        "og:image",
+        "social preview images"
+      ],
       "description": "Use when working with OG image generation. Covers the OG pipeline workflow, dry-run strategy, AI generation options, and review checklist. Trigger on phrases like \"OG image\", \"og:image\", \"generate images\", \"social preview images\", or any task involving open graph image generation or the og:image meta tag.  ## Project Context"
     },
     {
@@ -295,6 +448,16 @@
         "caching",
         "lighthouse",
         "speed"
+      ],
+      "triggers": [
+        "CLS",
+        "INP",
+        "LCP",
+        "Lighthouse score",
+        "bundle size",
+        "improve performance",
+        "render-blocking",
+        "why is this slow"
       ],
       "description": "Act as the web performance engineer for the current project. Use when measuring or improving page speed, diagnosing Core Web Vitals failures, reducing bundle size, auditing render-blocking resources, or optimizing images and caching. Trigger on phrases like \"why is this slow\", \"improve performance\", \"Lighthouse score\", \"LCP\", \"CLS\", \"INP\", \"bundle size\", \"Core Web Vitals\", \"render-blocking\", or any task about making pages load or respond faster.  ## First Principles  **Measure before you fix.** Gut-feel performance work produces inconsistent results. Get a"
     },
@@ -311,6 +474,14 @@
         "audit",
         "correctness"
       ],
+      "triggers": [
+        "WCAG check",
+        "audit this",
+        "check this",
+        "does this match the pattern",
+        "is this accessible",
+        "review before publishing"
+      ],
       "description": "Act as the QA and accessibility auditor for any web project. Use when reviewing a page or component for correctness, accessibility compliance, or structural consistency. Trigger on phrases like \"check this\", \"audit this\", \"is this accessible\", \"WCAG check\", \"does this match the pattern\", \"review before publishing\", or any request to validate work before it ships. For Section 508 legal compliance, VPAT, or federal remediation, use the `508` skill instead.  ## WCAG 2.1 AA Checklist  ### Structure - [ ] Page has exactly one `<h1>` - [ ] Heading hierarchy is logical — no skipped levels (h1 → h2 → h3) - [ ] `<main>` landmark is present and wraps primary content - [ ] `<nav>` elements have `aria-label` to distinguish multiple navs - [ ] `<footer>` has `aria-label=\"Site footer\"` - [ ] Skip-to-main link present if navigation precedes content  ### Images - [ ] All `<img>` have `alt` attributes - [ ] Decorative images use `alt=\"\"` and `aria-hidden=\"true\"` - [ ] Complex images (charts, diagrams) have extended descriptions  ### Interactive Elements - [ ] All buttons have accessible names (visible text or `aria-label`) - [ ] All links have meaningful text — not \"click here\", \"read more\", \"learn more\" - [ ] Focus order is logical and follows visual reading order - [ ] Focus is visible — not suppressed with `outline: none` without a replacement - [ ] No keyboard traps - [ ] Custom controls (dropdowns, modals, tabs) implement correct ARIA roles and keyboard behavior  ### Forms - [ ] Every input has an associated `<label>` (via `for`/`id` or `aria-label`) - [ ] Required fields are indicated in a way that doesn't rely on color alone - [ ] Error messages are associated with their fields via `aria-describedby` - [ ] Form submission errors are announced to screen readers  ### Color & Contrast - [ ] Normal text (< 18px): minimum 4.5:1 contrast ratio - [ ] Large text (≥ 18px or ≥ 14px bold): minimum 3:1 contrast ratio - [ ] UI components and focus indicators: minimum 3:1 against adjacent colors - [ ] Information is not conveyed by color alone  ### Motion & Media - [ ] Animations respect `prefers-reduced-motion` - [ ] No content flashes more than 3 times per second - [ ] Video has captions; audio has transcripts  ### Mobile & Responsive - [ ] Touch targets are at least 44×44px - [ ] Content reflows without horizontal scrolling at 320px viewport width - [ ] Pinch-to-zoom is not disabled (`user-scalable=no` is absent)   ## Performance Signals to Flag"
     },
     {
@@ -325,6 +496,18 @@
         "headers",
         "secrets",
         "review"
+      ],
+      "triggers": [
+        "CSP",
+        "CSRF",
+        "OWASP",
+        "XSS",
+        "dependency audit",
+        "injection",
+        "is this safe",
+        "secrets",
+        "security headers",
+        "security review"
       ],
       "description": "Act as the security reviewer for the current project. Use when auditing code for vulnerabilities, reviewing dependencies, setting up security headers, checking secrets hygiene, or assessing exposure to OWASP Top 10 risks. Trigger on phrases like \"security review\", \"is this safe\", \"OWASP\", \"XSS\", \"CSRF\", \"injection\", \"dependency audit\", \"secrets\", \"CSP\", \"security headers\", or any task about hardening or reviewing code for vulnerabilities.  ## First Principles  **Threat model before you audit.** What are you protecting? Who is a realistic attacker?"
     },
@@ -341,6 +524,16 @@
         "indexing",
         "search"
       ],
+      "triggers": [
+        "Search Console error",
+        "canonical",
+        "indexing problem",
+        "meta description for",
+        "structured data",
+        "title tag",
+        "why isn't this indexed",
+        "will this rank"
+      ],
       "description": "Act as the SEO advisor for any web project. Use when diagnosing indexing problems, writing titles and meta descriptions, reviewing structured data, checking canonical tags, or making decisions that affect how a site appears in search. Trigger on phrases like \"will this rank\", \"meta description for\", \"why isn't this indexed\", \"structured data\", \"title tag\", \"canonical\", \"Search Console error\", \"indexing problem\", or any question about search visibility.  ## Title Tag Rules  - 50–60 chars for most pages; up to ~70 for blog posts when the headline needs full phrasing - Lead with the most descriptive term — not the site name - Pattern for product/tool pages: `{Product}: {Tagline} | {Site Name}` - Pattern for content pages: `{Descriptive Topic} | {Site Name}` - Never: `{Site Name} | {Page}` — wastes the most important characters - Never: generic labels like `Blog | {Site}` or `Home | {Site}`  ## Meta Description Rules  - 150–160 chars - Specific and active — reads like a sentence from the page, not a pitch about it - Answers: what will I find here, and why does it matter? - Avoid: \"Discover how to...\", \"In this post we explore...\", \"Learn about...\"   ## Structured Data Patterns  ### SoftwareSourceCode ```json { \"@context\": \"https://schema.org\", \"@type\": \"SoftwareSourceCode\", \"name\": \"Project Name\", \"description\": \"...\", \"url\": \"https://example.com/slug/\", \"codeRepository\": \"https://github.com/user/repo\", \"programmingLanguage\": \"JavaScript\", \"author\": { \"@type\": \"Person\", \"name\": \"Author Name\", \"url\": \"https://example.com\" } } ```  ### BlogPosting ```json { \"@context\": \"https://schema.org\", \"@type\": \"BlogPosting\", \"headline\": \"Post Title\", \"datePublished\": \"YYYY-MM-DD\", \"author\": { \"@type\": \"Person\", \"name\": \"Author Name\", \"url\": \"https://example.com\" }, \"url\": \"https://example.com/blog/slug/\" } ```  ### Article (explainers, long-form) ```json { \"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Article Title\", \"datePublished\": \"YYYY-MM-DD\", \"author\": { \"@type\": \"Person\", \"name\": \"Author Name\", \"url\": \"https://example.com\" }, \"url\": \"https://example.com/<section>/<slug>/\" } ```  ### Person + ProfessionalService (portfolio homepage) ```json { \"@context\": \"https://schema.org\", \"@type\": [\"Person\", \"ProfessionalService\"], \"name\": \"Full Name\", \"url\": \"https://example.com\", \"description\": \"...\", \"sameAs\": [\"https://github.com/...\", \"https://linkedin.com/in/...\"] } ```   ## Content vs. SEO"
     },
     {
@@ -356,6 +549,13 @@
         "announcement",
         "copy"
       ],
+      "triggers": [
+        "LinkedIn post for",
+        "how do I announce",
+        "how do I promote this",
+        "what should I share",
+        "write a tweet for"
+      ],
       "description": "Act as the social and promotion strategist for the current project. Use when deciding how to announce a new post or project, writing social copy, framing content for Twitter vs LinkedIn, or planning what to share and when. Trigger on phrases like \"how do I promote this\", \"write a tweet for\", \"LinkedIn post for\", \"how do I announce\", \"what should I share\", or any task about getting content in front of people.  ## Context"
     },
     {
@@ -369,6 +569,14 @@
         "red-green-refactor",
         "test-first",
         "javascript"
+      ],
+      "triggers": [
+        "don't write code until there's a test",
+        "failing test first",
+        "red-green-refactor",
+        "test-driven",
+        "use TDD",
+        "write the test first"
       ],
       "description": "Test-driven development with a strict red-green-refactor loop. Use when building features or fixing bugs using TDD, mentions \"red-green-refactor\", wants test-first development, or asks to write tests before implementation. Applies to any JS/TS codebase. Trigger on phrases like \"use TDD\", \"write the test first\", \"red-green-refactor\", \"test-driven\", \"failing test first\", or \"don't write code until there's a test\".  ## Project Context"
     },
@@ -386,6 +594,13 @@
         "federal",
         "accessibility"
       ],
+      "triggers": [
+        "VADS doesn't have a",
+        "can we override this component",
+        "is there a VADS pattern for this",
+        "va- component",
+        "which web component should I use"
+      ],
       "description": "Act as the VA Design System (VADS) component advisor. Use when selecting, implementing, or auditing UI components on VA.gov properties. Trigger on phrases like \"which VADS component\", \"is there a VADS pattern for this\", \"can we override this component\", \"VADS doesn't have a\", \"which web component should I use\", \"va- component\", \"design system component\", or any task involving USWDS or VADS component selection and implementation.  ## Decision Hierarchy"
     },
     {
@@ -401,6 +616,14 @@
         "editing",
         "tone"
       ],
+      "triggers": [
+        "does this sound right",
+        "edit this",
+        "is the voice right",
+        "review this copy",
+        "rewrite this",
+        "too generic"
+      ],
       "description": "Act as the voice and writing editor for any project. Use when writing or editing copy, docs, blog posts, project descriptions, README files, or any text that represents the project publicly. Trigger on phrases like \"edit this\", \"rewrite this\", \"is the voice right\", \"too formal\", \"too generic\", \"does this sound right\", \"review this copy\", or any request to write or improve text.  ## Universal Writing Principles  **Direct.** One idea per sentence. If a sentence needs a semicolon to hold together, it probably"
     },
     {
@@ -415,6 +638,14 @@
         "big-picture",
         "codebase",
         "orientation"
+      ],
+      "triggers": [
+        "I don't understand this code",
+        "are we solving the right problem",
+        "bigger picture",
+        "how does this fit",
+        "step back",
+        "zoom out"
       ],
       "description": "Tell the agent to zoom out and give a higher-level perspective on an unfamiliar section of code or a problem. Use when you don't know this area of the codebase well, need to understand how something fits into the bigger picture, feel like you're solving the wrong problem, or the current approach feels too narrow. Trigger on: \"zoom out\", \"step back\", \"bigger picture\", \"are we solving the right problem\", \"how does this fit\", \"I don't understand this code\"."
     }

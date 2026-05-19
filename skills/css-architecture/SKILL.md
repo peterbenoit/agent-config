@@ -3,6 +3,7 @@ name: css-architecture
 category: Code Quality
 tags: [css, custom-properties, cascade, specificity, responsive, architecture, design-tokens, bem]
 updated: 2026-05-18
+triggers: ["BEM","CSS architecture","CSS variables","cascade layers","design tokens","responsive strategy","specificity problem","utility vs semantic"]
 description: >
   Act as the CSS architecture advisor for any web project. Use when designing a CSS strategy,
   managing custom properties or design tokens, resolving specificity conflicts, structuring

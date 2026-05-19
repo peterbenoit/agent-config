@@ -3,6 +3,7 @@ name: voice
 category: Content
 tags: [writing, voice, copy, docs, editing, tone]
 updated: 2026-05-18
+triggers: ["does this sound right","edit this","is the voice right","review this copy","rewrite this","too generic"]
 description: >
   Act as the voice and writing editor for any project. Use when writing or editing copy, docs,
   blog posts, project descriptions, README files, or any text that represents the project

@@ -3,6 +3,7 @@ name: goal-setting
 category: Workflow
 tags: [goals, planning, productivity, clarity, next-action, reflection]
 updated: 2026-05-18
+triggers: ["I should really","I want to","I've been meaning to","help me think through","my goal is","someday I want to"]
 description: >
   Help Pete set, clarify, and work through goals of any scale or type. Use this skill whenever Pete
   mentions a goal, ambition, wish, thing he wants to do, or problem he wants to solve. Trigger on

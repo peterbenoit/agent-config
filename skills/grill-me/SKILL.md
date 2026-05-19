@@ -3,6 +3,7 @@ name: grill-me
 category: Workflow
 tags: [planning, design, review, questioning, stress-test, critique]
 updated: 2026-05-18
+triggers: ["challenge my assumptions","grill me","play devil's advocate","poke holes in my plan","stress-test this","what am I missing"]
 description: >
   Interview the user relentlessly about a plan or design until reaching shared understanding,
   resolving each branch of the decision tree. Use when user wants to stress-test a plan, get

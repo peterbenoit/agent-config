@@ -3,6 +3,7 @@ name: zoom-out
 category: Workflow
 tags: [architecture, planning, refactor, big-picture, codebase, orientation]
 updated: 2026-05-18
+triggers: ["I don't understand this code","are we solving the right problem","bigger picture","how does this fit","step back","zoom out"]
 description: >
   Tell the agent to zoom out and give a higher-level perspective on an unfamiliar section of code
   or a problem. Use when you don't know this area of the codebase well, need to understand how

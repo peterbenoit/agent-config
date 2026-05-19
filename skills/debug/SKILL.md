@@ -3,6 +3,7 @@ name: debug
 category: Code Quality
 tags: [debugging, devtools, isolation, bug, diagnosis, javascript, css, network]
 updated: 2026-05-18
+triggers: ["I can't reproduce it","I'm getting an error","help me debug","something's broken","this isn't working","what's causing this","why is this happening"]
 description: >
   Systematic debugging methodology for web development issues. Use when something is broken
   and the cause is unknown, diagnosing a bug, chasing an intermittent failure, reading a

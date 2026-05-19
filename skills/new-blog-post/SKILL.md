@@ -3,6 +3,7 @@ name: new-blog-post
 category: Content
 tags: [blog, content, publishing, seo, json-ld, writing]
 updated: 2026-05-18
+triggers: ["add a post","new blog post","publish a post","write a post"]
 description: >
   Use when creating a new blog post. Covers the writing quality bar, content requirements, head
   tags, JSON-LD schema, layout pattern, and publication checklist. Trigger on phrases like

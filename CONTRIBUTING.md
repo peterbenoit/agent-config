@@ -29,8 +29,10 @@ inside the repo.
 name: skill-name
 category: Workflow          # Accessibility | Code Quality | Content | Security | Workflow | Meta
 tags: [tag1, tag2, tag3]
+updated: 2026-01-01
+triggers: ["phrase one", "phrase two", "phrase three", "phrase four"]
 description: >
-  One paragraph. What role this skill plays, when to load it, and 4-6 trigger phrases.
+  One paragraph. What role this skill plays, when to load it, and what problems it solves.
   Be specific — vague descriptions cause false triggers or missed triggers.
 ---
 ```

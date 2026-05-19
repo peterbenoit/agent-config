@@ -3,6 +3,7 @@ name: social
 category: Content
 tags: [social, twitter, linkedin, promotion, announcement, copy]
 updated: 2026-05-18
+triggers: ["LinkedIn post for","how do I announce","how do I promote this","what should I share","write a tweet for"]
 description: >
   Act as the social and promotion strategist for the current project. Use when deciding how to announce
   a new post or project, writing social copy, framing content for Twitter vs LinkedIn, or planning

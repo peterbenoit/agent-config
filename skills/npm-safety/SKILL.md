@@ -3,6 +3,7 @@ name: npm-safety
 category: Security
 tags: [npm, security, packages, dependencies, supply-chain, audit]
 updated: 2026-05-18
+triggers: ["npm install", "npm i", "pnpm add", "pnpm dlx", "npx", "new dependency", "add this package"]
 description: >
   Apply security precautions whenever recommending npm or pnpm package installs.
   ALWAYS trigger this skill when about to suggest `npm install`, `npm i`, `pnpm add`,

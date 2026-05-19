@@ -3,6 +3,7 @@ name: performance
 category: Code Quality
 tags: [performance, core-web-vitals, bundle-size, caching, lighthouse, speed]
 updated: 2026-05-18
+triggers: ["CLS","INP","LCP","Lighthouse score","bundle size","improve performance","render-blocking","why is this slow"]
 description: >
   Act as the web performance engineer for the current project. Use when measuring or improving page
   speed, diagnosing Core Web Vitals failures, reducing bundle size, auditing render-blocking

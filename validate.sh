@@ -91,6 +91,12 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     warn "$skill_name: frontmatter missing 'updated' field (add 'updated: YYYY-MM-DD')"
   fi
 
+  # Check triggers field exists and is non-empty
+  fm_triggers=$(awk '/^---/{f=!f; next} f && /^triggers:/{sub(/^triggers:[[:space:]]*/, ""); print; exit}' "$skill_file")
+  if [ -z "$fm_triggers" ] || [ "$fm_triggers" = "[]" ]; then
+    warn "$skill_name: frontmatter missing or empty 'triggers' field"
+  fi
+
   # Check description has at least 4 trigger phrases (quoted or backtick phrases)
   desc_block=$(awk '/^---/{f=!f; next} f && /^description:/{p=1} p{print} p && /^[a-z]/ && !/^description/{exit}' "$skill_file")
   trigger_count=$(echo "$desc_block" | grep -oE '"[^"]{3,}"|`[^`]{3,}`' | wc -l | tr -d ' ')

@@ -3,6 +3,7 @@ name: drupal
 category: Code Quality
 tags: [drupal, twig, theming, preprocess, drush, config-sync, render-array, cms, php]
 updated: 2026-05-18
+triggers: ["Drupal","Twig template","Views","config sync","content type","drush","hook_form_alter","paragraph","preprocess hook","render array"]
 description: >
   Act as the Drupal development specialist for theming, module work, and site configuration.
   Use when working in a Drupal codebase, writing or debugging Twig templates, implementing

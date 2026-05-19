@@ -40,8 +40,12 @@ Required YAML frontmatter:
 ```yaml
 ---
 name: skill-name
+category: Workflow
+tags: [tag1, tag2]
+updated: 2026-01-01
+triggers: ["phrase one", "phrase two", "phrase three", "phrase four"]
 description: >
-  One paragraph. What role this plays, when to load it, and 4–6 trigger phrases.
+  One paragraph. What role this plays, when to load it, and what problems it solves.
   Specificity matters — vague descriptions cause false triggers or missed triggers.
 ---
 ```

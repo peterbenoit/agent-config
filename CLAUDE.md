@@ -66,7 +66,7 @@ EOF
 ## Before Committing
 
 1. Run `./validate.sh` — all checks must pass
-2. Confirm any new skill has `name:`, `category:`, `tags:`, and `updated:` in its frontmatter
+2. Confirm any new skill has `name:`, `category:`, `tags:`, `updated:`, and `triggers:` in its frontmatter
 3. Confirm any new skill is listed in `skills/README.md` and root `README.md`
 4. Confirm any new context file is listed in `context/README.md`
 5. Confirm any new template is listed in `templates/README.md`

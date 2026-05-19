@@ -3,6 +3,7 @@ name: handoff
 category: Workflow
 tags: ["handoff", "client", "documentation", "deployment", "runbook", "maintenance", "Brick City Creative"]
 updated: 2026-05-18
+triggers: ["closing out","deployment runbook","hand off","handoff","maintenance guide","things the client should know","wrapping up the project"]
 description: >
   Structures project handoff to clients at the end of a Brick City Creative engagement.
   Use this skill when a project is wrapping up, when asked "what should I document before

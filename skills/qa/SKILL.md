@@ -3,6 +3,7 @@ name: qa
 category: Accessibility
 tags: [qa, accessibility, wcag, testing, audit, correctness]
 updated: 2026-05-18
+triggers: ["WCAG check","audit this","check this","does this match the pattern","is this accessible","review before publishing"]
 description: >
   Act as the QA and accessibility auditor for any web project. Use when reviewing a page or
   component for correctness, accessibility compliance, or structural consistency. Trigger on
