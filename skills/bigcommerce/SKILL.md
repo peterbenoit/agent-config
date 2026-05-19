@@ -3,6 +3,7 @@ name: bigcommerce
 category: Workflow
 tags: [bigcommerce, stencil, storefront-api, ecommerce, page-builder]
 updated: 2026-05-18
+requires: ["stencil", "BC_API_KEY"]
 triggers: ["BC API","BC cart","BigCommerce","Handlebars","Page Builder","Stencil","custom template","stencil push","stencil start","storefront API"]
 description: >
   Act as the BigCommerce development specialist. Use when working on Stencil theme development,

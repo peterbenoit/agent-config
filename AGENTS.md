@@ -44,6 +44,7 @@ category: Workflow
 tags: [tag1, tag2]
 updated: 2026-01-01
 triggers: ["phrase one", "phrase two", "phrase three", "phrase four"]
+requires: []  # optional: list CLI tools ("node", "drush") or env vars ("BC_API_KEY") needed to use this skill
 description: >
   One paragraph. What role this plays, when to load it, and what problems it solves.
   Specificity matters — vague descriptions cause false triggers or missed triggers.

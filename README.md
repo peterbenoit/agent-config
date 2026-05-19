@@ -223,6 +223,7 @@ Overlays are never overwritten by `update.sh` because they use a different filen
    tags: [tag1, tag2]
    updated: 2026-01-01
    triggers: ["phrase one", "phrase two", "phrase three", "phrase four"]
+   requires: []  # optional: list CLI tools or env vars needed to use this skill
    description: >
      One paragraph. What role this plays, when to use it, and what problems it solves.
      The description is what the agent reads to decide whether to load this skill.

@@ -103,6 +103,22 @@ for skill_dir in "$SKILLS_DIR"/*/; do
   if [ "$trigger_count" -lt 4 ]; then
     warn "$skill_name: description has $trigger_count quoted/backtick trigger phrases (recommend at least 4)"
   fi
+
+  # Check requires: items are documented in skill body (item 23)
+  fm_requires=$(awk '/^---/{f=!f; next} f && /^requires:/{sub(/^requires:[[:space:]]*/, ""); print; exit}' "$skill_file")
+  if [ -n "$fm_requires" ] && [ "$fm_requires" != "[]" ]; then
+    skill_body=$(awk '/^---/{f++; next} f>=2{print}' "$skill_file")
+    items=$(echo "$fm_requires" | tr -d '[]' | tr ',' '\n' | sed 's/^[[:space:]]*"//; s/"[[:space:]]*$//')
+    while IFS= read -r item; do
+      [ -z "$item" ] && continue
+      first_word=$(echo "$item" | awk '{print $1}')
+      if echo "$skill_body" | grep -qiw "$first_word"; then
+        ok "$skill_name: requires '$first_word' documented in skill body"
+      else
+        warn "$skill_name: requires '$item' — '$first_word' not found in skill body"
+      fi
+    done <<< "$items"
+  fi
 done
 
 # ── 2. Skills listed in skills/README.md ─────────────────────────────────────

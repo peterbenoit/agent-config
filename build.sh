@@ -38,6 +38,10 @@ for skill_dir in "$SKILLS_DIR"/*/; do
   fm_triggers_raw=$(awk '/^---/{f=!f; next} f && /^triggers:/{sub(/^triggers:[[:space:]]*/, ""); print; exit}' "$skill_file" | sed 's/^\[//; s/\]$//')
 fm_triggers_json=$(jq -Rn --arg t "$fm_triggers_raw" '$t | split(",") | map(gsub("^[[:space:]]+|[[:space:]]+$"; "")) | map(gsub("^\"|\"$"; "")) | map(select(. != ""))')
 
+  # Requires: parse inline array ["item1", "item2"]
+  fm_requires_raw=$(awk '/^---/{f=!f; next} f && /^requires:/{sub(/^requires:[[:space:]]*/, ""); print; exit}' "$skill_file" | sed 's/^\[//; s/\]$//')
+  fm_requires_json=$(jq -Rn --arg r "$fm_requires_raw" '$r | split(",") | map(gsub("^[[:space:]]+|[[:space:]]+$"; "")) | map(gsub("^\"|\"$"; "")) | map(select(. != ""))')
+
   # Tags: strip leading "tags:" and surrounding brackets
   fm_tags_raw=$(awk '/^---/{f=!f; next} f && /^tags:/{sub(/^tags:[[:space:]]*/, ""); print; exit}' "$skill_file" | sed 's/^\[//; s/\]$//')
 
@@ -65,8 +69,9 @@ fm_triggers_json=$(jq -Rn --arg t "$fm_triggers_raw" '$t | split(",") | map(gsub
     --arg updated "$fm_updated" \
     --argjson tags "$fm_tags_json" \
     --argjson triggers "$fm_triggers_json" \
+    --argjson requires "$fm_requires_json" \
     --arg description "$fm_desc" \
-    '{name: $name, dir: $dir, category: $category, updated: $updated, tags: $tags, triggers: $triggers, description: $description}')
+    '{name: $name, dir: $dir, category: $category, updated: $updated, tags: $tags, triggers: $triggers, requires: $requires, description: $description}')
 
   skills_json=$(echo "$skills_json" | jq --argjson s "$skill_obj" '. + [$s]')
 done

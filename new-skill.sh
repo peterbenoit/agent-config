@@ -33,6 +33,7 @@ name: $SKILL_NAME
 category: Workflow
 tags: [$SKILL_NAME]
 updated: $(date +%Y-%m-%d)
+requires: []
 triggers: ["$SKILL_NAME", "help with $SKILL_NAME"]
 description: >
   Act as the $SKILL_NAME specialist. Use when... Trigger on phrases like

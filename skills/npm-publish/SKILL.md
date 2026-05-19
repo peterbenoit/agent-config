@@ -3,6 +3,7 @@ name: npm-publish
 category: Code Quality
 tags: [npm, publish, semver, esm, cjs, package, registry, changelog, @peterbenoit]
 updated: 2026-05-18
+requires: ["node", "npm"]
 triggers: ["dual ESM CJS","npm pack","npm publish","package.json exports","publish to npm","semver","version bump","what version should this be"]
 description: >
   Manage the npm package publish lifecycle for scoped packages. Use when preparing to publish

@@ -8,6 +8,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- `requires:` frontmatter field on skills with external dependencies (analytics, bigcommerce, drupal, npm-publish, performance) — lists required CLI tools and env vars
+- `requires:` included in `registry.json` output from `build.sh`
+- `requires:` validation in `validate.sh` — warns if a listed item is not documented in the skill body
+- `requires: []` included in `new-skill.sh` stub frontmatter
 - `triggers:` frontmatter field on all 27 SKILL.md files — structured array of trigger phrases extracted from descriptions
 - `triggers:` included in `registry.json` output from `build.sh`
 - `triggers:` field validation in `validate.sh` (warns if missing or empty)

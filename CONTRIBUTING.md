@@ -31,6 +31,7 @@ category: Workflow          # Accessibility | Code Quality | Content | Security 
 tags: [tag1, tag2, tag3]
 updated: 2026-01-01
 triggers: ["phrase one", "phrase two", "phrase three", "phrase four"]
+requires: []  # optional: CLI tools ("node", "drush") or env vars ("BC_API_KEY") needed to use this skill
 description: >
   One paragraph. What role this skill plays, when to load it, and what problems it solves.
   Be specific — vague descriptions cause false triggers or missed triggers.
