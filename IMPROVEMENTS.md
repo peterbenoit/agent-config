@@ -59,7 +59,7 @@ Example:
 tags: [tdd, testing, red-green-refactor, javascript]
 ```
 
-- [ ] **9. Add `requires:` field for skills that need env vars or tools**
+- [x] **9. Add `requires:` field for skills that need env vars or tools**
 Hasna extracts env vars and system deps by scanning doc files with regex. That's fragile.
 Better to declare them explicitly in frontmatter for skills that actually need something:
 ```yaml
@@ -145,7 +145,7 @@ update.sh checks symlink health but validate.sh doesn't. Move (or copy) the syml
 into validate.sh so a single `./validate.sh` run gives you a complete health picture.
 Right now you have to run update.sh from agent-config just to check symlinks, which is odd.
 
-- [ ] **23. Validate `requires:` env vars are documented in the skill body**
+- [x] **23. Validate `requires:` env vars are documented in the skill body**
 If a skill declares `requires: env: [OPENAI_API_KEY]` in frontmatter, validate.sh should
 confirm that string appears in the SKILL.md body too, so it's visible to a reader scanning
 the doc without parsing frontmatter.
