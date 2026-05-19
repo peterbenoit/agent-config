@@ -13,9 +13,10 @@ This is the meta-repo. Documentation drift here means every downstream project i
 | File | Update when |
 |------|------------|
 | `CHANGELOG.md` | Any code change — always, no exceptions |
-| `README.md` | New/removed scripts, changed flags, skill count change, new context files or templates |
-| `AGENTS.md` | New/removed scripts, skill count, new context files, templates, prompts, instructions |
+| `README.md` | New/removed scripts, changed flags, skill count change, new context files or templates, new or changed frontmatter fields |
+| `AGENTS.md` | New/removed scripts, skill count, new context files, templates, prompts, instructions, new or changed frontmatter fields |
 | `CLAUDE.md` | `## Key Scripts` section changes |
+| `CONTRIBUTING.md` | New or changed frontmatter fields, new skill conventions, new script behavior |
 
 ## VERSION
 

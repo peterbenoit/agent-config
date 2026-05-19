@@ -32,6 +32,8 @@ cat > "$SKILL_FILE" << EOF
 name: $SKILL_NAME
 category: Workflow
 tags: [$SKILL_NAME]
+updated: $(date +%Y-%m-%d)
+triggers: ["$SKILL_NAME", "help with $SKILL_NAME"]
 description: >
   Act as the $SKILL_NAME specialist. Use when... Trigger on phrases like
   "$SKILL_NAME", "help with $SKILL_NAME", or any task involving $SKILL_NAME.
