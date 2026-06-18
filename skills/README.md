@@ -115,6 +115,12 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `discovery` | Client kickoff and requirements gathering — scope definition, project brief, risk surfacing | Universal |
 | `handoff` | Project handoff to clients — README, runbooks, credentials, maintenance guide, training notes | Universal |
 
+| `angular` | Angular components, services, routing, RxJS, signals — standalone component patterns | Universal |
+| `vue` | Vue 3 Composition API, Pinia, Vue Router, Nuxt — `<script setup>` patterns | Universal |
+| `vanilla-js` | Browser-native JS: ES modules, DOM, Fetch, Observers, progressive enhancement | Universal |
+| `uswds` | U.S. Web Design System: token config, components, 21st Century IDEA compliance | Universal |
+| `wcag` | Hands-on WCAG coding: ARIA, keyboard nav, focus management, live regions, contrast | Universal |
+
 **Deferred (placeholder folders with reasoning):**
 
 | Folder | Status | Reason deferred |
