@@ -1,6 +1,6 @@
 {
   "version": "0.2.1",
-  "generated": "2026-07-16T15:11:41Z",
+  "generated": "2026-07-16T15:30:09Z",
   "skills": [
     {
       "name": "508",
@@ -88,31 +88,31 @@
       "name": "bigcommerce",
       "dir": "bigcommerce",
       "category": "Workflow",
-      "updated": "2026-05-18",
+      "updated": "2026-07-16",
       "tags": [
         "bigcommerce",
         "stencil",
+        "catalyst",
         "storefront-api",
+        "management-api",
+        "graphql",
         "ecommerce",
         "page-builder"
       ],
       "triggers": [
-        "BC API",
-        "BC cart",
         "BigCommerce",
-        "Handlebars",
-        "Page Builder",
         "Stencil",
+        "Catalyst",
+        "Storefront API",
+        "Management API",
+        "BC cart",
+        "Page Builder",
         "custom template",
         "stencil push",
-        "stencil start",
-        "storefront API"
+        "BigCommerce webhook"
       ],
-      "requires": [
-        "stencil",
-        "BC_API_KEY"
-      ],
-      "description": "Act as the BigCommerce development specialist. Use when working on Stencil theme development, Storefront API integrations, BigCommerce REST API calls, Page Builder widgets, cart and checkout flows, or any task involving the BigCommerce platform. Trigger on phrases like \"BigCommerce\", \"Stencil\", \"storefront API\", \"BC cart\", \"Page Builder\", \"custom template\", \"Handlebars\", \"stencil start\", \"stencil push\", \"BC API\", or any question about theme or API work on a BigCommerce store.  ## The Three Layers"
+      "requires": [],
+      "description": "Act as the BigCommerce development specialist across Stencil themes, Catalyst and headless storefronts, Storefront GraphQL and REST APIs, Management APIs, apps, Page Builder, checkout, and webhooks. Use current official documentation and live project evidence before asserting platform behavior. Trigger on phrases like \"BigCommerce\", \"Stencil\", \"Catalyst\", \"Storefront API\", \"Management API\", \"BC cart\", \"Page Builder\", \"custom template\", \"stencil push\", or \"BigCommerce webhook\"."
     },
     {
       "name": "content-strategy",
@@ -434,6 +434,37 @@
       ],
       "requires": [],
       "description": "Act as the interaction and motion design advisor for web interfaces. Use when designing, implementing, reviewing, or debugging transitions, microinteractions, gesture feedback, page or route changes, scroll-linked effects, and animation systems. Trigger on phrases like \"animate this\", \"add a transition\", \"microinteraction\", \"motion feels off\", \"page transition\", \"scroll animation\", \"spring or easing\", or \"make this interaction feel better\". Cover reduced motion and animation performance; use `performance` for broader loading and Core Web Vitals work."
+    },
+    {
+      "name": "lipseys",
+      "dir": "lipseys",
+      "category": "Workflow",
+      "updated": "2026-07-16",
+      "tags": [
+        "lipseys",
+        "distributor",
+        "catalog",
+        "csv",
+        "inventory",
+        "pricing",
+        "orders",
+        "fulfillment",
+        "api",
+        "ecommerce"
+      ],
+      "triggers": [
+        "Lipsey's API",
+        "Lipseys API",
+        "Lipsey inventory",
+        "Lipsey catalog",
+        "Lipsey CSV",
+        "Lipsey pricing",
+        "Lipsey order",
+        "allocated item",
+        "sync Lipsey's"
+      ],
+      "requires": [],
+      "description": "Act as the Lipsey's distributor integration specialist. Use when discovering or calling the Lipsey's API, inspecting catalog CSV files or item and inventory data, documenting observed schemas, interpreting availability states such as allocated inventory, or designing catalog, pricing, order, fulfillment, and tracking workflows. Trigger on phrases like \"Lipsey's API\", \"Lipseys API\", \"Lipsey inventory\", \"Lipsey catalog\", \"Lipsey CSV\", \"Lipsey pricing\", \"Lipsey order\", \"allocated item\", or \"sync Lipsey's\". Keep this skill independent from any destination commerce platform."
     },
     {
       "name": "microsoft-foundry",

@@ -88,7 +88,8 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 |-------|------|------|
 | `508` | Section 508 / WCAG compliance, VPAT preparation, federal a11y requirements | Universal |
 | `analytics` | GA4 and Search Console analysis, traffic diagnosis, conversion troubleshooting | Universal |
-| `bigcommerce` | Stencil theme dev, Storefront API, Page Builder widgets, BC REST API | Universal |
+| `bigcommerce` | Current-source BigCommerce development across Stencil, Catalyst, Storefront and Management APIs, apps, and widgets | Universal |
+| `lipseys` | Lipsey's API discovery, catalog CSV contracts, inventory semantics, orders, and fulfillment | Universal |
 | `content-strategy` | Content backlog prioritization, gap analysis, editorial planning | Universal |
 | `design` | Frontend visual direction, layout, typography, color, design-system fit, and polish | Universal |
 | `docs` | README writing, API documentation structure, changelogs | Universal |

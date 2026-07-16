@@ -21,7 +21,7 @@ If it would be useful in any project, it belongs here.
 
 ```
 agent-config/
-├── skills/              # 37 top-level SKILL.md instruction sets + 2 deferred (see skills/README.md)
+├── skills/              # 38 top-level SKILL.md instruction sets + 2 deferred (see skills/README.md)
 ├── prompts/             # .prompt.md slash commands for VS Code chat (/doc-sync, /pre-publish, /new-skill, etc.)
 ├── instructions/        # .instructions.md always-on rules (accessibility, security, writing)
 ├── hooks/               # Shell scripts for agent hook systems (Claude Code PreToolUse)
@@ -149,7 +149,8 @@ In any environment you can invoke a skill explicitly by saying what you want:
 |-------|--------------------|
 | `508` | "audit this page for 508", "do we need a VPAT" |
 | `analytics` | "why did traffic drop", "what does Search Console say" |
-| `bigcommerce` | "Stencil template issue", "BC cart API", "storefront API call" |
+| `bigcommerce` | "Stencil template issue", "BC cart API", "Catalyst", "storefront API call" |
+| `lipseys` | "Lipsey inventory", "Lipsey catalog", "Lipsey CSV", "allocated item", "sync Lipsey's" |
 | `content-strategy` | "what should I write next", "what's missing from this site" |
 | `design` | "design this page", "pick a color for this section", "make this feel polished" |
 | `docs` | "write a README for this", "structure the API docs" |

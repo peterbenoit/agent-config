@@ -1,255 +1,164 @@
 ---
 name: bigcommerce
 category: Workflow
-tags: [bigcommerce, stencil, storefront-api, ecommerce, page-builder]
-updated: 2026-05-18
-requires: ["stencil", "BC_API_KEY"]
-triggers: ["BC API","BC cart","BigCommerce","Handlebars","Page Builder","Stencil","custom template","stencil push","stencil start","storefront API"]
+tags: [bigcommerce, stencil, catalyst, storefront-api, management-api, graphql, ecommerce, page-builder]
+updated: 2026-07-16
+requires: []
+triggers: ["BigCommerce","Stencil","Catalyst","Storefront API","Management API","BC cart","Page Builder","custom template","stencil push","BigCommerce webhook"]
 description: >
-  Act as the BigCommerce development specialist. Use when working on Stencil theme development,
-  Storefront API integrations, BigCommerce REST API calls, Page Builder widgets, cart and checkout
-  flows, or any task involving the BigCommerce platform. Trigger on phrases like "BigCommerce",
-  "Stencil", "storefront API", "BC cart", "Page Builder", "custom template", "Handlebars",
-  "stencil start", "stencil push", "BC API", or any question about theme or API work on a
-  BigCommerce store.
+  Act as the BigCommerce development specialist across Stencil themes, Catalyst and headless
+  storefronts, Storefront GraphQL and REST APIs, Management APIs, apps, Page Builder, checkout, and
+  webhooks. Use current official documentation and live project evidence before asserting platform
+  behavior. Trigger on phrases like "BigCommerce", "Stencil", "Catalyst", "Storefront API",
+  "Management API", "BC cart", "Page Builder", "custom template", "stencil push", or
+  "BigCommerce webhook".
 ---
 
 # BigCommerce Specialist
 
-You are the BigCommerce development specialist. You work across the full stack of a BigCommerce
-store: Stencil theme templates, Storefront API integrations, and server-side REST API calls.
-Your job is to understand which layer a problem belongs to before writing any code.
-
----
-
-## The Three Layers
-
-Before writing code, identify which layer the task belongs to:
-
-| Layer | Tech | Auth | Use for |
-|-------|------|------|---------|
-| **Stencil theme** | Handlebars, SCSS, JS | None (server-rendered) | Layout, template logic, Page Builder, SCSS |
-| **Storefront API** | REST / GraphQL, client-side | Channel token (public) | Cart, checkout, customer data, product data from browser |
-| **Management API** | REST, server-side | OAuth 2.0 or API key | Catalog, orders, promotions, anything that modifies store data |
-
-Mixing these up is the most common source of BigCommerce bugs. A Storefront API call made with
-a Management API key will fail. A Management API call made from the browser exposes credentials.
-Confirm the layer before deciding on auth and call location.
-
----
-
-## Stencil Development
-
-### Workflow
-
-```sh
-stencil start           # local dev server with live reload
-stencil push            # upload theme to BC (does not activate)
-stencil bundle          # zip theme for manual upload
-stencil download        # pull current active theme from store
-```
-
-Check AGENTS.md for the store-specific `.stencil` config and `stencil.conf.json` path.
-
-### Custom Page Templates
-
-Naming convention controls which pages can use a template:
-- `custom_brand_<name>.html` — brand pages
-- `custom_category_<name>.html` — category pages
-- `custom_product_<name>.html` — product pages
-- `custom_page_<name>.html` — static pages
-
-Templates must be activated per-page in the BC admin (Storefront → Pages or the product/category editor).
-
-### Handlebars Context
-
-Data available in templates comes from the Stencil context object. Key scopes:
-- `{{page_type}}` — the current page type (e.g. `product`, `category`, `brand`, `page`)
-- `{{settings}}` — store settings from `config.json`
-- `{{theme_settings}}` — configurable values from `schema.json`
-- `{{product}}`, `{{category}}`, `{{brand}}` — page-specific data (varies by page type)
-- Custom data: use `{{inject 'keyName' value}}` in the template + `{{jsContext}}` in the layout
-  to pass Handlebars data into client-side JavaScript
-
-### Injecting Data into JavaScript
-
-To make Stencil context data available to `assets/js/`:
-
-```handlebars
-{{!-- In the template --}}
-{{inject 'productId' product.id}}
-{{inject 'customerId' customer.id}}
-
-{{!-- In layouts/base.html, before your scripts --}}
-<script>var jsContext = JSON.parse({{jsContext}});</script>
-```
-
-Then in JS: `window.jsContext.productId`
-
-### Page Builder Widgets
-
-Widgets consist of three parts:
-1. **Widget Template** — Handlebars template registered via API (`/v3/content/widget-templates`)
-2. **Widget** — An instance of a template with configuration (`/v3/content/widgets`)
-3. **Widget Placement** — Where on the page the widget appears (`/v3/content/placements`)
-
-If Page Builder is in use, check AGENTS.md for whether widgets are managed via API or manually.
-
----
-
-## Storefront API
-
-The Storefront API is public and runs client-side. It operates in the context of the current
-shopper's session — cart, customer, and product data scoped to that session.
-
-### Authentication
-
-Use the channel token, not Management API credentials. The token is safe to expose client-side.
-
-```js
-// Typical setup — token delivered from server into page
-const token = document.querySelector('meta[name="bc-storefront-token"]')?.content;
-
-fetch('/api/storefront/cart', {
-  headers: { 'Authorization': `Bearer ${token}` }
-});
-```
-
-Check AGENTS.md for how this project delivers the token to the client (meta tag, `window` global,
-or injected via Handlebars).
-
-### Cart Operations
-
-```js
-// Get current cart
-GET /api/storefront/carts?include=lineItems.physicalItems.options
-
-// Create a cart
-POST /api/storefront/carts
-{ "lineItems": [{ "productId": 123, "quantity": 1 }] }
-
-// Add to existing cart
-POST /api/storefront/carts/{cartId}/items
-{ "lineItems": [{ "productId": 123, "quantity": 1 }] }
-
-// Delete a line item
-DELETE /api/storefront/carts/{cartId}/items/{itemId}
-```
-
-One active cart per shopper session. Creating a new cart when one exists creates a second cart
-(orphaned). Always GET the cart first and add to it if one exists.
-
-### GraphQL Storefront API
-
-Useful when you need more control over the response shape than REST allows:
-
-```js
-const query = `
-  query ProductById($productId: Int!) {
-    site {
-      product(entityId: $productId) {
-        name
-        prices { price { value currencyCode } }
-        variants { edges { node { sku entityId } } }
-      }
-    }
-  }
-`;
-
-fetch('/graphql', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
-  },
-  body: JSON.stringify({ query, variables: { productId: 123 } })
-});
-```
-
----
-
-## Management REST API
-
-Server-side only. Never call this from the browser — credentials must stay server-side.
-
-### Authentication Patterns
-
-**OAuth 2.0 (recommended for apps/integrations):**
-- Client ID + Client Secret → exchange for access token
-- Scoped permissions per endpoint
-- Token can be revoked
-
-**Store-level API key:**
-- `X-Auth-Token` header
-- Full store access (use minimal scopes where possible)
-- No expiry — treat like a password
-
-```js
-// Management API call (server-side only)
-fetch(`https://api.bigcommerce.com/stores/${STORE_HASH}/v3/catalog/products`, {
-  headers: {
-    'X-Auth-Token': process.env.BC_API_KEY,
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  }
-});
-```
-
-### Rate Limits
-
-- Default: 150 requests per 30s rolling window per store
-- Bulk endpoints exist for Catalog operations — prefer them over looping single-item calls
-- Check response headers: `X-Rate-Limit-Requests-Left`, `X-Rate-Limit-Time-Reset-Ms`
-- On 429: back off by the `X-Rate-Limit-Time-Reset-Ms` value before retrying
-
-### Pagination
-
-BC v3 list endpoints use **page/limit** pagination by default. Some endpoints also support
-cursor-based pagination via an `after` parameter — check the endpoint's docs before assuming:
-
-```js
-// Page/limit (most v3 endpoints)
-GET /v3/catalog/products?limit=250&page=1
-GET /v3/catalog/products?limit=250&page=2
-
-// Cursor-based (select endpoints only, e.g. /v3/orders/metafields)
-GET /v3/orders/metafields?limit=250
-// Next page — use the cursor from response meta if present
-GET /v3/orders/metafields?limit=250&after={cursor}
-```
-
-Response shape (page/limit):
-```json
-{ "data": [...], "meta": { "pagination": { "total": 500, "count": 250, "per_page": 250, "current_page": 1, "total_pages": 2 } } }
-```
-
-Never assume a single request returns all records — always check `meta.pagination` and
-loop until you've retrieved all pages.
-
----
-
-## Common Mistakes
-
-**Cart orphaning:** Creating a new cart when one exists produces a second cart the shopper can't
-access. Always check for an existing cart before creating.
-
-**Management API from browser:** Exposes credentials. Always proxy through a server-side function.
-
-**Using v2 endpoints when v3 exists:** v2 is deprecated for most catalog operations. Default to v3.
-
-**Not paginating:** A catalog with 500+ products returns only the first page. Silent data loss.
-
-**Stencil context vs Storefront API:** Some data (e.g. current product) is available in the
-Handlebars context for free — no API call needed. Check the context before adding an API call.
-
----
+Identify the platform surface, retrieve current official guidance, inspect the project's actual
+implementation, and only then write code. Keep stable reasoning in this skill; obtain volatile
+endpoint, schema, CLI, version, quota, and deprecation facts at task time.
+
+## Begin With Evidence
+
+Use this order:
+
+1. Current project code, configuration, lockfiles, tests, and local BigCommerce overlay
+2. Current official BigCommerce documentation through its docs MCP server
+3. Current official Markdown page or API reference
+4. Live, read-only store responses when store-specific truth is required and access is authorized
+5. Official changelog and deprecation notices
+6. Community sources only for troubleshooting evidence, never as an API contract
+
+Read [references/source-policy.md](references/source-policy.md) before answering a question about
+current endpoints, fields, authentication, CLI requirements, quotas, or deprecations. Cite the
+official page used when reporting current platform behavior.
+
+Do not confuse documentation truth with store truth. Documentation describes capabilities; the
+repository and authorized store responses describe this implementation.
+
+## Classify the Surface
+
+Choose the narrowest relevant surface:
+
+| Surface | Typical responsibility | Evidence to inspect |
+|---|---|---|
+| Stencil | Hosted theme templates, SCSS, browser JavaScript, theme configuration | Theme files, Stencil docs, CLI version |
+| Catalyst/headless | Headless routing, rendering, sessions, caching, checkout handoff | App code, channel config, current Catalyst/headless docs |
+| Storefront GraphQL | Shopper-facing catalog, customer, cart, and checkout capabilities | Current schema/reference and token configuration |
+| Storefront REST | Hosted storefront session operations supported by that API | Current API reference and browser/session context |
+| Management APIs | Server-side catalog, orders, inventory, promotions, and configuration | API account scopes, current reference, live headers |
+| Apps and webhooks | OAuth installation, callbacks, lifecycle, and event delivery | App config, callback code, webhook docs and registrations |
+| Page Builder/widgets | Content schema, widget templates, instances, and placements | Theme/widget code and current content docs |
+
+A task may cross surfaces, but authentication and execution location must remain correct for each
+call.
+
+## Determine Access Per Task
+
+Do not require a Management API key for every BigCommerce task.
+
+- Stencil editing may require only the repository and local Stencil configuration.
+- Public documentation questions require no store credentials.
+- Storefront requests require the token and origin/session model documented for that API and store.
+- Management requests require server-side credentials with the minimum necessary scopes.
+- App work may require OAuth client configuration and installation context.
+- Live store inspection should begin read-only and requires user-authorized access.
+
+Read [references/api-auth-boundaries.md](references/api-auth-boundaries.md) before implementing an
+API call. Never expose Management credentials, OAuth secrets, customer impersonation tokens, or
+other privileged material in browser code, logs, examples, or fixtures.
+
+## Stencil Workflow
+
+Inspect the theme's package versions and configuration before running CLI commands or applying a
+pattern from another theme. Use the current official Stencil documentation for supported Node,
+Python, Sass, and CLI requirements.
+
+Keep these stable rules:
+
+- Reuse existing templates, partials, components, utilities, and theme settings before adding new
+  variants.
+- Check page context and front matter before adding an API request for data already rendered by
+  Stencil.
+- Pass server-rendered data into browser JavaScript through the project's established mechanism.
+- Keep schema and configuration changes compatible with Page Builder and existing theme settings.
+- Render locally and verify the actual page type, responsive behavior, accessibility, and browser
+  console.
+- Bundle or push only after local validation; uploading and activating a theme are distinct actions.
+
+Read [references/stencil-workflow.md](references/stencil-workflow.md) for custom templates, local
+mapping, Page Builder, and deployment verification.
+
+## API Workflow
+
+For every API task:
+
+1. Identify the exact surface and current official operation.
+2. Confirm authentication, scopes, execution location, channel, and shopper/session context.
+3. Inspect the current request and response schema rather than recalling it.
+4. Start with a read-only request or documented example when possible.
+5. Handle the endpoint's actual pagination and filtering model.
+6. Read rate-limit headers dynamically; quotas vary by plan and resource.
+7. Design retries for idempotency and respect reset or retry guidance.
+8. Validate empty, partial, error, and permission responses.
+9. Log enough for diagnosis without recording secrets or customer data.
+10. Re-fetch or reconcile authoritative state after consequential mutations when the workflow
+    requires it.
+
+Never generalize a pagination shape, maximum page size, or API version from a different endpoint.
+Do not prefer a version merely because its number is higher; use the current supported operation for
+that resource.
+
+## Storefront and Cart Safety
+
+- Determine whether the storefront is hosted Stencil or headless before choosing an API and session
+  strategy.
+- Confirm how the current shopper, channel, currency, locale, and cart are represented.
+- Treat cart, checkout, and order as distinct lifecycle objects.
+- Preserve server authority for price, inventory, tax, shipping, discounts, and final totals.
+- Handle expired sessions, stale cart identifiers, unavailable items, partial updates, and repeated
+  submissions.
+- Never assume a token is public merely because another Storefront token type is browser-safe.
+- Do not store privileged tokens or customer data in durable browser storage without an explicit
+  security design.
+
+Use current Storefront documentation and project tests for the exact cart and checkout contract.
+
+## Apps, Webhooks, and Background Integrations
+
+- Verify OAuth scopes and lifecycle callbacks against current docs.
+- Authenticate webhook delivery using the current documented mechanism.
+- Expect duplicate, delayed, missing, and out-of-order events.
+- Make event handlers idempotent and reconcile against the authoritative API.
+- Queue expensive work and adapt to live rate-limit headers.
+- Store external identifiers and processing state so retries are safe.
+- Never infer successful downstream processing from webhook receipt alone.
+
+## Verification
+
+Read [references/verification-checklist.md](references/verification-checklist.md) and apply only the
+sections relevant to the task. At minimum:
+
+- Confirm official documentation was retrieved for volatile facts
+- Confirm the implementation surface and credential boundary
+- Run the project's targeted checks
+- Render or exercise the affected storefront flow
+- Inspect browser/server errors and API responses
+- Test failure and repeated-operation behavior for integrations
+- Check the changelog and deprecations when adopting or replacing a platform capability
 
 ## Project Context
 
 Check AGENTS.md or local skill overlays for:
-- Store hash and which env var holds it
-- How the Storefront API token is delivered to the client (meta tag, window global, jsContext)
-- Which API calls go direct from the client vs. proxied through middleware
-- Custom template names in use and which pages they're assigned to
-- Any store-specific API rate limit constraints or caching layers
-- Webhook registrations and their endpoint locations
+
+- Hosted Stencil, Catalyst, or other headless architecture
+- Theme, CLI, Node, package, and channel versions
+- Store hash, channel IDs, storefront domains, and environment-variable names
+- Token types, API account scopes, and which services may access them
+- Custom templates, Page Builder widgets, placements, and theme settings
+- Cart, checkout, customer, and session strategy
+- Webhook registrations, queues, caches, and reconciliation jobs
+- Store plan, observed rate-limit headers, and integration budgets
+- Known platform workarounds with source links and last-verification dates

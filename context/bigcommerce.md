@@ -1,84 +1,153 @@
 # CONTEXT — {Store / Project Name}
 
-{One to two sentences: what this BigCommerce store sells, who its customers are, and what the
-custom development work covers (Stencil theme, API integrations, etc.).}
+{Describe what the store sells, who its customers are, and whether the implementation uses hosted
+Stencil, Catalyst, another headless storefront, apps/integrations, or a combination.}
 
 ---
 
-## Glossary
+## Architecture
 
-BigCommerce-specific terms and any project-specific names that extend them. Skip general
-e-commerce terms — only the ones that would confuse or mislead an outside reader belong here.
+- **Storefront:** `<!-- Stencil / Catalyst / other headless implementation -->`
+- **Store hash configuration:** `<!-- env/config location; never place the value in this file if sensitive -->`
+- **Channels and storefronts:** `<!-- IDs, names, domains, and purpose -->`
+- **Theme/app versions:** `<!-- package, CLI, Node, Catalyst, or app versions that constrain behavior -->`
+- **Server-side integration layer:** `<!-- service/API routes/functions that hold privileged credentials -->`
+- **Queues and scheduled jobs:** `<!-- webhook consumers, catalog sync, reconciliation, cache refresh -->`
 
-**Channel** — A BigCommerce sales channel. This store uses a single channel. The channel ID
-is required for Storefront API token requests and multi-storefront configuration.
-This project's channel ID: `<!-- channel ID -->`
-
-**Storefront API token** — A public, client-side-safe token scoped to a specific channel.
-Used for all Storefront API calls from the browser (cart, checkout, customer, products).
-Never use Management API credentials client-side. In this project, the token is delivered to
-the browser via: `<!-- meta tag name / window global / jsContext key -->`.
-
-**Store hash** — The unique identifier for this BC store, used in all Management API URLs
-(`api.bigcommerce.com/stores/{store_hash}/v3/...`). Stored in: `<!-- env var name -->`.
-
-**Stencil context** — The server-rendered Handlebars data object available in `.html` templates.
-Use `{{inject}}` + `{{jsContext}}` to pass context values into client-side JavaScript.
-Do not make an API call to fetch data that is already available in the Stencil context.
-
-**Custom template** — A Stencil `.html` file following the `custom_<type>_<name>.html` naming
-convention. Templates must be activated per-page in the BC admin after upload via `stencil push`.
-Templates in use on this store: `<!-- list them -->`.
-
-**Widget** — A Page Builder component registered via the Widgets API. Consists of a Widget
-Template (Handlebars) + a Widget instance (configuration) + a Placement (where on the page).
-`<!-- List any custom widgets this project has registered, or 'None' -->`.
-
-**Cart vs. Checkout vs. Order** — Distinct states in BC's purchase flow:
-- Cart: line items before checkout begins (`/api/storefront/carts`)
-- Checkout: payment and shipping collected (Embedded Checkout or hosted BC checkout)
-- Order: post-purchase record (`/v2/orders` or `/v3/orders`)
-
-**`<!-- Project-specific term »`** — `<!-- Definition -->`.
+Record when these facts were last verified. Store configuration may differ from current platform
+defaults and from other BigCommerce projects.
 
 ---
 
-## Key Relationships
+## Authentication and Access
 
-Non-obvious connections between parts of the system.
+Document each credential class separately. BigCommerce token types and exposure rules are not
+interchangeable.
 
-- Management API calls (Catalog, Orders, Promotions) are server-side only — never called directly
-  from the browser. They are proxied through: `<!-- serverless functions / API routes / middleware -->`.
+| Capability | API/surface | Execution location | Credential/session type | Scope | Config name |
+|---|---|---|---|---|---|
+| `<!-- example: catalog read -->` | `<!-- Management REST -->` | `<!-- server -->` | `<!-- store API account/OAuth -->` | `<!-- read-only -->` | `<!-- env name -->` |
+| `<!-- example: shopper cart -->` | `<!-- Storefront GraphQL/REST -->` | `<!-- browser/server -->` | `<!-- exact token/session type -->` | `<!-- channel/origin/customer context -->` | `<!-- config name -->` |
 
-- Storefront API calls (Cart, Customer, product data) are client-side. The Storefront API token
-  is injected into the page by: `<!-- how: meta tag in base.html / Stencil jsContext / etc. -->`.
+- Never place credential values in this file.
+- Identify which operations are approved for read-only diagnostics and which require explicit
+  authorization.
+- Record API account scopes and token restrictions from current official documentation.
 
-- `config.json` controls available theme settings; `schema.json` exposes them to Page Builder.
-  Changes to `schema.json` require `stencil push` to take effect in the admin.
+---
 
-- Product data available in the Stencil Handlebars context (`{{product}}`) does not require a
-  Storefront API call. Check the context before adding an API call that may be redundant.
+## Storefront and Theme
 
-- `<!-- Source-of-truth data flow: e.g. "Promotions are managed via the BC Promotions API and
-  cached in X. The Stencil template reads from the cache, not live API." -->`.
+### Stencil
+
+Complete this section only for hosted Stencil work.
+
+- Theme repository and branch: `<!-- location -->`
+- Supported local runtime: `<!-- verify against lockfile and current official docs -->`
+- Local Stencil configuration file: `<!-- .stencil or current config filename -->`
+- Theme settings and schema ownership: `<!-- config.json/schema.json conventions -->`
+- Context-to-JavaScript mechanism: `<!-- established injection pattern -->`
+
+Custom templates belong in the appropriate page-type directory:
+
+```text
+templates/pages/custom/{brand|category|product|page}/<descriptive-name>.html
+```
+
+| Template file | Page type | Local mapped URL | Assigned entity/channel | Assignment owner |
+|---|---|---|---|---|
+| `<!-- file -->` | `<!-- product/page/etc. -->` | `<!-- real store URL -->` | `<!-- ID/channel -->` | `<!-- control panel/API -->` |
+
+### Catalyst or Other Headless Storefront
+
+- Framework/version: `<!-- version -->`
+- Channel and site configuration: `<!-- location -->`
+- Session and customer strategy: `<!-- describe -->`
+- Checkout handoff/session synchronization: `<!-- describe -->`
+- Cache ownership and invalidation: `<!-- describe -->`
+- Hosting and environment boundaries: `<!-- describe -->`
+
+---
+
+## Page Builder and Content
+
+- Widget templates managed in code: `<!-- list or None -->`
+- Widget instances/placements managed in code: `<!-- list or None -->`
+- Merchant-managed regions that automation must not overwrite: `<!-- list -->`
+- Content ownership and deployment process: `<!-- describe -->`
+
+Record template, widget, and placement identifiers in the project configuration or a secure
+operational system rather than copying mutable live values into universal skill files.
+
+---
+
+## Commerce Flows
+
+### Cart, Checkout, and Order
+
+These are distinct lifecycle objects. Document the project's actual flow:
+
+- Cart API and session context: `<!-- describe -->`
+- Checkout creation/handoff: `<!-- describe -->`
+- Customer identity and login: `<!-- describe -->`
+- Currency, locale, tax, shipping, and promotion authority: `<!-- describe -->`
+- Post-order reconciliation: `<!-- describe -->`
+- Recovery from expired sessions, unavailable items, and repeated submission: `<!-- describe -->`
+
+### Catalog, Inventory, and Pricing
+
+| Data | Source of truth | API/sync path | Cache | Reconciliation |
+|---|---|---|---|---|
+| Products/variants | `<!-- source -->` | `<!-- path/job -->` | `<!-- policy -->` | `<!-- policy -->` |
+| Inventory/locations | `<!-- source -->` | `<!-- path/job -->` | `<!-- policy -->` | `<!-- policy -->` |
+| Price lists/pricing | `<!-- source -->` | `<!-- path/job -->` | `<!-- policy -->` | `<!-- policy -->` |
+
+For distributor integrations such as Lipsey's, keep vendor semantics and mappings in the
+project-specific integration overlay. Do not make the universal BigCommerce skill own distributor
+pricing, inventory buffers, allocation, or SKU identity rules.
+
+---
+
+## Apps, Webhooks, and Jobs
+
+| Integration | Event/operation | Handler/job | Idempotency key | Reconciliation source |
+|---|---|---|---|---|
+| `<!-- name -->` | `<!-- scope -->` | `<!-- location -->` | `<!-- strategy -->` | `<!-- authoritative API -->` |
+
+Document retry, deduplication, ordering, dead-letter, and alerting behavior. Webhook receipt is not
+proof that downstream processing completed.
+
+---
+
+## Platform Evidence and Known Constraints
+
+For every workaround or platform-sensitive decision, record:
+
+```text
+Decision/constraint:
+Repository evidence:
+Official documentation:
+Changelog/deprecation evidence:
+Store evidence:
+Last verified:
+Owner:
+```
+
+Do not preserve a workaround after its evidence has expired without re-verifying it.
 
 ---
 
 ## Decisions
 
-Choices that were made deliberately and should not be undone without knowing why.
+Record project decisions and why they were made. Examples include:
 
-**Direct vs. proxied API calls.** Storefront API calls go direct from the browser using the
-channel token. Management API calls are always proxied through server-side middleware because
-Management API credentials must never be exposed client-side. Do not move Management API calls
-into client-side code.
+- Hosted versus headless storefront
+- Storefront GraphQL versus REST for a particular flow
+- Direct storefront calls versus a server intermediary
+- OAuth app versus store-level API account
+- Theme and Page Builder ownership boundaries
+- Cart reconciliation and optimistic update policy
+- Cache, webhook, retry, and rate-limit strategy
 
-**`<!-- Auth method decision -->`.** This store uses `<!-- API key / OAuth tokens -->` for
-Management API access because `<!-- reason: simpler for a single-store integration / required
-for multi-store app, etc. -->`. Do not swap the auth method without updating all endpoints.
-
-**No optimistic cart updates.** Cart state is always re-fetched from the Storefront API after
-a mutation. BC cart IDs can change between operations (a new cart is created if the session
-expires). Trust the API response, not local state.
-
-**`<!-- Other deliberate decision -->`.** `<!-- Rationale -->`.
+Each decision should identify its scope, rationale, current source evidence, and conditions that
+would justify revisiting it.
