@@ -1,6 +1,6 @@
 {
   "version": "0.2.1",
-  "generated": "2026-05-19T15:07:25Z",
+  "generated": "2026-07-16T15:11:41Z",
   "skills": [
     {
       "name": "508",
@@ -54,6 +54,35 @@
         "Search Console access"
       ],
       "description": "Act as the analytics advisor for any web project. Use when reading GA4 or Search Console data, diagnosing traffic or indexing problems, interpreting what's working, or deciding where to focus attention based on site performance. Trigger on phrases like \"what's the data say\", \"why isn't this page getting traffic\", \"check the analytics\", \"what pages are performing\", \"indexing problem\", \"Search Console\", \"GA4\", or any question about how a site is doing quantitatively.  ## How to Think About Data  **Data without action is noise.** Every analysis ends with a specific recommendation or a reason"
+    },
+    {
+      "name": "angular",
+      "dir": "angular",
+      "category": "Frontend",
+      "updated": "2026-06-18",
+      "tags": [
+        "angular",
+        "typescript",
+        "rxjs",
+        "signals",
+        "standalone",
+        "pinia",
+        "ng",
+        "cli"
+      ],
+      "triggers": [
+        "Angular",
+        "NgModule",
+        "OnPush",
+        "RxJS",
+        "angular component",
+        "ng generate",
+        "signals",
+        "standalone component",
+        "this is an Angular app"
+      ],
+      "requires": [],
+      "description": "Act as the Angular implementation advisor. Use when building or reviewing Angular components, services, routing, reactive forms, RxJS operators, or signals. Trigger on phrases like \"Angular\", \"ng generate\", \"standalone component\", \"NgModule\", \"RxJS\", \"OnPush\", \"signals\", \"angular component\", or \"this is an Angular app\".  ## Components"
     },
     {
       "name": "bigcommerce",
@@ -165,26 +194,31 @@
     {
       "name": "design",
       "dir": "design",
-      "category": "Content",
-      "updated": "2026-05-18",
+      "category": "Frontend",
+      "updated": "2026-07-16",
       "tags": [
         "design",
         "visual",
-        "css",
+        "frontend",
         "layout",
         "design-system",
-        "color"
+        "color",
+        "typography",
+        "ui",
+        "polish"
       ],
       "triggers": [
         "design this page",
         "does this fit the site",
         "hero section",
         "how should this look",
+        "make this feel polished",
+        "visual direction",
         "layout for",
         "pick the accent color"
       ],
       "requires": [],
-      "description": "Act as the visual designer for the current project. Use when making visual decisions, building new pages, choosing colors, reviewing layouts, or ensuring new work is consistent with the established design system. Trigger on phrases like \"how should this look\", \"pick the accent color\", \"design this page\", \"does this fit the site\", \"layout for\", \"hero section\", or any task where visual decisions need to be made.  ## Principles  **Consistency before creativity.** Match the existing system unless there's a specific reason to"
+      "description": "Act as the frontend visual designer for web pages and interfaces. Use when establishing a visual direction, designing or redesigning a page, choosing typography or color, reviewing hierarchy and layout, polishing an interface, or keeping new work consistent with an existing design system. Trigger on phrases like \"design this page\", \"how should this look\", \"visual direction\", \"hero section\", \"make this feel polished\", \"pick the accent color\", \"layout for\", or \"does this fit the site\". For interaction timing and animation implementation, use `interaction-motion`."
     },
     {
       "name": "discovery",
@@ -246,6 +280,35 @@
         "php"
       ],
       "description": "Act as the Drupal development specialist for theming, module work, and site configuration. Use when working in a Drupal codebase, writing or debugging Twig templates, implementing preprocess hooks, managing config sync, diagnosing cache or render array issues, or running drush commands. Trigger on phrases like \"Drupal\", \"Twig template\", \"preprocess hook\", \"config sync\", \"drush\", \"content type\", \"Views\", \"paragraph\", \"render array\", \"block placement\", \"hook_form_alter\", or any task involving the Drupal theme or module layer.  ## Core Mental Model"
+    },
+    {
+      "name": "frontend-testing",
+      "dir": "frontend-testing",
+      "category": "Frontend",
+      "updated": "2026-07-16",
+      "tags": [
+        "testing",
+        "frontend",
+        "component-testing",
+        "integration",
+        "e2e",
+        "playwright",
+        "vitest",
+        "visual-regression",
+        "accessibility"
+      ],
+      "triggers": [
+        "test this component",
+        "frontend tests",
+        "Playwright test",
+        "component test",
+        "end-to-end test",
+        "visual regression",
+        "cross-browser test",
+        "test the loading state"
+      ],
+      "requires": [],
+      "description": "Act as the frontend testing advisor for browser interfaces. Use when choosing a test level, writing component or integration tests, building Playwright-style end-to-end coverage, testing responsive and keyboard behavior, adding visual regression checks, or diagnosing flaky UI tests. Trigger on phrases like \"test this component\", \"frontend tests\", \"Playwright test\", \"component test\", \"end-to-end test\", \"visual regression\", \"cross-browser test\", or \"test the loading state\". Use `tdd` when the user explicitly requests a red-green-refactor development loop."
     },
     {
       "name": "git-guardrails",
@@ -344,6 +407,43 @@
       ],
       "requires": [],
       "description": "Structures project handoff to clients at the end of a Brick City Creative engagement. Use this skill when a project is wrapping up, when asked \"what should I document before handing this off\", when preparing a client for self-sufficiency, or when creating a maintenance guide. Trigger on phrases like \"hand off\", \"handoff\", \"closing out\", \"client documentation\", \"maintenance guide\", \"deployment runbook\", \"things the client should know\", or \"wrapping up the project\".  ## Handoff Checklist  ### 1. Repository & Code  - [ ] README.md exists and covers: purpose, local setup, build commands, deploy commands - [ ] All environment variables documented in `.env.example` (never actual values) - [ ] Hardcoded dev URLs replaced with config - [ ] Unused branches deleted, default branch is `main` - [ ] All open issues triaged: closed, backlogged, or noted as known limitations - [ ] Code comments removed for anything self-evident; complex logic explained  ### 2. Credentials & Access  - [ ] Domain registrar login documented (or transferred to client) - [ ] Hosting account login documented (or transferred) - [ ] CMS admin accounts created for client with appropriate roles - [ ] Analytics property access granted to client email - [ ] Any API keys — are they in the client's account or Pete's? - [ ] Email service, form service, payment processor — same question - [ ] Password manager entry or credentials doc provided securely (never email plaintext)  ### 3. Deployment Runbook"
+    },
+    {
+      "name": "interaction-motion",
+      "dir": "interaction-motion",
+      "category": "Frontend",
+      "updated": "2026-07-16",
+      "tags": [
+        "motion",
+        "animation",
+        "interaction",
+        "transitions",
+        "microinteractions",
+        "reduced-motion",
+        "performance"
+      ],
+      "triggers": [
+        "animate this",
+        "add a transition",
+        "microinteraction",
+        "motion feels off",
+        "page transition",
+        "scroll animation",
+        "spring or easing",
+        "make this interaction feel better"
+      ],
+      "requires": [],
+      "description": "Act as the interaction and motion design advisor for web interfaces. Use when designing, implementing, reviewing, or debugging transitions, microinteractions, gesture feedback, page or route changes, scroll-linked effects, and animation systems. Trigger on phrases like \"animate this\", \"add a transition\", \"microinteraction\", \"motion feels off\", \"page transition\", \"scroll animation\", \"spring or easing\", or \"make this interaction feel better\". Cover reduced motion and animation performance; use `performance` for broader loading and Core Web Vitals work."
+    },
+    {
+      "name": "microsoft-foundry",
+      "dir": "microsoft-foundry",
+      "category": "",
+      "updated": "",
+      "tags": [],
+      "triggers": [],
+      "requires": [],
+      "description": "\"Deploy, evaluate, fine-tune, and manage Foundry agents end-to-end with azd: hosted agent scaffold/run/deploy, prompt agent create, batch eval, continuous eval, prompt optimizer, Agent Optimizer scaffold, agent.yaml, dataset curation from traces, model fine-tuning (SFT/DPO/RFT). USE FOR: azd ai agent, azd provision/deploy, deploy agent, hosted agent, create agent, add tool to agent, invoke agent, evaluate agent, continuous eval, continuous monitoring, agent CI/CD, optimize prompt, improve prompt, optimize agent instructions, agent optimizer, deploy model, Foundry project, RBAC, role assignment, permissions, quota, capacity, region, troubleshoot agent, deployment failure, AI Services, create Foundry resource, provision, knowledge index, customize deployment, onboard, availability, fine-tune, SFT, DPO, RFT, training-data, grader, distillation, fine-tuned model, large file upload. DO NOT USE FOR: Azure Functions, App Service, general Azure deploy (use azure-deploy), general Azure prep (use azure-prepare).\""
     },
     {
       "name": "new-blog-post",
@@ -495,6 +595,16 @@
       "description": "Act as the web performance engineer for the current project. Use when measuring or improving page speed, diagnosing Core Web Vitals failures, reducing bundle size, auditing render-blocking resources, or optimizing images and caching. Trigger on phrases like \"why is this slow\", \"improve performance\", \"Lighthouse score\", \"LCP\", \"CLS\", \"INP\", \"bundle size\", \"Core Web Vitals\", \"render-blocking\", or any task about making pages load or respond faster.  ## First Principles  **Measure before you fix.** Gut-feel performance work produces inconsistent results. Get a"
     },
     {
+      "name": "pete-writing-style",
+      "dir": "writing-style",
+      "category": "",
+      "updated": "",
+      "tags": [],
+      "triggers": [],
+      "requires": [],
+      "description": "Apply Pete's personal writing style and voice to any content written for him. Use this skill whenever writing blog posts, social content, captions, bios, or any copy that will be published under Pete's name or voice. Also triggers when Pete says things like \"write this in my voice\", \"make it sound like me\", or any time content is being drafted for his personal brand or blog. This skill defines how Pete writes — what he does, what he avoids, and the rules that never change.  ## The Core Vibe"
+    },
+    {
       "name": "qa",
       "dir": "qa",
       "category": "Accessibility",
@@ -619,6 +729,65 @@
       "description": "Test-driven development with a strict red-green-refactor loop. Use when building features or fixing bugs using TDD, mentions \"red-green-refactor\", wants test-first development, or asks to write tests before implementation. Applies to any JS/TS codebase. Trigger on phrases like \"use TDD\", \"write the test first\", \"red-green-refactor\", \"test-driven\", \"failing test first\", or \"don't write code until there's a test\".  ## Project Context"
     },
     {
+      "name": "ui-hardening",
+      "dir": "ui-hardening",
+      "category": "Frontend",
+      "updated": "2026-07-16",
+      "tags": [
+        "frontend",
+        "resilience",
+        "edge-cases",
+        "states",
+        "responsive",
+        "i18n",
+        "rtl",
+        "forms",
+        "production"
+      ],
+      "triggers": [
+        "harden this UI",
+        "production ready",
+        "edge cases",
+        "empty state",
+        "loading state",
+        "error state",
+        "long content",
+        "internationalization",
+        "RTL",
+        "what happens when this fails"
+      ],
+      "requires": [],
+      "description": "Make web interfaces production-ready across adverse data, asynchronous states, constrained layouts, input methods, localization, and failure conditions. Use when hardening a page or component, reviewing edge cases, or implementing loading, empty, partial, error, offline, disabled, and recovery states. Trigger on phrases like \"harden this UI\", \"production ready\", \"edge cases\", \"empty state\", \"loading state\", \"error state\", \"long content\", \"RTL\", or \"what happens when this fails\". Use `qa` for a broad release audit and `wcag` for accessibility-specific remediation."
+    },
+    {
+      "name": "uswds",
+      "dir": "uswds",
+      "category": "Accessibility",
+      "updated": "2026-06-18",
+      "tags": [
+        "uswds",
+        "federal",
+        "design-system",
+        "accessibility",
+        "508",
+        "government",
+        "components"
+      ],
+      "triggers": [
+        "21st Century IDEA",
+        "USWDS",
+        "federal design system",
+        "usa- component",
+        "usa-button",
+        "usa-alert",
+        "usa-form",
+        "usa-header",
+        "which USWDS component"
+      ],
+      "requires": [],
+      "description": "Act as the U.S. Web Design System (USWDS) implementation advisor. Use when building or auditing federal web properties using USWDS components, configuring USWDS settings tokens, or ensuring compliance with 21st Century IDEA Act design standards. Trigger on phrases like \"USWDS\", \"usa- component\", \"federal design system\", \"which USWDS component\", \"21st Century IDEA\", \"usa-button\", \"usa-alert\", or any task involving USWDS component selection and implementation.  ## Decision Hierarchy"
+    },
+    {
       "name": "vads",
       "dir": "vads",
       "category": "Accessibility",
@@ -643,6 +812,34 @@
       "description": "Act as the VA Design System (VADS) component advisor. Use when selecting, implementing, or auditing UI components on VA.gov properties. Trigger on phrases like \"which VADS component\", \"is there a VADS pattern for this\", \"can we override this component\", \"VADS doesn't have a\", \"which web component should I use\", \"va- component\", \"design system component\", or any task involving USWDS or VADS component selection and implementation.  ## Decision Hierarchy"
     },
     {
+      "name": "vanilla-js",
+      "dir": "vanilla-js",
+      "category": "Frontend",
+      "updated": "2026-06-18",
+      "tags": [
+        "javascript",
+        "vanilla",
+        "browser-apis",
+        "es-modules",
+        "progressive-enhancement",
+        "dom",
+        "fetch"
+      ],
+      "triggers": [
+        "add this to the page",
+        "can we do this without a framework",
+        "fetch from the API",
+        "handle this event",
+        "native browser",
+        "no React",
+        "plain JavaScript",
+        "vanilla JS",
+        "without installing anything"
+      ],
+      "requires": [],
+      "description": "Act as the vanilla JavaScript advisor. Use when adding browser-side interactivity, DOM manipulation, event handling, or data fetching without a framework. Reach for native browser APIs before reaching for a library. Trigger on phrases like \"vanilla JS\", \"no React\", \"without installing anything\", \"native browser\", \"plain JavaScript\", \"add this to the page\", \"fetch from the API\", or any task where a framework would be overkill.  ## Module Pattern"
+    },
+    {
       "name": "voice",
       "dir": "voice",
       "category": "Content",
@@ -665,6 +862,65 @@
       ],
       "requires": [],
       "description": "Act as the voice and writing editor for any project. Use when writing or editing copy, docs, blog posts, project descriptions, README files, or any text that represents the project publicly. Trigger on phrases like \"edit this\", \"rewrite this\", \"is the voice right\", \"too formal\", \"too generic\", \"does this sound right\", \"review this copy\", or any request to write or improve text.  ## Universal Writing Principles  **Direct.** One idea per sentence. If a sentence needs a semicolon to hold together, it probably"
+    },
+    {
+      "name": "vue",
+      "dir": "vue",
+      "category": "Frontend",
+      "updated": "2026-06-18",
+      "tags": [
+        "vue",
+        "vuejs",
+        "composition-api",
+        "pinia",
+        "nuxt",
+        "script-setup",
+        "typescript"
+      ],
+      "triggers": [
+        "Composition API",
+        "Nuxt",
+        "Options API",
+        "Pinia",
+        "Vue",
+        "Vue Router",
+        "defineComponent",
+        "script setup",
+        "this is a Vue app",
+        "v-model",
+        "vue component"
+      ],
+      "requires": [],
+      "description": "Act as the Vue.js implementation advisor. Use when building or reviewing Vue 3 components, composables, Pinia stores, Vue Router configuration, or Nuxt applications. Trigger on phrases like \"Vue\", \"script setup\", \"Composition API\", \"Pinia\", \"Nuxt\", \"Vue Router\", \"vue component\", \"defineComponent\", \"v-model\", or \"this is a Vue app\".  ## Components — `<script setup>`  ```vue <script setup lang=\"ts\">"
+    },
+    {
+      "name": "wcag",
+      "dir": "wcag",
+      "category": "Accessibility",
+      "updated": "2026-06-18",
+      "tags": [
+        "wcag",
+        "accessibility",
+        "a11y",
+        "aria",
+        "keyboard",
+        "screen-reader",
+        "axe",
+        "focus"
+      ],
+      "triggers": [
+        "add aria",
+        "audit for accessibility",
+        "axe is flagging",
+        "fix keyboard navigation",
+        "focus management",
+        "how do I make this accessible",
+        "is this accessible",
+        "screen reader announces",
+        "this fails accessibility"
+      ],
+      "requires": [],
+      "description": "Act as the hands-on accessibility implementation advisor. Use when writing accessible HTML, fixing ARIA, debugging keyboard navigation, implementing focus management, or auditing a component's WCAG 2.1/2.2 AA compliance at the code level. Distinct from the 508 skill, which covers legal and VPAT obligations — this skill is about building it correctly. Trigger on phrases like \"how do I make this accessible\", \"add aria\", \"axe is flagging\", \"keyboard navigation\", \"focus management\", \"screen reader\", \"this fails accessibility\", or any task about implementing accessible UI patterns.  ## Diagnostic Order"
     },
     {
       "name": "zoom-out",

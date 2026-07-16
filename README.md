@@ -21,7 +21,7 @@ If it would be useful in any project, it belongs here.
 
 ```
 agent-config/
-├── skills/              # 27 SKILL.md instruction sets + 2 deferred (see skills/README.md)
+├── skills/              # 37 top-level SKILL.md instruction sets + 2 deferred (see skills/README.md)
 ├── prompts/             # .prompt.md slash commands for VS Code chat (/doc-sync, /pre-publish, /new-skill, etc.)
 ├── instructions/        # .instructions.md always-on rules (accessibility, security, writing)
 ├── hooks/               # Shell scripts for agent hook systems (Claude Code PreToolUse)
@@ -151,7 +151,7 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `analytics` | "why did traffic drop", "what does Search Console say" |
 | `bigcommerce` | "Stencil template issue", "BC cart API", "storefront API call" |
 | `content-strategy` | "what should I write next", "what's missing from this site" |
-| `design` | "does this layout feel right", "pick a color for this section" |
+| `design` | "design this page", "pick a color for this section", "make this feel polished" |
 | `docs` | "write a README for this", "structure the API docs" |
 | `git-guardrails` | "add git safety hooks", "block dangerous git commands" |
 | `grill-me` | "grill me on this plan", "stress-test this idea" |
@@ -166,6 +166,9 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `seo` | "why isn't this page indexed", "write a meta description" |
 | `social` | "write a tweet for this", "how do I announce this" |
 | `tdd` | "run TDD on this feature", "red-green-refactor this" |
+| `frontend-testing` | "test this component", "write a Playwright test", "visual regression" |
+| `interaction-motion` | "animate this", "motion feels off", "add a page transition" |
+| `ui-hardening` | "harden this UI", "test the edge cases", "what happens when this fails" |
 | `voice` | "edit this copy", "does this README sound right" |
 | `vads` | "which VADS component", "is there a VADS pattern for", "va- web component" |
 | `zoom-out` | "I don't understand this code", "give me the big picture" |

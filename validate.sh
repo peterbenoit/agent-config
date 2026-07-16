@@ -72,10 +72,10 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     fail "$skill_name: frontmatter missing 'category' field"
   else
     case "$fm_cat" in
-      Accessibility|"Code Quality"|Content|Security|Workflow|Meta)
+      Accessibility|"Code Quality"|Content|Frontend|Security|Workflow|Meta)
         ok "$skill_name: category '$fm_cat' is valid" ;;
       *)
-        fail "$skill_name: category '$fm_cat' is not an allowed value (Accessibility, Code Quality, Content, Security, Workflow, Meta)" ;;
+        fail "$skill_name: category '$fm_cat' is not an allowed value (Accessibility, Code Quality, Content, Frontend, Security, Workflow, Meta)" ;;
     esac
   fi
 

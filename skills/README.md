@@ -90,7 +90,7 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `analytics` | GA4 and Search Console analysis, traffic diagnosis, conversion troubleshooting | Universal |
 | `bigcommerce` | Stencil theme dev, Storefront API, Page Builder widgets, BC REST API | Universal |
 | `content-strategy` | Content backlog prioritization, gap analysis, editorial planning | Universal |
-| `design` | Visual design decisions, layout, color, design system consistency | Universal |
+| `design` | Frontend visual direction, layout, typography, color, design-system fit, and polish | Universal |
 | `docs` | README writing, API documentation structure, changelogs | Universal |
 | `git-guardrails` | Hook setup to block destructive git commands before they execute | Universal |
 | `grill-me` | Adversarial plan review — stress-test ideas until every branch is resolved | Universal |
@@ -114,8 +114,10 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `css-architecture` | CSS custom properties, cascade layers, specificity, responsive strategy, design tokens | Universal |
 | `discovery` | Client kickoff and requirements gathering — scope definition, project brief, risk surfacing | Universal |
 | `handoff` | Project handoff to clients — README, runbooks, credentials, maintenance guide, training notes | Universal |
-
 | `angular` | Angular components, services, routing, RxJS, signals — standalone component patterns | Universal |
+| `frontend-testing` | Component, integration, E2E, responsive, accessibility, and visual regression testing | Universal |
+| `interaction-motion` | Purposeful transitions, microinteractions, animation systems, reduced motion, and smoothness | Universal |
+| `ui-hardening` | Loading, empty, error, adverse-data, localization, input, and production edge cases | Universal |
 | `vue` | Vue 3 Composition API, Pinia, Vue Router, Nuxt — `<script setup>` patterns | Universal |
 | `vanilla-js` | Browser-native JS: ES modules, DOM, Fetch, Observers, progressive enhancement | Universal |
 | `uswds` | U.S. Web Design System: token config, components, 21st Century IDEA compliance | Universal |
