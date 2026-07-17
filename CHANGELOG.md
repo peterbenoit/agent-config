@@ -7,6 +7,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+- `microsoft-foundry` and `writing-style` skills missing `category`/`tags`/`updated`/`triggers` frontmatter, not indexed in `skills/README.md` or root `README.md`; `writing-style` frontmatter `name` corrected to match its folder name
+
 ### Added
 - `requires:` frontmatter field on skills with external dependencies (analytics, bigcommerce, drupal, npm-publish, performance) — lists required CLI tools and env vars
 - `requires:` included in `registry.json` output from `build.sh`

@@ -123,6 +123,8 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `vanilla-js` | Browser-native JS: ES modules, DOM, Fetch, Observers, progressive enhancement | Universal |
 | `uswds` | U.S. Web Design System: token config, components, 21st Century IDEA compliance | Universal |
 | `wcag` | Hands-on WCAG coding: ARIA, keyboard nav, focus management, live regions, contrast | Universal |
+| `microsoft-foundry` | Foundry agent lifecycle via azd: scaffold, deploy, evaluate, fine-tune, optimize | Vendored (Microsoft) |
+| `writing-style` | Pete's personal writing voice for blog posts, bios, and social copy | Personal |
 
 **Deferred (placeholder folders with reasoning):**
 

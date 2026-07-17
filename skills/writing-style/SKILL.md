@@ -1,5 +1,9 @@
 ---
-name: pete-writing-style
+name: writing-style
+category: Content
+tags: [writing, voice, editorial, personal-brand, blog]
+updated: 2026-07-17
+triggers: ["write this in my voice", "make it sound like me", "blog post", "bio", "social caption"]
 description: >
   Apply Pete's personal writing style and voice to any content written for him. Use this skill
   whenever writing blog posts, social content, captions, bios, or any copy that will be published

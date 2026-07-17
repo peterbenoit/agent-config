@@ -179,6 +179,13 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `css-architecture` | "how should I structure my CSS", "specificity problem", "design tokens" |
 | `discovery` | "new client", "client kickoff", "help me scope this", "what do I need to ask" |
 | `handoff` | "hand off", "client documentation", "maintenance guide", "wrapping up the project" |
+| `angular` | "Angular component", "standalone component", "RxJS", "NgModule", "signals" |
+| `uswds` | "USWDS", "usa-button", "usa-alert", "federal design system", "21st Century IDEA" |
+| `vanilla-js` | "vanilla JS", "no React", "native browser", "plain JavaScript", "fetch from the API" |
+| `vue` | "Vue", "script setup", "Composition API", "Pinia", "Nuxt", "v-model" |
+| `wcag` | "how do I make this accessible", "add aria", "axe is flagging", "keyboard navigation" |
+| `microsoft-foundry` | "azd ai agent", "deploy Foundry agent", "evaluate agent", "fine-tune model" |
+| `writing-style` | "write this in my voice", "make it sound like me" |
 
 Skills `refactor` and `techwriter` are deferred (README placeholder only, no SKILL.md yet).
 
