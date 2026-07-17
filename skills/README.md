@@ -125,6 +125,7 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `wcag` | Hands-on WCAG coding: ARIA, keyboard nav, focus management, live regions, contrast | Universal |
 | `microsoft-foundry` | Foundry agent lifecycle via azd: scaffold, deploy, evaluate, fine-tune, optimize | Vendored (Microsoft) |
 | `writing-style` | Pete's personal writing voice for blog posts, bios, and social copy | Personal |
+| `diverge-first` | Surface 3-5 real alternatives on open-ended or high-stakes problems before committing to a direction; hands off to `grill-me` to lock in the winner | Personal |
 
 **Deferred (placeholder folders with reasoning):**
 

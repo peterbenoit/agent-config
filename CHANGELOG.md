@@ -7,6 +7,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- `diverge-first` skill (personal) — surfaces 3-5 genuinely different approaches on open-ended or high-stakes problems before committing to a direction, then hands off to `grill-me` to lock in the winner. Triggers only at real decision points, not on every build/implement request.
+
 ### Fixed
 - `microsoft-foundry` and `writing-style` skills missing `category`/`tags`/`updated`/`triggers` frontmatter, not indexed in `skills/README.md` or root `README.md`; `writing-style` frontmatter `name` corrected to match its folder name
 

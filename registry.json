@@ -1,6 +1,6 @@
 {
   "version": "0.2.1",
-  "generated": "2026-07-17T13:30:38Z",
+  "generated": "2026-07-17T13:35:23Z",
   "skills": [
     {
       "name": "508",
@@ -246,6 +246,29 @@
       ],
       "requires": [],
       "description": "Structures client kickoff calls and requirements gathering for Brick City Creative projects. Use this skill when starting a new client engagement, when asked \"what do I need to know before building this\", when scoping a project, when someone says \"let's kick off\", or when you need to document requirements before writing any code. Trigger on phrases like \"new project\", \"new client\", \"client kickoff\", \"what do I need to ask\", \"help me scope this\", \"discovery call\", \"requirements gathering\", or \"project brief\".  ## Discovery Phase — Ordered Question Sets"
+    },
+    {
+      "name": "diverge-first",
+      "dir": "diverge-first",
+      "category": "Workflow",
+      "updated": "2026-07-17",
+      "tags": [
+        "planning",
+        "ideation",
+        "decision-making",
+        "prototyping",
+        "personal"
+      ],
+      "triggers": [
+        "how should I approach this",
+        "help me think through",
+        "what are my options",
+        "I want to build something for",
+        "not sure how to attack this",
+        "new idea"
+      ],
+      "requires": [],
+      "description": "Before committing to a direction on an open-ended or high-stakes problem, surface 3-5 genuinely different approaches and let Pete pick a direction before any design or implementation work starts. Use at the start of a new idea or when a decision is hard to reverse later. Trigger on phrases like \"how should I approach this\", \"help me think through\", \"what are my options\", \"not sure how to attack this\", or \"new idea\". Do not use for routine implementation requests, bug fixes, or work on an already-locked-in design — those go straight to execution."
     },
     {
       "name": "drupal",

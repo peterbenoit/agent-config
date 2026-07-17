@@ -186,6 +186,7 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `wcag` | "how do I make this accessible", "add aria", "axe is flagging", "keyboard navigation" |
 | `microsoft-foundry` | "azd ai agent", "deploy Foundry agent", "evaluate agent", "fine-tune model" |
 | `writing-style` | "write this in my voice", "make it sound like me" |
+| `diverge-first` | "how should I approach this", "help me think through", "new idea" |
 
 Skills `refactor` and `techwriter` are deferred (README placeholder only, no SKILL.md yet).
 
