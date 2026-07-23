@@ -175,6 +175,7 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `zoom-out` | "I don't understand this code", "give me the big picture" |
 | `drupal` | "Twig template", "preprocess hook", "drush", "config sync", "render array" |
 | `debug` | "something's broken", "why is this happening", "help me debug" |
+| `critical-thinking` | "challenge this idea", "is this actually true", "check my reasoning" |
 | `npm-publish` | "publish to npm", "version bump", "semver", "pre-publish checklist" |
 | `css-architecture` | "how should I structure my CSS", "specificity problem", "design tokens" |
 | `discovery` | "new client", "client kickoff", "help me scope this", "what do I need to ask" |
@@ -184,7 +185,6 @@ In any environment you can invoke a skill explicitly by saying what you want:
 | `vanilla-js` | "vanilla JS", "no React", "native browser", "plain JavaScript", "fetch from the API" |
 | `vue` | "Vue", "script setup", "Composition API", "Pinia", "Nuxt", "v-model" |
 | `wcag` | "how do I make this accessible", "add aria", "axe is flagging", "keyboard navigation" |
-| `microsoft-foundry` | "azd ai agent", "deploy Foundry agent", "evaluate agent", "fine-tune model" |
 | `writing-style` | "write this in my voice", "make it sound like me" |
 | `diverge-first` | "how should I approach this", "help me think through", "new idea" |
 

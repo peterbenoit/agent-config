@@ -45,6 +45,7 @@ Plain markdown. Rules, constraints, examples.
 | `writing.instructions.md` | `**/*.md`, prose tasks | Voice principles, no marketing language, no preamble |
 | `accessibility.instructions.md` | `**/*.html` | WCAG 2.1 AA baseline — landmarks, alt text, focus states |
 | `security.instructions.md` | `**` | Never commit secrets, no credentials in source, audit deps |
+| `critical-thinking.instructions.md` | `**` | Evidence over agreement, calibrated uncertainty, current-source verification |
 
 ---
 

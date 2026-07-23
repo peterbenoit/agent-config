@@ -111,6 +111,7 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `zoom-out` | High-level orientation to unfamiliar code — how it fits, what calls what | Universal |
 | `drupal` | Drupal theming, Twig templates, preprocess hooks, config sync, drush, render arrays | Universal |
 | `debug` | Systematic debugging: reproduce, isolate, hypothesize, verify — JS, CSS, network | Universal |
+| `critical-thinking` | Evidence-based claim evaluation, assumption testing, counterevidence, and calibrated conclusions | Universal |
 | `npm-publish` | npm package publish lifecycle: semver, CHANGELOG, dual ESM/CJS, pre-publish checklist | Universal |
 | `css-architecture` | CSS custom properties, cascade layers, specificity, responsive strategy, design tokens | Universal |
 | `discovery` | Client kickoff and requirements gathering — scope definition, project brief, risk surfacing | Universal |
@@ -123,7 +124,6 @@ project's AGENTS.md or local overlay. The skill stays universal. The project fil
 | `vanilla-js` | Browser-native JS: ES modules, DOM, Fetch, Observers, progressive enhancement | Universal |
 | `uswds` | U.S. Web Design System: token config, components, 21st Century IDEA compliance | Universal |
 | `wcag` | Hands-on WCAG coding: ARIA, keyboard nav, focus management, live regions, contrast | Universal |
-| `microsoft-foundry` | Foundry agent lifecycle via azd: scaffold, deploy, evaluate, fine-tune, optimize | Vendored (Microsoft) |
 | `writing-style` | Pete's personal writing voice for blog posts, bios, and social copy | Personal |
 | `diverge-first` | Surface 3-5 real alternatives on open-ended or high-stakes problems before committing to a direction; hands off to `grill-me` to lock in the winner | Personal |
 
